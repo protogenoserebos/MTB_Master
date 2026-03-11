@@ -1,0 +1,164 @@
+
+{% extends 'base.html' %} 
+{% block content %}
+
+<div id="image-overlay" onclick="this.style.display='none'" role="dialog" aria-modal="true">
+    <img id="overlay-img" src="" alt="Enlarged view">
+</div>
+
+<article>
+    <header>
+        <h1 class="trail-title">{{ trail.Trail_Name }}</h1>
+        <p class="trail-address"><strong>{{ trail.Trail_Address }}</strong></p>
+    </header>
+
+    <nav class="nav-row" role="tablist">
+        <button class="nav-tab active" onclick="showSection('section-ride', this)" role="tab">Overview</button>
+        <button class="nav-tab" onclick="showSection('section-trails', this)" role="tab">Trails</button>
+        <button class="nav-tab" onclick="showSection('section-map', this)" role="tab">Directions</button>
+        <button class="nav-tab" onclick="showSection('section-reviews', this)" role="tab">Reviews</button>
+    </nav>
+
+<section id="section-ride" class="content-section active">
+        <table class="trail-info">
+            <tr><td class="trail-info">Difficulty:</td><td style="text-align: left;">{{ trail.Trail_Difficulty_Range }}</td></tr>
+            <tr><td class="trail-info">Distance:</td><td style="text-align: left;">{{ trail.Trail_Distance }}</td></tr>
+            <tr><td class="trail-info">E-Bikes:</td><td style="text-align: left;">{{ trail.e_bikes_allowed|default:"Not Specified" }}</td></tr>
+            <tr><td class="trail-info">Maintained By:</td><td style="text-align: left;">{{ trail.Maintained_By|default:"Local Community" }}</td></tr>
+        </table> 
+        
+        <img class="img-clickable" src="{{ trail.Title_Trail_Image.url }}" onclick="openImage(this.src)">
+
+        <hr class="section-divider">
+
+        <h3>About</h3>
+        
+        <p class="trail-info-intro" style="max-width: 800px; margin: 0 auto;">{{ trail.Trail_Landing_Desc }}</p> 
+
+        <hr class="section-divider">
+
+                    <h3>Trail Features</h3>
+        <div>
+
+            <ul style="text-align:left;">
+                {% for line in trail.Main_Features_Trails.splitlines %}
+                    {% if line.strip %}<li>{{ line }}</li>{% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
+        
+
+        {% if trail.Overview_Trail_Video %}
+        <hr class="section-divider">
+            <h3>Ride Overview</h3>
+            <div class="video-container" style="margin: 30px auto; max-width: 800px;">
+                <iframe width="100%" height="450px" src="https://www.youtube.com/embed/{{ trail.Trail_Video }}" frameborder="0" allowfullscreen></iframe>
+            </div>
+        {% endif %}
+    </section>
+
+    <section id="section-trails" class="content-section">
+
+        <img src="{{ trail.Trail_Map_Image.url }}" class="img-clickable" onclick="openImage(this.src)" alt="Trail Map">
+        
+        
+<hr class="section-divider">
+        {% for block in trail.get_content_blocks %}
+            <div class="trail-section" style="max-width: 800px; margin: 0 auto;">
+                <div style="margin-left: 36px;">
+                {% if block.title %}<h3>{{ block.title }}</h3>{% endif %}
+                {% if block.distance %}<p><strong>Mileage: </strong>{{ block.distance }} •{% endif %}
+                {% if block.difficulty %}<strong>Distance: </strong>{{ block.difficulty }}{% endif %}</p>
+                <div class="trail-text">{{ block.desc|linebreaks }}</div></div>
+                {% if block.image %}<img src="{{ block.image.url }}" class="img-clickable" onclick="openImage(this.src)">{% endif %}
+                
+            </div>
+            <hr class="section-divider">
+        {% endfor %}
+    </section>
+ <section id="section-map" class="content-section">
+        {% if weather %}
+        <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; display: flex; align-items: center; gap: 20px; margin-bottom: 25px; border: 1px solid #bbdefb;">
+            <img src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="weather">
+            <div>
+                <h3 style="margin: 0; color: #1565c0;">Current Conditions</h3>
+                <p style="margin: 5px 0 0;"><strong>{{ weather.temp }}°F</strong> — {{ weather.description|title }}</p>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if trail.Latitude and trail.Longitude %}
+            <gmp-map center="{{ trail.Latitude }},{{ trail.Longitude }}" zoom="14" map-id="DEMO_MAP_ID">
+                <gmp-advanced-marker position="{{ trail.Latitude }},{{ trail.Longitude }}"></gmp-advanced-marker>
+            </gmp-map>
+            <div style="margin-top: 25px; text-align: right;">
+                <a href="https://www.google.com/maps/dir/?api=1&destination={{ trail.Latitude }},{{ trail.Longitude }}" target="_blank" style="background: #26a7dc; color: white; padding: 12px 24px; border-radius: 5px; text-decoration: none; font-weight: bold;">Get Directions</a>
+            </div>
+        {% endif %}
+    </section>
+
+    <section id="section-reviews" class="content-section">
+        
+        <div>
+            <form style="display: flex; flex-direction: column;" method="post" style="text-align: left;" action=".">
+                {% csrf_token %}
+                <label><h3>Rate the Trail</h3></label>
+                <select class="form-input" name="rating" style="width:316px; padding: 10px; margin: 0 0 10px 6vw;">
+                    <option value="5">5 Stars</option><option value="4">4 Stars</option><option value="3">3 Stars</option><option value="2">2 Stars</option><option value="1">1 Star</option>
+                </select>
+                <input class="form-input" type="text" name="name" placeholder="Your Name" required style="width: 292px; padding: 10px; margin-bottom: 10px;margin-left:6vw;">
+                <textarea class="form-input" name="body" placeholder="Your Review..." required style="width: 292px; height: 50px; padding: 10px;margin-bottom: 10px;margin-left:6vw;"></textarea>
+                <button type="submit" style="background: var(--primary-color, #2c3e50); color: white; border: none; padding: 12px 6px; border-radius: 5px; cursor: pointer; font-weight: bold; width:120px;margin-left:6vw; ">Submit Review</button>
+            </form>
+        </div>
+        <hr class="section-divider">
+        <h3>Ratings</h3><div style="display:flex">
+        <div class="rating-breakdown" style="margin-bottom: 30px; width: 80%;margin-left:3vw;">
+            {% for item in rating_breakdown %}
+            <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                <div style="width: 60px;">{{ item.stars }}★</div>
+                <div style="flex-grow: 1; background: #eee; height: 12px; border-radius: 6px; margin: 0 6vw; overflow: hidden;">
+                    <div style="width: {{ item.percentage|default:0 }}%; background: #ffb400; height: 100%;"></div>
+                </div>
+                <div style="width: 30px;">{{ item.count }}</div>
+            </div>
+            {% endfor %}
+        </div></div>
+        <hr class="section-divider">
+<h3>Reviews</h3>
+        {% if not trail.comments.all %}<p>No reviews yet.</p>{% endif %}
+        {% for comment in trail.comments.all %}{% if not comment.parent %}
+            <div class="comment-container" style="text-align: left; padding: 15px 14px; margin-left: 6vw;">
+                <strong>{{ comment.name }}</strong> - {{ comment.date_added }}
+                <div style="color: #ffb400;">{% for i in "12345" %}{% if forloop.counter <= comment.rating %}★{% else %}☆{% endif %}{% endfor %}</div>
+                <p>{{ comment.body }}</p>
+            </div>
+        {% endif %}{% endfor %}
+    </section>
+</article>
+
+
+
+<script>
+    // Tab Logic
+    function showSection(sectionId, el) {
+        document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+        document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+        document.getElementById(sectionId).classList.add('active');
+        el.classList.add('active');
+        window.dispatchEvent(new Event('resize'));
+    }
+
+    // Lightbox Logic
+    function openImage(src) {
+        const overlay = document.getElementById('image-overlay');
+        const overlayImg = document.getElementById('overlay-img');
+        overlayImg.src = src;
+        overlay.style.display = 'flex';
+    }
+</script>
+
+<script async src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&libraries=maps,marker&v=beta"></script>
+
+{% endblock %}

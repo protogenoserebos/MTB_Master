@@ -1,0 +1,406 @@
+/* ---- SENSIBLE SUPPERS STYLESHEET ---- updated: 1/28/2026 ---- */
+      
+      
+    /* -- Global Styles --  */
+
+    :root {
+  --background-color:#f9f9f9;
+  --font-color: #333;
+  --primary-color: #26a7dc;
+  --second-color: #004a8b;
+  --accent-color1: #606C38; 
+  --accent-color2: #283618;
+  --accent-color3: #DDA15E;
+}
+      
+      /* Import Inter font */
+
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); 
+          html {
+          /* High-performance gradient background */
+          background: linear-gradient(
+        to right, 
+        #26a7dc30 0%, 
+        #f9f9f9 20%, 
+        #f9f9f9 80%, 
+        #26a7dc30 100%);
+    
+          /* Ensures the background stretches the full height of the browser */
+          min-height: 100%;}
+
+      body { 
+              background: transparent;
+              margin: 0;
+              padding: 0;
+              font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+              color: #333;
+              line-height: 1.2;
+              font-size: 13pt;
+          }
+
+        .container {max-width: 680px; margin: 0 auto; padding: 0px 20px;  }
+
+        h1, h2, h3 {font-weight: 700;letter-spacing: -0.02em;color: var(--primary-color); text-align: left;}
+        a {color:var(--second-color);text-decoration:none}
+        p {color: #333;text-align: left;}
+        ul {font-size: 13pt;}
+        li {margin-bottom: 10px;}
+
+        h1.trail-title{margin-top:0; margin-bottom:5px; text-align:center;}
+
+      /* -- Base.html Navigation Styles -- */
+
+        .navbar1{
+            display:grid;place-items:center;
+            padding:10px 16px;}
+        .hero-link{display:inline-block}
+        .hero-image{max-width:min(77vw, 200px);}
+        .tagline{color:var(--primary-color); font-size: 10pt; margin-top: -3px; }
+
+
+            .nav-row { 
+        display: flex; 
+        justify-content: center; 
+        gap: 10px; 
+        
+        border-bottom: 1px solid #eee; 
+        padding-bottom: 15px;
+        flex-wrap: wrap; 
+    }
+    
+        .nav-link {margin-top: 5px;font-weight: bold; color:var(--second-color); font-size:12pt;}
+        .nav-link:hover{color:var(--primary-color)}
+        .menubtn{cursor:pointer}
+
+        table.trail-info {font-size:10pt; border: 2px solid #26a7dc; border-radius: 10px; padding: 5px; margin-bottom:15px; margin-top:15px;}
+        td.trail-info {font-weight:bold; text-align:left;}
+        td.trail-desc {padding-left: 20px;}
+        p.trail-address{text-align:center;}
+
+      
+
+        /* Container that maintains the 16:9 shape */
+.video-container {
+    width: 100%;
+    max-width: 800px; /* Limits the size on large desktop screens */
+    margin: 20px auto;
+    aspect-ratio: 16 / 9; /* The magic line for landscape video */
+    background-color: #000; /* Black background while loading */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Makes the iframe fill the container exactly */
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+      /* Footer */
+
+        .site-footer-top{margin-top:40px;color:#1f2937; background: linear-gradient(to right,#26a7dc30 0%,#26a7dc30 100%);box-shadow: 0px 10px 14px 3px rgb(0 0 0 / 2%);}      
+        .site-footer-bottom{display:flex; flex-direction:column;align-items:center;background:transparent; line-height: 0; padding-top: 10px; font-size:10pt;} 
+        .footer-inner{display:flex;flex-direction:column;align-items: center; }
+        .footer-note{color:#333;}
+        .footer-links a{color:var(--second-color);text-decoration:underline}
+        .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+      /* --- Article Styles ---*/
+
+        article{max-width: 800px; margin: 0 auto; padding: 0 30px; font-family: sans-serif;}
+
+      /* --- Button Styles ---*/
+
+        .btn-primary {
+          background-color: transparent;
+          color: var(--second-color);
+          border: none;
+          border-radius: 4px;
+          font-weight:bold;
+          transition: background 0.3s ease;}
+        
+        .btn-primary:hover {color: var(--primary-color);}
+
+      
+ /* -- Google Maps API Styling -- */     
+      
+        .trail-map-container {
+    width: 100%;
+    height: 400px;
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  gmp-map {
+    height: 100%;
+  }
+
+  .custom-marker-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  }
+
+  .marker-pin {
+    width: 20px;
+    height: 20px;
+    background-color: #e74c3c; /* Red color like Google pins */
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    border: 2px solid white;
+  }
+
+  .marker-text {
+    background-color: white;
+    color: #333;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+    white-space: nowrap;
+    border: 1px solid #ccc;
+  }
+
+
+  .section-divider{margin-top: 30px;}
+
+  /* -- End Google Maps API Styling -- */ 
+
+      /* -- Trail Card Container -- */
+
+        .trail-card-container{padding:10px; line-height:15p}
+        .trail-card-title{margin:0 ,0;}
+
+      /*---Meal Type Tags---*/
+
+        .meal-type-tag{color: var(--second-color); font-weight: bold; font-size: 0.8em; text-transform: uppercase;}
+
+      /*-- Comments Section --*/
+
+        .comments-section{border-radius:5px; box-shadow: 0px 10px 14px 3px rgb(0 0 0 / 2%); }
+
+        .circle-border-parent {
+        display: inline-flex;
+        width: 40px;
+        height: 40px;
+        border: 2px solid var(--second-color);
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        color: var(--second-color);
+        font-weight: bold;
+        margin: 0 10px;
+        font-size: 21pt;
+        }
+
+        .circle-border-child {
+        display: inline-flex;
+        width: 40px;
+        height: 40px;
+        border: 2px solid var(--primary-color);
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        color: var(--primary-color);
+        font-weight: bold;
+        margin: 0 10px;
+        font-size:21pt;
+        }
+
+        .comment-body {display:flex; flex-direction: row;}
+        .all-comments-container{display:flex; flex-direction: column; margin-top:20px;  padding-left: 5px; margin-bottom: 20px;}
+        .comment-container{flex-direction:row; border: 2px solid #26a7dc26;
+    margin-bottom: 20px;
+    border-radius: 10px; }
+        .child-comment-container{display:flex; flex-direction: row; margin-left:30px; margin-top:15px; border-left: 2px solid var(--primary-color); padding-left: 5px;}
+        .comment-initial-container {display:flex; align-items: center;}
+        .comment-body-container {margin-left: 10px;}
+        .main-comment-form {display: none; margin-top: 20px; background: #f9f9f9; padding: 20px; border-radius: 8px;}
+        .comment-reply-form {margin-bottom:5px;}
+
+
+        .rating-fill {
+        background-color: #ffb400;
+        height: 100%;
+        border-radius: 6px;
+        /* This uses the variable we set in the HTML */
+        width: var(--bar-width);
+        transition: width 0.5s ease-in-out;}
+
+        .meal-type-tag {
+    transition: opacity 0.2s ease-in-out, transform 0.1s ease-in-out;
+    display: inline-block; /* Required for transform to work well */
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+
+/* Optional: Subtle hover effect */
+.meal-tag-link:hover .meal-type-tag {
+    filter: brightness(1.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+.meal-type-tag:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+
+
+/* Define a specific height for the trail map so it doesn't vanish */
+  .trail-map-container {
+    width: 100%;
+    height: 400px;
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  gmp-map {
+    height: 100%;
+  }
+
+    /* Accordion Styling */
+    .api-dropdown {
+        background: #f8f9fa;
+        border: 2px solid #e9ecef;
+        border-radius: 12px;
+        margin: 20px 0;
+        overflow: hidden;
+    }
+    .api-dropdown summary {
+        padding: 15px 20px;
+        font-weight: bold;
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fff;
+        color: var(--primary-color); 
+    }
+    .api-dropdown summary::-webkit-details-marker { display: none; }
+    .api-dropdown summary::after { content: '▼'; font-size: 0.8em; transition: 0.3s; }
+    .api-dropdown[open] summary::after { transform: rotate(180deg); }
+
+    .dropdown-content { padding: 20px; border-top: 1px solid #eee; }
+
+    .trail-map-container {
+        width: 100%;
+        height: 400px;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-top: 15px;
+    }
+
+img.intro-img {border-radius:10;width:70vw;}
+
+p.trail-info-intro {font-size: 13pt; text-align: left;}
+
+textarea.form-input, select.form-input, input.form-input {font-family:'inter'; font-size:10pt; color: black}
+
+
+    /* Centering Table & Sections */
+    .trail-info { 
+        margin-left: auto; 
+        margin-right: auto; 
+        border-collapse: separate;
+        border-spacing: 15px 5px;
+    }
+    
+    .rating-breakdown { margin: 0 auto 30px auto; } /* Centered rating bar */
+
+    /* Image Overlay (Lightbox) Styles */
+    .img-clickable {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        max-width: 350px; /* Thumbnail size */
+        display: block;
+        margin: 20px auto;
+        border-radius: 8px;
+    }
+
+    .img-clickable:hover { transform: scale(1.02); opacity: 0.9; }
+
+    /* The Overlay Background */
+    #image-overlay {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.9);
+        justify-content: center;
+        align-items: center;
+        cursor: zoom-out;
+    }
+
+    #overlay-img {
+        max-width: 90%;
+        max-height: 90%;
+        border: 3px solid white;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    /* Existing Styles */
+    .trail-info-box { border: 2pt solid #26a7dc; border-radius: 10px; padding: 10px; margin-bottom: 15px; background-color: #ffffff; }
+    .content-section { display: none; animation: fadeIn 0.3s; text-align: center; } /* Added centering to text/sections */
+    .content-section.active { display: block; }
+    .nav-tab { padding: 6px 6px; font-size: 15px; cursor: pointer; font-weight: bold; color: #555; border-radius: 8px; background: #f8f9fa; transition: 0.3s; border: 1px solid #ddd; }
+    .nav-tab.active { background: #26a7dc; color: white; border-color: #26a7dc; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    gmp-map { height: 450px; width: 100%; border-radius: 8px; }
+
+
+    /* Desktop Styles */
+
+    @media screen and (min-width: 800px) {
+   body { 
+              background: transparent;
+              margin: auto;
+              padding: 0;
+              font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+              color: #333;
+              line-height: 1.2;
+              font-size: 18px;
+          }
+
+    .img-clickable {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    max-width: 550px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+
+table.trail-info {
+    font-size: 10pt;
+    border: 2px solid #26a7dc;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    width: 550px;
+}
+}

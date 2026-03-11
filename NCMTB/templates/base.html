@@ -1,0 +1,32 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Charlotte NC MTB</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header class="navbar1">
+        <a class="hero-link" href="{% url 'home' %}" aria-label="Go to homepage">
+            <img src="{% static 'NCMTB/images/CLTMTB.png' %}" alt="Charlotte NC MTB Logo" class="hero-image" />
+        </a>
+    </header>
+<div style="height: auto; background: yellow;text-align:center;font-weight:bold;padding:10px;margin-bottom:10px;"><p>This site is currently under development and may contain inaccurate, impartial, or inaccessible elements.</p></div>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+</div>    
+    <!-- Footer -->
+    <footer class="site-footer-top">
+      <div class="footer-inner">
+        <p style="margin:0 0; font-size:10pt;">©2026 CharlotteNCMTB</p><p style="margin:0 0; font-size:10pt;" class="footer-links">Developed & Hosted by: <a href="https://www.developing-writer.com">The Developing Writer</a></p><p style="margin:0 0; font-size:10pt;"><a href="mailto: developingwriter@gmail.com">Contact Us</a></p><p style="margin:0 0; font-size:10pt;"><a href="https://www.djangoproject.com/">Powered by Django</a></p></div> 
+      </p></footer>
+          <div class="site-footer-bottom">
+        
+      </div>
+    </footer>
+  </body>
+</html>
