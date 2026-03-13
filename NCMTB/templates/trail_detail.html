@@ -9,7 +9,20 @@
 <article>
     <header>
         <h1 class="trail-title">{{ trail.Trail_Name }}</h1>
-        <p class="trail-address"><strong>{{ trail.Trail_Address }}</strong></p>
+        
+
+<div class="trail-rating-summary" style="margin-top: -5px; margin-bottom: 15px; text-align:center;">
+    
+    <p class="trail-address"><strong>{{ trail.Trail_Address }}</strong></p>
+        <p style="text-align:center; margin: 5px auto;"><a style="color:#26a7dc; text-decoration:underline;" href="{{ trail.Trail_Website}}" alt-text="Link to Trail Website">{{ trail.Trail_Name }} Website</a></p>
+        <span style="color: #ffb400; font-size: 1.2em;">
+        {% for i in "12345" %}
+            {% if forloop.counter <= trail.average_rating %}★{% else %}☆{% endif %}
+        {% endfor %}
+    </span>
+    <span style="font-weight: bold; margin-left: 5px; ">{{ trail.average_rating }}</span>
+    <span style="color: #666; margin-left: 10px;">({{ trail.review_count }} reviews)</span>
+</div>
     </header>
 
     <nav class="nav-row" role="tablist">
@@ -49,13 +62,22 @@
 
         
 
-        {% if trail.Overview_Trail_Video %}
-        <hr class="section-divider">
-            <h3>Ride Overview</h3>
-            <div class="video-container" style="margin: 30px auto; max-width: 800px;">
-                <iframe width="100%" height="450px" src="https://www.youtube.com/embed/{{ trail.Trail_Video }}" frameborder="0" allowfullscreen></iframe>
-            </div>
-        {% endif %}
+    {% if trail.Overview_Trail_Video %}
+    <hr class="section-divider">
+    <h3>Ride Overview</h3>
+    <div class="video-container" style="margin: 30px auto; max-width: 800px;">
+        <iframe 
+            width="100%" 
+            height="450px" 
+            src="https://www.youtube.com/embed/{{ trail.Overview_Trail_Video }}" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+        </iframe>
+    </div>
+    {% endif %}
     </section>
 
     <section id="section-trails" class="content-section">
@@ -104,21 +126,21 @@
             <form style="display: flex; flex-direction: column;" method="post" style="text-align: left;" action=".">
                 {% csrf_token %}
                 <label><h3>Rate the Trail</h3></label>
-                <select class="form-input" name="rating" style="width:316px; padding: 10px; margin: 0 0 10px 6vw;">
+                <select class="form-input" name="rating" style="width:94%; padding: 10px; margin: 0 0 10px 15px;">
                     <option value="5">5 Stars</option><option value="4">4 Stars</option><option value="3">3 Stars</option><option value="2">2 Stars</option><option value="1">1 Star</option>
                 </select>
-                <input class="form-input" type="text" name="name" placeholder="Your Name" required style="width: 292px; padding: 10px; margin-bottom: 10px;margin-left:6vw;">
-                <textarea class="form-input" name="body" placeholder="Your Review..." required style="width: 292px; height: 50px; padding: 10px;margin-bottom: 10px;margin-left:6vw;"></textarea>
-                <button type="submit" style="background: var(--primary-color, #2c3e50); color: white; border: none; padding: 12px 6px; border-radius: 5px; cursor: pointer; font-weight: bold; width:120px;margin-left:6vw; ">Submit Review</button>
+                <input class="form-input" type="text" name="name" placeholder="Your Name" required style="width: 90%; padding: 10px; margin-bottom: 10px;margin-left:15px;">
+                <textarea class="form-input" name="body" placeholder="Your Review..." required style="width: 90.5%; height: 50px; padding: 10px;margin-bottom: 15px;margin-left:15px;"></textarea>
+                <button type="submit" style="background: var(--primary-color, #2c3e50); color: white; border: none; padding: 12px 6px; border-radius: 5px; cursor: pointer; font-weight: bold; width:120px;margin-left:15px; ">Submit Review</button>
             </form>
         </div>
         <hr class="section-divider">
-        <h3>Ratings</h3><div style="display:flex">
-        <div class="rating-breakdown" style="margin-bottom: 30px; width: 80%;margin-left:3vw;">
+        <h3>Ratings</h3><div>
+        <div class="rating-breakdown" style="margin-bottom: 30px; width: 90%;">
             {% for item in rating_breakdown %}
             <div style="display: flex; align-items: center; margin-bottom: 5px;">
-                <div style="width: 60px;">{{ item.stars }}★</div>
-                <div style="flex-grow: 1; background: #eee; height: 12px; border-radius: 6px; margin: 0 6vw; overflow: hidden;">
+                <div style="padding: 0 5px;">{{ item.stars }}★</div>
+                <div style="flex-grow: 1; background: #eee; height: 12px; border-radius: 6px; margin: 0 0; overflow: hidden;">
                     <div style="width: {{ item.percentage|default:0 }}%; background: #ffb400; height: 100%;"></div>
                 </div>
                 <div style="width: 30px;">{{ item.count }}</div>
@@ -129,7 +151,7 @@
 <h3>Reviews</h3>
         {% if not trail.comments.all %}<p>No reviews yet.</p>{% endif %}
         {% for comment in trail.comments.all %}{% if not comment.parent %}
-            <div class="comment-container" style="text-align: left; padding: 15px 14px; margin-left: 6vw;">
+            <div class="comment-container" style="text-align: left; padding: 15px 14px; width:90%;">
                 <strong>{{ comment.name }}</strong> - {{ comment.date_added }}
                 <div style="color: #ffb400;">{% for i in "12345" %}{% if forloop.counter <= comment.rating %}★{% else %}☆{% endif %}{% endfor %}</div>
                 <p>{{ comment.body }}</p>

@@ -77,10 +77,115 @@
         table.trail-info {font-size:10pt; border: 2px solid #26a7dc; border-radius: 10px; padding: 5px; margin-bottom:15px; margin-top:15px;}
         td.trail-info {font-weight:bold; text-align:left;}
         td.trail-desc {padding-left: 20px;}
-        p.trail-address{text-align:center;}
+        p.trail-address{text-align:center;margin: 5px auto;}
 
-      
+/* -- Trail Card Row Layout -- */
 
+.card-container-whole {
+    display: flex;
+    flex-direction: row; /* Stays a row on all screen sizes */
+    align-items: center; /* Vertically centers image and text */
+    margin: 0 auto 15px auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    min-height:240px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.card-container-image-wrap {
+    flex: 5; /* Maintains 40% of the width */
+    padding: 10px; /* This makes the image feel "smaller" and contained */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container-image {
+    width: 70%;
+   
+    height: auto;
+    aspect-ratio: 1 / 1; /* Keeps it a neat square thumbnail */
+    object-fit: cover;
+    border-radius: 8px; /* Optional: slight curve on the thumbnail */
+}
+
+.card-container-details {
+    flex: 5; /* 60% width */
+    padding: 10px 15px 10px 0; /* Less padding on left since image wrap has padding */
+    margin-left:15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-link-wrapper {
+    text-decoration: none !important;
+    display: block; /* Makes the entire <a> fill the space */
+    color: inherit; /* Keeps your text colors as defined */
+    transition: transform 0.2s ease;
+}
+
+.card-link-wrapper:hover {
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+.card-link-wrapper:hover .card-container-whole {
+    border-color: var(--primary-color); /* Highlight border on hover */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* -- Text Cleaning -- */
+.card-title-text {
+    text-align: left; 
+    margin: 0; 
+    color: var(--primary-color);
+    font-size: 15pt;
+}
+
+.card-stars-row {
+    text-align: left; 
+    margin: 2px 0 5px 0;
+    font-size: 0.9em;
+}
+
+.review-count-text {
+    color: #666; 
+    font-size: 0.8em; 
+    margin-left: 3px;
+}
+
+.card-description-list {
+    list-style: none; 
+    padding: 0; 
+    margin: 0;
+}
+
+.card-description-list li {
+    margin: 0 0 3px 0; 
+    font-size: 9pt; 
+    font-weight: bold; 
+    line-height: 1.2; 
+    color: #444;
+}
+
+ .card-container-details li {
+        font-size: 11pt;
+        
+    }
+
+/* Specific adjustment for mobile text sizing */
+@media screen and (max-width: 480px) {
+    .card-container-details h3 {
+        font-size: 15pt !important;
+        margin-bottom: 2px !important;
+    }
+    .card-container-details li {
+        font-size: 10pt !important;
+        
+    }
+}
         /* Container that maintains the 16:9 shape */
 .video-container {
     width: 100%;
@@ -105,7 +210,7 @@
 
         .site-footer-top{margin-top:40px;color:#1f2937; background: linear-gradient(to right,#26a7dc30 0%,#26a7dc30 100%);box-shadow: 0px 10px 14px 3px rgb(0 0 0 / 2%);}      
         .site-footer-bottom{display:flex; flex-direction:column;align-items:center;background:transparent; line-height: 0; padding-top: 10px; font-size:10pt;} 
-        .footer-inner{display:flex;flex-direction:column;align-items: center; }
+        .footer-inner{display:flex;flex-direction:column;align-items: center; padding: 25px;}
         .footer-note{color:#333;}
         .footer-links a{color:var(--second-color);text-decoration:underline}
         .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -169,6 +274,9 @@
     border: 1px solid #ccc;
   }
 
+  div.trail-card {
+    font-size: 10pt;
+  }
 
   .section-divider{margin-top: 30px;}
 
@@ -402,5 +510,4 @@ table.trail-info {
     margin-bottom: 15px;
     margin-top: 15px;
     width: 550px;
-}
-}
+}}

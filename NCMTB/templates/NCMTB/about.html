@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
-<h3>To Add:</h3>
-<ul><li>Sort By: Default to Popular</li><li>Author Favorites</li></ul>
+{% block content %}
+<h3>About This Site</h3>
+<p>This site was created as much as a personal collection of media and trail details for our memories and enjoyment as it aims to serve riders new to Charlotte mountain biking. We hope this site can be a quick start finding the best MTB spots Charlotte has to offer. </p>
+<h3>About Us</h3>
+<p>We are a couple of brothers that have lived in Charlotte, North Carolina for 20+ years.</p>
+<p>We are both avid outdoorsmen with a primary focus on Mountain Biking and Rock Climbing in and around North Carolina.</p>
+<p>Currently, we've been both focused on bike parks and feature-focused trails that include jumps, drops, berms, etc., and you will see that reflected in our selection of trails. However, we both still very much enjoy trail riding and some good flow so you will see that as well.</p>
+<p style="margin-left: 0;"><img  onclick="openImage(this.src)" style="border:1px solid white; border-radius:10px; width:350px" src="{% static 'NCMTB/images/Brothers.png' %}" alt="Image of the authors." /></p>
+{% endblock %}
