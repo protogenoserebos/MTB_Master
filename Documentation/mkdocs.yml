@@ -1,4 +1,4 @@
-site_name: Developing Writer Umbrella Docs
+site_name: developing-writer
 nav:
 - Outline: index.md
 - Getting Started:
@@ -14,7 +14,7 @@ nav:
 - Site Architecture:
     - Architecture Overview: 3.1_SiteArchitecture_Models.md
 
-theme: material
+theme: windmill
 
 extra_css:
   - stylesheets/extra.css

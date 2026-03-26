@@ -93,7 +93,7 @@
                 {% if block.distance %}<p><strong>Mileage: </strong>{{ block.distance }} •{% endif %}
                 {% if block.difficulty %}<strong>Distance: </strong>{{ block.difficulty }}{% endif %}</p>
                 <div class="trail-text">{{ block.desc|linebreaks }}</div></div>
-                {% if block.image %}<img src="{{ block.image.url }}" class="img-clickable" onclick="openImage(this.src)">{% endif %}
+                {% if block.image %}<img src="{{ block.image.url }}" class="img-clickable" style="margin-left:0;" onclick="openImage(this.src)">{% endif %}
                 {% if block.short %}
 
 

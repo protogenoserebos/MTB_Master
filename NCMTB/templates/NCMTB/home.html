@@ -20,6 +20,7 @@
     {% for trail in trails %}
     <a href="{{ trail.get_absolute_url }}" class="card-link-wrapper">
         <div class="card-container-whole">
+            <div class="number-ranking"><p class="number-ranking">{{ trail.Order_Priority }}</p></div>
             <div class="card-container-image-wrap">
                 <img class="card-container-image" src="{{ trail.Trail_Card_Logo.url }}" alt="{{ trail.Trail_Name }}">
             </div>
@@ -36,13 +37,13 @@
                     <span class="review-count-text">({{ trail.review_count }})</span>
                 </div>
                 
-                <ul class="card-description-list">
+               
                     {% for line in trail.trail_short_card_description.splitlines %}
                         {% if line.strip %}
-                            <li>• {{ line }}</li>
+                            <p style="font-size:12pt; font-weight:bold;">{{ line }}</p>
                         {% endif %}
                     {% endfor %}
-                </ul>
+             
             </div>
         </div>
     </a>

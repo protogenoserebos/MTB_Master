@@ -1,0 +1,18 @@
+.wm-article-nav-buttons{display:none;}
+
+
+.navbar {
+    background-color: #f2f2f2;
+    
+}
+
+.wm-side-nav {
+    background-color: #f8f9fa; /* Change sidebar background */
+}
+
+.wm-top-title {font-family:monospace; font-weight: bold;
+color: black; /* Change top bar color */}
+
+.wm-top-tool {display:none;}
+
+.wm-toc-pane {display: none;}

@@ -1,70 +1,16 @@
-## Umbrella Article Structure
+## Welcome
 
-### Problem
+This site serves many purposes both personal and professional. 
 
-Three different websites hosted under the same umbrella project. I am an Admin who wants to create an article for a specific site using the Django Admin Portal. I want to be able to select 'Create New Article' and create an article specific to the site. 
+My expertise is primarily focused in Software Technical Writing. However, I also enjoy Web Development and have been fortunate in my professional experience as a Technical Writer to have many opportunities to build websites or work with code.
 
-### Acceptance Criteria
+This site serves as a:
 
-1. Unique Models for each specific Website article type so that I can create ModelForms that will automate the forms per the model fields. 
+- Portfolio tool to showcase my Technical Writing
+- Sandbox to practice Web Development using Python, Django, HTML, CSS, and JavaScript
+- Collection of my living documentation for managing projects via GitHub, building Django frameworks, deploying to Digital Ocean droplets, developing local Gen AI workflows, performing security best practices, etc. 
+- Build localized Gen AI pipelines
+- Practice Python development 
+- Write content in MarkDown (lightweight markup language) largely used in Gen AI
+- Building static documentation sites using MkDocs (highly recommend)
 
-### Sensible Suppers Site Form Fields
-
-
-**Description** 
-
-- Approach
-
-        Trail System
-        Title of Trail
-        Riding Style
-        Difficulty
-        Trail Rating (1/5)
-        Mileage
-        Loop v. Out and Back v. Connector
-        Author
-        Date
-        City, State
-        Map X, Y Coordinates
-
-- Key Features
-
-        Highlighted Bulleted Section
-        Short Description and Impressions
-
-- Media
-
-        Images (Slideshow)
-        Video Link (Short)
-        Video Link (Long)
-
-
-### MTB Site Form Fields
-
-
-**Description** 
-
-- Approach
-
-        Trail System
-        Title of Trail
-        Riding Style
-        Difficulty
-        Trail Rating (1/5)
-        Mileage
-        Loop v. Out and Back v. Connector
-        Author
-        Date
-        City, State
-        Map X, Y Coordinates
-
-- Key Features
-
-        Highlighted Bulleted Section
-        Short Description and Impressions
-
-- Media
-
-        Images (Slideshow)
-        Video Link (Short)
-        Video Link (Long)

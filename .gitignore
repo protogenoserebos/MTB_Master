@@ -10,3 +10,7 @@ venv/
 
 # env files
 .env
+
+# database
+
+db.sqlite3
