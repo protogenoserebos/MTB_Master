@@ -95,7 +95,7 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-div.number-ranking {margin-top:0;display:flex;flex:1;flex-direction:column;margin-left:10px;}
+div.number-ranking {margin-top:0;display:flex;flex-direction:column;padding-left:10px;}
 p.number-ranking {font-weight: bold;
     border: 2px solid #26a7dc;
     color: #26a7dc;
@@ -123,10 +123,11 @@ p.number-ranking {font-weight: bold;
 }
 
 .card-container-details {
-    flex: 4; /* 60% width */
-    padding: 10px 15px 10px 0; /* Less padding on left since image wrap has padding */
+    flex: 5; /* 60% width */
+    padding: 10px 50px 10px 0; /* Less padding on left since image wrap has padding */
     margin-left:15px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
 }
 
