@@ -106,7 +106,7 @@ p.number-ranking {font-weight: bold;
     align-content: center;}
 
 .card-container-image-wrap {
-    flex: 5; /* Maintains 40% of the width */
+    flex: 4; /* Maintains 40% of the width */
     padding: 10px; /* This makes the image feel "smaller" and contained */
     display: flex;
     justify-content: center;
@@ -124,7 +124,7 @@ p.number-ranking {font-weight: bold;
 
 .card-container-details {
     flex: 5; /* 60% width */
-    padding: 10px 50px 10px 0; /* Less padding on left since image wrap has padding */
+    padding: 10px 15px 10px 0; /* Less padding on left since image wrap has padding */
     margin-left:15px;
     display: flex;
     justify-content: center;
@@ -511,6 +511,15 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
     display: block;
     margin: 20px auto;
     border-radius: 8px;
+}
+
+.card-container-details {
+    
+    padding: 10px 50px 10px 0; /* Less padding on left since image wrap has padding */
+    margin-left:15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 table.trail-info {

@@ -156,11 +156,11 @@
             <form style="display: flex; flex-direction: column;" method="post" style="text-align: left;" action=".">
                 {% csrf_token %}
                 <label><h3>Rate the Trail</h3></label>
-                <select class="form-input" name="rating" style="width:94%; padding: 10px; margin: 0 0 10px 15px;">
+                <select class="form-input" name="rating" style="width:auto; padding: 10px; margin: 0 0 10px 15px;">
                     <option value="5">5 Stars</option><option value="4">4 Stars</option><option value="3">3 Stars</option><option value="2">2 Stars</option><option value="1">1 Star</option>
                 </select>
-                <input class="form-input" type="text" name="name" placeholder="Your Name" required style="width: 90%; padding: 10px; margin-bottom: 10px;margin-left:15px;">
-                <textarea class="form-input" name="body" placeholder="Your Review..." required style="width: 90.5%; height: 50px; padding: 10px;margin-bottom: 15px;margin-left:15px;"></textarea>
+                <input class="form-input" type="text" name="name" placeholder="Your Name" required style="width: auto; padding: 10px; margin-bottom: 10px;margin-left:15px;">
+                <textarea class="form-input" name="body" placeholder="Your Review..." required style="width: auto; height: 50px; padding: 10px;margin-bottom: 15px;margin-left:15px;"></textarea>
                 <button type="submit" style="background: var(--primary-color, #2c3e50); color: white; border: none; padding: 12px 6px; border-radius: 5px; cursor: pointer; font-weight: bold; width:120px;margin-left:15px; ">Submit Review</button>
             </form>
         </div>
