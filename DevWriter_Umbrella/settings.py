@@ -36,7 +36,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
 
-ALLOWED_HOSTS = ['url', 'www url', 'ip', 'localhost', '127.0.0.1', '174.138.66.218', 'charlottencmtb.com', 'www.charlottencmtb.com', ]
+ALLOWED_HOSTS = ['url', 'www url', 'ip', 'localhost', '127.0.0.1', '174.138.66.218', 'charlottencmtb.com', 'www.charlottencmtb.com', 'www.ridecltmtb.com', 'ridecltmtb.com']
 
 
 # Application definition
