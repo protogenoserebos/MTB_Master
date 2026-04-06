@@ -64,11 +64,11 @@
 
     {% if trail.Overview_Trail_Video %}
     <hr class="section-divider">
-    <h3>Trail Short</h3>
-    <div class="video-container-shorts" style="margin: 30px auto; max-width: 400px; aspect-ratio: 9 / 16;">
+    <h3>Trail Overview</h3>
+    <div class="video-container" style="margin: 30px auto; max-width: 800px;">
         <iframe 
             width="100%" 
-            height="100%" 
+            height="450px" 
             src="https://www.youtube.com/embed/{{ trail.Overview_Trail_Video }}" 
             title="YouTube video player" 
             frameborder="0" 
@@ -77,6 +77,7 @@
             allowfullscreen>
         </iframe>
     </div>
+    
 {% endif %}
     </section>
 

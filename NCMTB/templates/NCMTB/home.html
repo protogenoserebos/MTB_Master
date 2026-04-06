@@ -3,17 +3,33 @@
 
 {% block content %}
 
-    <div style="height: auto; background:#edf0f1; font-weight:bold;padding:5px 10px;margin-bottom:20px; margin-top:10px;border-radius: 10px; filter: drop-shadow(0 0 0.75rem #26a9dc);">
-        <p style="text-align:center; font-size:10pt;">Ride CLT MTB is a collection of the best mountain bike spots in and surrounding Charlotte, North Carolina.</p>
-        <p style="text-align:center; font-weight: normal; font-size:5pt;">
-            <a style="color:#26a7dc;" href="https://www.tarheeltrailblazers.com" aria-label="Tarheel Trailblazers website">
-            <img style="max-width:45px; margin: 0 10px; vertical-align: middle;" src="{% static 'NCMTB/images/Trailblazers.png' %}"/></a>
-            
-            <a style="color:#26a7dc;" href="https://www.youtube.com/@CharlotteNCMTB" aria-label="CharlotteNCMTB YouTube Channel">
-            <img style="max-width:45px; margin: 0 10px; vertical-align: middle;" src="{% static 'NCMTB/images/youtube.svg' %}"/></a>
-            <a style="color:#26a7dc;" href="https://whitewater.org/activity/mountain-biking/" aria-label="U.S. National Whitewater Center"><img style="max-width:50px; margin: 0 8px; vertical-align: middle;" src="{% static 'NCMTB/images/whitewater.svg' %}"/></a></a></p>
+<script>
+function closeDisclaimer() {
+    var x = document.getElementById("disclaimer-box");
+    x.style.display = "none";
+}
+</script>
+
+    <div id="disclaimer-box" style="position: relative; height: auto; background:#edf0f1; font-weight:bold; padding:15px 10px 5px 10px; margin-bottom:20px; margin-top:10px; border-radius: 10px; filter: drop-shadow(0 0 0.75rem #26a9dc);">
+    
+    <span onclick="closeDisclaimer()" style="position: absolute; top: 5px; right: 12px; cursor: pointer; color: #26a7dc; font-size: 18pt; font-family: Arial, sans-serif;">&times;</span>
+
+    <p style="text-align:center; font-size:10pt; margin: 0 20px;">Ride CLT MTB is a collection of the best mountain bike spots in and surrounding Charlotte, North Carolina.</p>
+    
+    <p style="text-align:center; font-weight: normal; font-size:5pt; margin-top: 10px;">
+        <a href="https://www.tarheeltrailblazers.com" aria-label="Tarheel Trailblazers website">
+            <img style="max-width:45px; margin: 0 15px 0 10px; vertical-align: middle;" src="{% static 'NCMTB/images/Trailblazers.png' %}"/>
+        </a>
         
-        </div>
+        <a href="https://www.youtube.com/@CharlotteNCMTB" aria-label="CharlotteNCMTB YouTube Channel">
+            <img style="max-width:45px; margin: 0 10px; vertical-align: middle;" src="{% static 'NCMTB/images/youtube.svg' %}"/>
+        </a>
+        
+        <a href="https://whitewater.org/activity/mountain-biking/" aria-label="U.S. National Whitewater Center">
+            <img style="max-width:50px; margin: 0 8px; vertical-align: middle;" src="{% static 'NCMTB/images/whitewater.svg' %}"/>
+        </a>
+    </p>
+</div>
         <div class="feature-of-day"></div>
   
   
@@ -51,3 +67,4 @@
 
 
 {% endblock %}
+
