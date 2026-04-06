@@ -1,6 +1,3 @@
-/* ---- SENSIBLE SUPPERS STYLESHEET ---- updated: 1/28/2026 ---- */
-      
-      
     /* -- Global Styles --  */
 
     :root {
@@ -208,10 +205,37 @@ margin-right:20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-/* Makes the iframe fill the container exactly */
-.video-container iframe {
+/* 1. Landscape Videos (Overview & Section Videos) */
+.video-container {
     width: 100%;
-    height: 100%;
+    max-width: 800px;
+    margin: 30px auto;
+    aspect-ratio: 16 / 9; /* Maintains landscape shape */
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+}
+
+/* 2. Shorts Videos (Vertical Section Videos) */
+.video-container-shorts {
+    width: 100%;
+    max-width: 350px; /* Shorts should be narrower */
+    margin: 30px auto;
+    aspect-ratio: 9 / 16; /* Maintains vertical shape */
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.video-container-shorts iframe {
+    width: 100% !important;
+    height: 100% !important;
     border: none;
 }
 
