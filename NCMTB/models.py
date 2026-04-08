@@ -4,8 +4,6 @@ from django.urls import reverse
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.text import slugify
 from django.db.models import Avg
-from markdownfield.models import MarkdownField, RenderedMarkdownField
-from markdownfield.validators import VALIDATOR_STANDARD
 
 
 
