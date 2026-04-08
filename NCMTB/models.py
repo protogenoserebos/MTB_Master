@@ -253,26 +253,7 @@ class TrailArticle(models.Model):
         # Only return blocks that have at least a title or a description
         return [b for b in blocks if b['title'] or b['desc']]
     
-class SpotlightTrail(models.Model):
-    """Represents a trail spotlighted on the front page"""
 
-  
-    Trail_Name = models.CharField(max_length=200, help_text="Trail Location Name e.g. Whitewater Center")
-
-
-    date_added = models.DateField(auto_now_add=True)
-
-    date_updated = models.DateField(auto_now=True)
-    
-    Title_Trail_Image = models.ImageField(upload_to='trail_photos', help_text="This image appears on the Trail page as an opening image. This should be an action shot and eye-catcher e.g. Flight Deck at Airline.")
-
-
-
-    class Meta:
-        verbose_name = "Trail Spotlight"
-
-    def __str__(self):
-        return f"{self.Trail_Name}"
 
 # Article Comments
 
