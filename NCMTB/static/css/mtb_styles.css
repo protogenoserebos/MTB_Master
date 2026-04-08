@@ -37,13 +37,13 @@
               font-size: 11pt;
           }
 
-        .container {max-width: 680px; margin: 0 auto; padding: 0px 20px;  }
+        .container {margin: 0 auto; padding: 0px 20px;  }
 
         h1{font-weight: 700;letter-spacing: -0.02em;color: var(--primary-color); text-align: left; font-size:18pt;}
 
         h2, h3 {font-weight: 700;letter-spacing: -0.02em;color: var(--primary-color); text-align: left; font-size:13pt;}
         a {color:var(--second-color);text-decoration:none}
-        p {color: #333;text-align: left;}
+        p {color: #333;text-align: left; line-height:25px;}
         ul {font-size: 11pt;}
         li {margin-bottom: 10px;}
 
@@ -99,7 +99,7 @@ p.number-ranking {font-weight: bold;
     align-content: center;}
 
 .card-container-image-wrap {
-    flex: 2; /* Maintains 40% of the width */
+    flex: 3; /* Maintains 40% of the width */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -479,6 +479,82 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
 
     .img-clickable:hover { transform: scale(1.02); opacity: 0.9; }
 
+/* Container for the slides */
+.slides-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Base slide style - Stack them on top of each other */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Start fully transparent */
+    opacity: 0;
+    
+    /* Lower stack order for inactive slides */
+    z-index: 1; 
+    
+    /* Smooth fade */
+    transition: opacity 1.2s ease-in-out;
+}
+
+.hero-slide.active {
+    /* Fade in to fully opaque */
+    opacity: 1;
+    
+    /* Bring to the front so it fades over the old slide */
+    z-index: 2; 
+}
+
+/* Ensure your overlays fill the slide */
+.hero-overlay, .feature-overlay {
+    width: 100%;
+    height: 100%;
+    /* Keep your existing background/flex styles here */
+}
+
+/* Feature overlay needs a background image too if you haven't set one */
+.feature-overlay {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
+                      url("{% static 'NCMTB/images/airline.png' %}"); /* Change path */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+/* Navigation Arrows */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 20;
+    border-radius: 5px;
+    transition: background 0.1s;
+}
+
+.slider-arrow:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+
     /* The Overlay Background */
     #image-overlay {
         display: none;
@@ -512,6 +588,105 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
     gmp-map { height: 450px; width: 100%; border-radius: 8px; }
 
 
+    /* Hero Styles */
+.hero-wrap {
+    height: 45vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.hero-badge {
+    margin-left:0px; 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)); 
+    border-radius:10px; 
+    height: fit-content;
+    display: block;
+    position:absolute;
+    bottom:8%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 15px 10px 10px 10px;
+    width: fit-content;
+    bottom:8%;
+    left:5%;
+}
+
+.hero-content h1 {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0,0,0);
+    margin-left:10px;
+}
+
+
+.hero-content p {
+    color: #f8f9fa;
+    font-size: 1.2rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0);
+    margin-top: 0;
+    margin-left:10px;
+    font-weight:bold;
+}
+
+.yt-logo {width:70%}
+
+/* Feature Spotlight */
+.feature-spotlight {
+
+    margin: -60px auto 60px; /* Pulls it up into the hero slightly */
+    background: white;
+    border-radius: 15px;
+    display: grid;
+
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 10;
+    position: relative;
+}
+
+.spotlight-text {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.badge {
+    background: #26a7dc;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    width: fit-content;
+   
+}
+
+.spotlight-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Nav Bar Feel (General Advice) */
+nav {
+
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+
+    top: 0;
+    z-index: 1000;
+}
+.card-intro {
+    margin-left:3vw;
+ max-width:90%;}
+
     /* Desktop Styles */
 
     @media screen and (min-width: 800px) {
@@ -527,15 +702,19 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
               font-size: 18px;
           }
 
+    .container {max-width:1000px;} 
+
     .img-clickable {
     cursor: pointer;
     transition: transform 0.3s ease;
-    max-width: 550px;
+    max-width: 800px;
     display: block;
     margin: 20px auto;
     border-radius: 8px;
 }
 
+
+.yt-logo {width:50%}
 .card-container-details {
     
     padding: 10px 50px 10px 0; /* Less padding on left since image wrap has padding */
@@ -559,8 +738,13 @@ table.trail-info {
 
     width: 60%;
     margin-right: 0px;
-
-    
+  
 }
 
+.card-container-image-wrap {
+    flex: 1; /* Maintains 40% of the width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 }

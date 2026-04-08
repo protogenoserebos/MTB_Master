@@ -34,55 +34,10 @@ def category_view(request, trail_difficulty_type):
     }
     return render(request, 'NCMTB/home.html', context)
 
-# Filter Tags
 
-
-def beginner_trails(request):
-    trails = TrailArticle.objects.filter(Trail_Difficulty='Beginner')
-    return render(request, "NCMTB/home.html", {
-        'trails': trails, 
-        'page_title': 'Beginner Trails'
-    })
-
-def intermediate_trails(request):
-    trails = TrailArticle.objects.filter(Trail_Difficulty='Intermediate')
-    return render(request, "NCMTB/home.html", {
-        'trails': trails, 
-        'page_title': 'Intermediate Trails'
-    })
-
-def advanced_trails(request):
-    trails = TrailArticle.objects.filter(Trail_Difficulty='Advanced')
-    return render(request, "NCMTB/home.html", {
-        'trails': trails, 
-        'page_title': 'Advanced Trails'
-    })
-
-def expert_trails(request):
-    trails = TrailArticle.objects.filter(Trail_Difficulty='Expert')
-    return render(request, "NCMTB/home.html", {
-        'trails': trails, 
-        'page_title': 'Expert Trails'
-    })
-
-# Primary Nav
-
-def reccs(request):
-  return render(request, 'NCMTB/reccs.html')
-  
-def browse(request):
-    return render(request, 'NCMTB/browse.html')
-
-def interest(request):
-    return render(request, 'NCMTB/destinations.html')
 
 def about(request):
     return render(request, 'NCMTB/about.html')
-
-
-
-
-
 
 class TrailDetailView(DetailView):
     model = TrailArticle

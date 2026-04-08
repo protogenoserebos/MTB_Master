@@ -43,6 +43,8 @@ ALLOWED_HOSTS = ['url', 'www url', 'ip', 'localhost', '127.0.0.1', '174.138.66.2
 
 INSTALLED_APPS = [
     
+    'markdownfield',
+
     # Admin Portal Styling
     'jazzmin',
     
@@ -55,8 +57,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
    
-   
 ]
+
+MARKDOWNFIELD_BACKEND = 'markdownfield.backends.markdownit'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

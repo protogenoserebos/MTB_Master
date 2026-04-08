@@ -2,46 +2,104 @@
 {% load static %}
 
 {% block content %}
+<style>
+.hero-overlay {
+    /* Use a linear-gradient + the image URL. Use a real image path! */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
+                      url("{% static 'NCMTB/images/cover.png' %}");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:10px; 
+    box-shadow: 20px 0px 30px rgba(0, 0, 0, 0.1);}
 
-<script>
-function closeDisclaimer() {
-    var x = document.getElementById("disclaimer-box");
-    x.style.display = "none";
-}
-</script>
+    .feature-overlay {
+    /* Use a linear-gradient + the image URL. Use a real image path! */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
+                      url("{% static 'NCMTB/images/feature.png' %}");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:10px; 
+    box-shadow: 20px 0px 30px rgba(0, 0, 0, 0.1);}
 
-    <div id="disclaimer-box" style="position: relative; height: auto; background:#edf0f1; font-weight:bold; padding:15px 10px 5px 10px; margin-bottom:20px; margin-top:10px; border-radius: 10px; filter: drop-shadow(0 0 0.75rem #26a9dc);">
+    .yt-overlay {
+    /* Use a linear-gradient + the image URL. Use a real image path! */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
+                      url("{% static 'NCMTB/images/yt.png' %}");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:10px; 
+    box-shadow: 20px 0px 30px rgba(0, 0, 0, 0.1);}
+</style>
+
+
+
+<section class="hero-wrap">
+    <div class="slides-container">
+        <div class="hero-slide active">
+            <div class="hero-overlay">   
+                <div class="hero-badge">
+                    <span class="badge">Featured Trail</span>
+                    <h2 style="margin-bottom:5px;">Rattlesnake Bike Park</h2>
+                    <a style="color:white; font-size:0.8rem; font-weight: bold;" href="/trail/rattlesnake-bike-park/" class="text-link">View Trail →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-slide">
+            <div class="feature-overlay">   
+                <div class="hero-badge">
+                    <span class="badge">Feature Spotlight</span>
+                    <h2 style="margin-bottom:5px;">Green Trail Wallride</h2>
+                    <a style="color:white; font-size:0.8rem; font-weight: bold;" href="/trail/rocky-branch-park/" class="text-link">View Feature & Trail →</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-slide">
+            <div class="yt-overlay">
+                <img class="yt-logo" src="{% static 'NCMTB/images/YTLogo.png' %}"/>   
+                <div class="hero-badge">
+                    <span class="badge"><a style="color:white;"href="https://www.youtube.com/@CharlotteNCMTB">Watch on YouTube</a></span>
+                    <h2 style="margin-bottom:5px;">@QCNCMTB</h2>
+                    <a style="color:white; font-size:0.8rem; font-weight: bold;" href="https://www.youtube.com/@CharlotteNCMTB" class="text-link">Goto YouTube →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="slider-arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="slider-arrow next" onclick="changeSlide(1)">&#10095;</button>
+</section>
     
-    <span onclick="closeDisclaimer()" style="position: absolute; top: 5px; right: 12px; cursor: pointer; color: #26a7dc; font-size: 18pt; font-family: Arial, sans-serif;">&times;</span>
-
-    <p style="text-align:center; font-size:10pt; margin: 0 20px;">Ride CLT MTB is a collection of the best mountain bike spots in and surrounding Charlotte, North Carolina.</p>
-    
-    <p style="text-align:center; font-weight: normal; font-size:5pt; margin-top: 10px;">
-        <a href="https://www.tarheeltrailblazers.com" aria-label="Tarheel Trailblazers website">
-            <img style="max-width:45px; margin: 0 15px 0 10px; vertical-align: middle;" src="{% static 'NCMTB/images/Trailblazers.png' %}"/>
-        </a>
-        
-        <a href="https://www.youtube.com/@CharlotteNCMTB" aria-label="CharlotteNCMTB YouTube Channel">
-            <img style="max-width:45px; margin: 0 10px; vertical-align: middle;" src="{% static 'NCMTB/images/youtube.svg' %}"/>
-        </a>
-        
-        <a href="https://whitewater.org/activity/mountain-biking/" aria-label="U.S. National Whitewater Center">
-            <img style="max-width:50px; margin: 0 8px; vertical-align: middle;" src="{% static 'NCMTB/images/whitewater.svg' %}"/>
-        </a>
-    </p>
-</div>
-        <div class="feature-of-day"></div>
   
   
+            
+     
   
  
-
+<section class="feature-spotlight"><div class="card-intro">
+    <h2 style="font-size:14pt;color:black;font-weight:bold;margin-top:25px;">Charlotte, NC Mountain Biking Trails</h2>
+    <p style="font-size:11pt;">Whether you are visiting Charlotte, North Carolina or just looking for some great trails nearby, here is a list of some of our favorites.</p></div>
     {% for trail in trails %}
     <a href="{{ trail.get_absolute_url }}" class="card-link-wrapper">
         <div class="card-container-whole">
             
             <div class="card-container-image-wrap">
-                <img class="card-container-image" src="{{ trail.Trail_Card_Logo.url }}" alt="{{ trail.Trail_Name }}">
+                <img style="filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));" class="card-container-image" src="{{ trail.Trail_Card_Logo.url }}" alt="{{ trail.Trail_Name }}">
             </div>
 
             <div class="card-container-details">
@@ -53,7 +111,7 @@ function closeDisclaimer() {
                 </span>
                 {% for line in trail.trail_short_card_description.splitlines %}
                     {% if line.strip %}
-                        <p style="font-size:9pt;font-weight:500;margin-top:5px;">{{ line }}</p>
+                        <p style="font-size:9pt;font-weight:500;margin-top:5px;line-height:20px;margin-right:10px;">{{ line }}</p>
                     {% endif %}
                 {% endfor %}
             </div>
@@ -65,6 +123,42 @@ function closeDisclaimer() {
         <p style="text-align: center;">No trails found.</p>
     {% endfor %}
 
+    </div></section>
+</section>
 
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.hero-slide');
+    const slideInterval = 5000; // 5 seconds
+
+    function showSlide(n) {
+        // Remove active class from all slides
+        slides.forEach(slide => slide.classList.remove('active'));
+        
+        // Loop index around
+        currentSlide = (n + slides.length) % slides.length;
+        
+        // Add active class to current slide
+        slides[currentSlide].classList.add('active');
+    }
+
+    function changeSlide(n) {
+        showSlide(currentSlide + n);
+        resetTimer(); // Reset auto-slide when user manually clicks
+    }
+
+    // Auto Slide Logic
+    let autoSlide = setInterval(() => {
+        changeSlide(1);
+    }, slideInterval);
+
+    function resetTimer() {
+        clearInterval(autoSlide);
+        autoSlide = setInterval(() => {
+            changeSlide(1);
+        }, slideInterval);
+    }
+</script>
 {% endblock %}
 

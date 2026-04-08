@@ -4,7 +4,9 @@ from django.urls import reverse
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.text import slugify
 from django.db.models import Avg
-   
+from markdownfield.models import MarkdownField, RenderedMarkdownField
+from markdownfield.validators import VALIDATOR_STANDARD
+
 
 
 
@@ -29,16 +31,6 @@ class TrailArticle(models.Model):
     
     Trail_Website = models.URLField()
 
-    Trail_Difficulty_Range = models.CharField(max_length=50, help_text="Enter the range of difficulty at the trail e.g. Green-Black.") 
-    
-    Trail_Distance = models.CharField(max_length=100, help_text="Total Trail Mileage including all trails and also lead with a tilda (~) e.g. ~26 Miles")
-
-    e_bikes_allowed = models.CharField(blank=True, null=True, max_length=50, help_text="Yes or No") 
-    
-    Trail_Tags = models.CharField(max_length=200, blank=True, null=True, help_text="We will go back and add these possibly. Its a way to add metadata on the trail so that we can add categories and sorting later.")
-
-    Maintained_By = models.CharField(max_length=200, blank=True, null=True, help_text="Who owns/maintains the trail.")
-
     Trail_Address = models.CharField(max_length=300, blank=True, null=True, help_text="Physical address of the trail to show on page.'")
 
     Latitude = models.DecimalField(max_digits=50, decimal_places=20, null=True, blank=True, help_text="For weather API and Google Maps API... goto Google Maps, drop pin at location, right-click and copy coords..")
@@ -53,9 +45,9 @@ class TrailArticle(models.Model):
 
     Trail_Landing_Desc = models.CharField(max_length=500, help_text="Trail Description that appears on the Trail page as an opening statement.")
 
+
     Main_Features_Trails = models.TextField(blank=True,null=True, help_text="Enter the main trails and features on individual line e.g. Mountain Creek Hub, Loop, Jumps, Pump Track. Each line will be a bulleted list.")
 
-    Trail_Introduction_Description = models.TextField(blank=True, help_text="Skip for now. Need to remove.")
     
     Overview_Trail_Video = models.TextField(blank=True, null=True, help_text="Overview video of the trails at the location. This is a YouTube Embed Code.")
 
@@ -263,6 +255,27 @@ class TrailArticle(models.Model):
         # Only return blocks that have at least a title or a description
         return [b for b in blocks if b['title'] or b['desc']]
     
+class SpotlightTrail(models.Model):
+    """Represents a trail spotlighted on the front page"""
+
+  
+    Trail_Name = models.CharField(max_length=200, help_text="Trail Location Name e.g. Whitewater Center")
+
+
+    date_added = models.DateField(auto_now_add=True)
+
+    date_updated = models.DateField(auto_now=True)
+    
+    Title_Trail_Image = models.ImageField(upload_to='trail_photos', help_text="This image appears on the Trail page as an opening image. This should be an action shot and eye-catcher e.g. Flight Deck at Airline.")
+
+
+
+    class Meta:
+        verbose_name = "Trail Spotlight"
+
+    def __str__(self):
+        return f"{self.Trail_Name}"
+
 # Article Comments
 
 class Comment(models.Model):

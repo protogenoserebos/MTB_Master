@@ -33,24 +33,16 @@
     </nav>
 
 <section id="section-ride" class="content-section active">
-        <table class="trail-info">
-            <tr><td class="trail-info">Difficulty:</td><td style="text-align: left;">{{ trail.Trail_Difficulty_Range }}</td></tr>
-            <tr><td class="trail-info">Distance:</td><td style="text-align: left;">{{ trail.Trail_Distance }}</td></tr>
-            <tr><td class="trail-info">E-Bikes:</td><td style="text-align: left;">{{ trail.e_bikes_allowed|default:"Not Specified" }}</td></tr>
-            <tr><td class="trail-info">Maintained By:</td><td style="text-align: left;">{{ trail.Maintained_By|default:"Local Community" }}</td></tr>
-        </table> 
         
-        <img class="img-clickable" src="{{ trail.Title_Trail_Image.url }}" onclick="openImage(this.src)">
+        
+       
+    
 
-        <hr class="section-divider">
-
+        
         <h3>About</h3>
-        
         <p class="trail-info-intro" style="max-width: 800px; margin: 0 auto;">{{ trail.Trail_Landing_Desc }}</p> 
-
-        <hr class="section-divider">
-
-                    <h3>Trail Features</h3>
+        
+        
         <div>
 
             <ul style="text-align:left;">
@@ -60,9 +52,28 @@
             </ul>
         </div>
 
+        <hr class="section-divider">
+        
+        <h3>Feature Spotlight</h3>
+        
+        <img class="img-clickable" src="{{ trail.Title_Trail_Image.url }}" onclick="openImage(this.src)">
+
+        <hr class="section-divider">
+
         
 
-    {% if trail.Overview_Trail_Video %}
+                    
+
+        
+
+    
+    </section>
+
+    <section id="section-trails" class="content-section">
+
+        <img src="{{ trail.Trail_Map_Image.url }}" class="img-clickable" onclick="openImage(this.src)" alt="Trail Map">
+
+        {% if trail.Overview_Trail_Video %}
     <hr class="section-divider">
     <h3>Trail Overview</h3>
     <div class="video-container" style="margin: 30px auto; max-width: 800px;">
@@ -77,11 +88,6 @@
     </div>
     
 {% endif %}
-    </section>
-
-    <section id="section-trails" class="content-section">
-
-        <img src="{{ trail.Trail_Map_Image.url }}" class="img-clickable" onclick="openImage(this.src)" alt="Trail Map">
         
         
 <hr class="section-divider">
