@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block content %}
+
 <style>
+
 .hero-overlay {
-    /* Use a linear-gradient + the image URL. Use a real image path! */
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
                       url("{% static 'NCMTB/images/cover.png' %}");
     background-size: cover;
@@ -15,10 +17,10 @@
     align-items: center;
     justify-content: center;
     border-radius:10px; 
-    box-shadow: 20px 0px 30px rgba(0, 0, 0, 0.1);}
+    box-shadow: 20px 0px 30px rgba(0, 0, 0, 0.1);
+}
 
-    .feature-overlay {
-    /* Use a linear-gradient + the image URL. Use a real image path! */
+.feature-overlay {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
                       url("{% static 'NCMTB/images/feature.png' %}");
     background-size: cover;
@@ -29,11 +31,10 @@
     align-items: center;
     justify-content: center;
     border-radius:10px; 
-    box-shadow: 20px 0px 30px rgba(0, 0, 0, 0.1);}
+    box-shadow: 20px 0px 30px rgba(0, 0, 0, 0.1);
+}
 
-
-    .yt-overlay {
-    /* Use a linear-gradient + the image URL. Use a real image path! */
+.yt-overlay {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
                       url("{% static 'NCMTB/images/YT.png' %}");
     background-size: cover;
@@ -75,58 +76,73 @@
                 <img class="yt-logo" src="{% static 'NCMTB/images/YTLogo.png' %}"/>   
                 <div class="hero-badge">
                     <span class="badge"><a style="color:white;"href="https://www.youtube.com/@CharlotteNCMTB">Watch on YouTube</a></span>
-                    <h2 style="margin-bottom:5px;">@QCNCMTB</h2>
-                    <a style="color:white; font-size:0.8rem; font-weight: bold;" href="https://www.youtube.com/@QCNCMTB" class="text-link">Goto YouTube →</a>
+                    <h2 style="margin-bottom:5px;">@CharlotteNCMTB</h2>
+                    <a style="color:white; font-size:0.8rem; font-weight: bold;" href="https://www.youtube.com/@CharlotteNCMTB" class="text-link">Goto YouTube →</a>
                 </div>
             </div>
         </div>
     </div>
-
     <button class="slider-arrow prev" onclick="changeSlide(-1)">&#10094;</button>
     <button class="slider-arrow next" onclick="changeSlide(1)">&#10095;</button>
 </section>
     
-  
-  
-            
-     
-  
  
-<section class="feature-spotlight"><div class="card-intro">
-    <h2 style="font-size:14pt;color:black;font-weight:bold;margin-top:25px;">Charlotte, NC Mountain Biking Trails</h2>
-    <p style="font-size:11pt;">Whether you are visiting Charlotte, North Carolina or just looking for some great trails nearby, here is a list of some of our favorites.</p></div>
-    {% for trail in trails %}
-    <a href="{{ trail.get_absolute_url }}" class="card-link-wrapper">
-        <div class="card-container-whole">
-            
-            <div class="card-container-image-wrap">
-                <img style="filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));" class="card-container-image" src="{{ trail.Trail_Card_Logo.url }}" alt="{{ trail.Trail_Name }}">
-            </div>
-
-            <div class="card-container-details">
-                <p style="color:#26a7dc;font-size: 11pt;font-weight: bold; margin:5px 0 0 0;">{{ trail.Trail_Name }}</p>
-                <span style="color: #ffb400;font-size:11pt; margin-top:5px;">
-                    {% for i in "12345" %}
-                        {% if forloop.counter <= trail.average_rating %}★{% else %}☆{% endif %}
-                    {% endfor %}
-                </span>
-                {% for line in trail.trail_short_card_description.splitlines %}
-                    {% if line.strip %}
-                        <p style="font-size:9pt;font-weight:500;margin-top:5px;line-height:20px;margin-right:10px;">{{ line }}</p>
-                    {% endif %}
-                {% endfor %}
-            </div>
-
-            <div class="card-stars-row"></div>
+<section class="feature-spotlight">
+    <div class="card-intro">
+        <h2 style="font-size:14pt;color:black;font-weight:bold;margin-top:25px;text-align:center;">Charlotte, NC Mountain Biking Trails</h2>
+        <p style="font-size:11pt; text-align: center;">Whether you're looking for mountain biking trails in Charlotte, North Carolina or using Charlotte as your launching point to other trails nearby, here is a list of some of our favorite trails.</p>
+    </div>
+    
+    <section class="trail-sort-container">
+        <p class="trail-sort-label">Sort Trails By</p>
+        <div class="trail-sort">
+            <a href="?sort=favorites" class="{% if current_sort == 'favorites' or not current_sort %}active{% endif %}">
+                Favorites
+            </a>
+            <a href="?sort=location" class="{% if current_sort == 'location' %}active{% endif %}">
+                Location
+            </a>
+            <a href="?sort=beginner" class="{% if current_sort == 'beginner' %}active{% endif %}">
+                Beginner
+            </a>
+            <a href="?sort=bikepark" class="{% if current_sort == 'bikepark' %}active{% endif %}">
+                Bike Park
+            </a>
         </div>
-    </a>
-    {% empty %}
-        <p style="text-align: center;">No trails found.</p>
-    {% endfor %}
+    </section>
 
+        {% for trail in trails %}
+        <a href="{{ trail.get_absolute_url }}" class="card-link-wrapper">
+            <div class="card-container-whole">
+                
+                <div class="card-container-image-wrap">
+                    <img style="filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));" class="card-container-image" src="{{ trail.Trail_Card_Logo.url }}" alt="{{ trail.Trail_Name }}">
+                </div>
+
+                <div class="card-container-details">
+                    <p style="color:#26a7dc;font-size: 11pt;font-weight: bold; margin:5px 0 0 0;">{{ trail.Trail_Name }}</p>
+                    <span style="color: #ffb400;font-size:11pt; margin-top:5px;">
+                        {% for i in "12345" %}
+                            {% if forloop.counter <= trail.average_rating %}★{% else %}☆{% endif %}
+                        {% endfor %}
+                    </span>
+                    {% for line in trail.trail_short_card_description.splitlines %}
+                        {% if line.strip %}
+                            <p style="font-size:9pt;font-weight:500;margin-top:5px;line-height:20px;margin-right:10px;">{{ line }}</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div class="card-stars-row"></div>
+            </div>
+        </a>
+        {% empty %}
+            <p style="text-align: center;">No trails found.</p>
+        {% endfor %}
     </div>
 </section>
-<section class="feature-spotlight-1">
+
+<section class="TTB">
     <div class="donate-ttb">
         <p style="color:white; font-size: 16pt; font-weight: bold;">Support Charlotte Mountain Biking</p>
         <a href="https://www.tarheeltrailblazers.com/"><img class="img-donate-ttb" src="{% static 'NCMTB/images/Trailblazers.svg' %}"/></a>
@@ -167,4 +183,3 @@
     }
 </script>
 {% endblock %}
-

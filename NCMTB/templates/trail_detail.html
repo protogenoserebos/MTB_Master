@@ -1,5 +1,6 @@
 
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+
 {% block content %}
 
 <div id="image-overlay" onclick="this.style.display='none'" role="dialog" aria-modal="true">
@@ -8,74 +9,105 @@
 
 <article>
     <header>
+
         <h1 class="trail-title">{{ trail.Trail_Name }}</h1>
         
+        <div class="trail-rating-summary" style="margin-top: -5px; margin-bottom: 15px; text-align:center;">
+        
+            <p class="trail-address"><strong>{{ trail.Trail_Address }}</strong></p>
 
-<div class="trail-rating-summary" style="margin-top: -5px; margin-bottom: 15px; text-align:center;">
-    
-    <p class="trail-address"><strong>{{ trail.Trail_Address }}</strong></p>
-        <p style="text-align:center; margin: 5px auto;"><a style="color:#26a7dc; text-decoration:underline;" href="{{ trail.Trail_Website}}" alt-text="Link to Trail Website">{{ trail.Trail_Name }} Website</a></p>
-        <span style="color: #ffb400; font-size: 1.2em;">
-        {% for i in "12345" %}
-            {% if forloop.counter <= trail.average_rating %}★{% else %}☆{% endif %}
-        {% endfor %}
-    </span>
-    <span style="font-weight: bold; margin-left: 5px; ">{{ trail.average_rating }}</span>
-    <span style="color: #666; margin-left: 10px;">({{ trail.review_count }} reviews)</span>
-</div>
+            <p style="text-align:center; margin: 5px auto;">
+            
+                <a style="color:#26a7dc; text-decoration:underline;" href="{{ trail.Trail_Website}}" alt-text="Link to Trail Website">{{ trail.Trail_Name }} Website</a>
+            
+            </p>
+
+            <span style="color: #ffb400; font-size: 1.2em;">
+                {% for i in "12345" %}
+                    {% if forloop.counter <= trail.average_rating %}★{% else %}☆{% endif %}
+                {% endfor %}
+            </span>
+
+            <span style="font-weight: bold; margin-left: 5px; ">{{ trail.average_rating }}</span>
+
+            <span style="color: #666; margin-left: 10px;">({{ trail.review_count }} reviews)</span>
+        </div>
+
     </header>
 
     <nav class="nav-row" role="tablist">
+
         <button class="nav-tab active" onclick="showSection('section-ride', this)" role="tab">Trails</button>
+
         <button class="nav-tab" onclick="showSection('section-trailmap', this)" role="tab">Trail Map</button>
+
         <button class="nav-tab" onclick="showSection('section-map', this)" role="tab">Directions</button>
+
         <button class="nav-tab" onclick="showSection('section-reviews', this)" role="tab">Reviews</button>
+
     </nav>
 
-<section id="section-ride" class="content-section active">
+    <section id="section-ride" class="content-section active">
     
-        
-
-
         <p class="trail-info-intro" style="max-width: 600px; margin: 10px auto; text-align:center;">{{ trail.Trail_Landing_Desc }}</p> 
  
+        <div class="spotlight-slider">
 
+        <div class="slider-wrapper">
 
-    <div class="spotlight-slider">
-    <div class="slider-wrapper">
-        {% for spot in trail.get_feature_spotlights %}
-            <div class="slide">
-                <img src="{{ spot.image.url }}" class="img-clickable" onclick="openImage(this.src)" alt="Spotlight">
-                {% if spot.desc %}
-                    <p class="slide-caption">{{ spot.desc }}</p>
-                {% endif %}
-            </div>
-        {% endfor %}
-    </div>
+            {% for spot in trail.get_feature_spotlights %}
+                <div class="slide">
+                    <img src="{{ spot.image.url }}" class="img-clickable" onclick="openImage(this.src)" alt="Spotlight">
+                    {% if spot.desc %}
+                        <p class="slide-caption">{{ spot.desc }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+        </div>
     
-    {% if trail.get_feature_spotlights|length > 1 %}
-        <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-        <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
-    {% endif %}
-</div>
+            {% if trail.get_feature_spotlights|length > 1 %}
+                <button class="slider-btn prev" onclick="moveSlide(-1, this)">❮</button>
+                <button class="slider-btn next" onclick="moveSlide(1, this)">❯</button>
+            {% endif %}
+            
+        </div>
 
        
     <hr class="section-divider">
         
-<div class="disclaimer"><p style="text-align:center"><b>Rider Note</b></p><p>The below are a selection of our favorite trails. More trails are likely available and can be found on the trail map.</p>
-    <p>Got pictures or footage you want featured on the site? Send them to us <a href="mailto:developingwriter@gmail.com">here</a>.</p></div>
+    <div class="disclaimer">
+        
+        <p style="text-align:center"><b>Before You Ride</b></p>
+
+        <p>The below are a selection of our favorite trails. More trails are likely available and can be found on the trail map.</p>
+
+        <p>Got pictures or footage you want featured on the site? Send them to us <a href="mailto:developingwriter@gmail.com">here</a>.</p>
+    
+    </div>
         
         {% for block in trail.get_content_blocks %}
+
             <div class="trail-section" style="max-width: 600px; margin: 0 auto;">
-                <div><p style="max-width: 600px; margin: 0 auto;font-size: 14pt;color: #26a7dc; font-weight:bold;margin-bottom:10px;">
-                {% if block.title %}{{ block.title }}{% endif %}</p>
+
+                <div>
+                    <p style="max-width: 600px; margin: 0 auto;font-size: 14pt;color: #26a7dc; font-weight:bold;margin-bottom:10px;">
+                        {% if block.title %}{{ block.title }}{% endif %}
+                    </p>
                
-                <div class="trail-text"><p style="max-width: 600px; margin: 0 auto;">{{ block.desc}}</p></div></div>
+                <div class="trail-text">
+
+                    <p style="max-width: 600px; margin: 0 auto;">{{ block.desc}}</p>
+                
+                </div>
+
+            </div>
                 {% if block.image %}<img src="{{ block.image.url }}" class="img-clickable" onclick="openImage(this.src)">{% endif %}
                 {% if block.short %}
 
 
     <div class="video-container-shorts">
+
     <iframe src="https://www.youtube.com/embed/{{ block.short }}" title="YouTube player" allowfullscreen></iframe>
 </div>
 {% endif %}
@@ -96,7 +128,40 @@
 
 <section id="section-trailmap" class="content-section">
 
+    <h3>Trail Map</h3>
+
+    <p>Click the below map to expand the image.</p>
+
     <img src="{{ trail.Trail_Map_Image.url }}" class="img-clickable" onclick="openImage(this.src)" alt="Trail Map">
+
+    <h3>Trailhead Approach</h3>
+
+    <p>Toggle the below images to view how to access the various trailheads.</p>
+
+    <div class="spotlight-slider">
+
+    <div class="slider-wrapper">
+
+        {% for spot in trail.get_approach_img %}
+            <div class="slide">
+
+                <img src="{{ spot.image.url }}" class="img-clickable" onclick="openImage(this.src)" alt="Trailhead Approach">
+
+                {% if spot.desc %}
+                    <p class="slide-caption">{{ spot.desc }}</p>
+                {% endif %}
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+    
+    {% if trail.get_approach_img|length > 1 %}
+        <button class="slider-btn prev" onclick="moveSlide(-1, this)">❮</button>
+<button class="slider-btn next" onclick="moveSlide(1, this)">❯</button>
+    {% endif %}
+</div>
 
 
 </section>
@@ -165,7 +230,6 @@
 
 
 <script>
-    // Tab Logic
     function showSection(sectionId, el) {
         document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
         document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
@@ -174,7 +238,6 @@
         window.dispatchEvent(new Event('resize'));
     }
 
-    // Lightbox Logic
     function openImage(src) {
         const overlay = document.getElementById('image-overlay');
         const overlayImg = document.getElementById('overlay-img');
@@ -182,24 +245,26 @@
         overlay.style.display = 'flex';
     }
 
-    let currentSlide = 0;
+    let spotlightIndices = {};
 
-    function moveSlide(direction) {
-        const wrapper = document.querySelector('.slider-wrapper');
-        const slides = document.querySelectorAll('.slide');
+    function moveSlide(direction, btn) {
+        const slider = btn.closest('.spotlight-slider');
+        const wrapper = slider.querySelector('.slider-wrapper');
+        const slides = slider.querySelectorAll('.slide');
         const totalSlides = slides.length;
-
-        currentSlide += direction;
-
-        if (currentSlide >= totalSlides) {
-            currentSlide = 0;
-        } else if (currentSlide < 0) {
-            currentSlide = totalSlides - 1;
+        const sliderId = slider.closest('section').id;
+        if (spotlightIndices[sliderId] === undefined) {
+            spotlightIndices[sliderId] = 0;
         }
-
-        const offset = -currentSlide * 100;
+        spotlightIndices[sliderId] += direction;
+        if (spotlightIndices[sliderId] >= totalSlides) {
+            spotlightIndices[sliderId] = 0;
+        } else if (spotlightIndices[sliderId] < 0) {
+            spotlightIndices[sliderId] = totalSlides - 1;
+        }
+        const offset = -spotlightIndices[sliderId] * 100;
         wrapper.style.transform = `translateX(${offset}%)`;
-    }
+}
 </script>
 
 <script async src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&libraries=maps,marker&v=beta"></script>

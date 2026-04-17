@@ -649,7 +649,7 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
     position: relative;
 }
 
-.feature-spotlight-1 {
+.TTB {
 
     margin: -80px auto 60px; /* Pulls it up into the hero slightly */
     background: #252525;
@@ -673,17 +673,124 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
     background: #26a7dc;
     color: white;
     padding: 4px 12px;
-    border-radius: 20px;
+    border-radius: 5px;
     font-size: 1rem;
     font-weight: bold;
     width: fit-content;
+    box-shadow: 0 4px 10px rgba(38, 167, 220, 0.3);
    
 }
+
+.hero-overlay {
+    /* Use a linear-gradient + the image URL. Use a real image path! */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
+                      url("{% static 'NCMTB/images/cover.png' %}");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:10px; 
+    box-shadow: 20px 0px 30px rgba(0, 0, 0, 0.1);}
+
+    .feature-overlay {
+    /* Use a linear-gradient + the image URL. Use a real image path! */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
+                      url("{% static 'NCMTB/images/feature.png' %}");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:10px; 
+    box-shadow: 20px 0px 30px rgba(0, 0, 0, 0.1);}
+
+
+    .yt-overlay {
+    /* Use a linear-gradient + the image URL. Use a real image path! */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
+                      url("{% static 'NCMTB/images/YT.png' %}");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:10px; 
+    box-shadow: 20px 0px 30px rgba(0, 0, 0, 0.1);}
 
 .spotlight-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* -- Trail Sort Filter Styling -- */
+
+.trail-sort-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.trail-sort-label {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
+.trail-sort {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.03); /* Subtle track background */
+    padding: 6px;
+    border-radius: 50px; /* Pill shape */
+    border: 1px solid #eee;
+}
+
+.trail-sort a {
+    padding: 8px 18px;
+    font-size: 10pt;
+    font-weight: 600;
+    color: #555;
+    border-radius: 40px;
+    transition: all 0.2s ease;
+    text-decoration: none !important;
+}
+
+/* Hover effect */
+.trail-sort a:hover {
+    color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Active state (when this filter is selected) */
+.trail-sort a.active {
+    background: var(--primary-color);
+    color: white !important;
+    box-shadow: 0 4px 10px rgba(38, 167, 220, 0.3);
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 480px) {
+    .trail-sort {
+        border-radius: 12px;
+        gap: 4px;
+        padding: 4px;
+    }
+    .trail-sort a {
+        padding: 6px 12px;
+        font-size: 9pt;
+    }
 }
 
 /* Nav Bar Feel (General Advice) */
@@ -707,16 +814,13 @@ nav {
 
 .slider-wrapper {
     display: flex;
-    transition: transform 0.4s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* Ensure it doesn't default to a 4-image width */
 }
 
 .slide {
-    display: flex;
-    flex-direction: column;
-    min-width: 100%;
+    min-width: 100%; /* Each slide takes up exactly one container width */
     box-sizing: border-box;
-    text-align: center;
-    align-items: center;
 }
 
 .slide img {
@@ -733,6 +837,7 @@ nav {
     margin: -10px 0 0 0;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
+    text-align:center;
 }
 
 .slider-btn {

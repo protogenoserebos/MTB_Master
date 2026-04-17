@@ -17,7 +17,13 @@ class TrailArticle(models.Model):
   
     Trail_Name = models.CharField(max_length=200, help_text="Trail Location Name e.g. Whitewater Center")
 
-    Order_Priority = models.IntegerField(help_text="Priority of Trail that dictates where it is displayed on the home screen. 1 being first, etc.")
+    Order_Priority = models.IntegerField(null=True, blank=True, help_text="Priority of Trail that dictates where it is displayed on the home screen. 1 being first, etc.")
+
+    Loc_Priority = models.IntegerField(null=True, blank=True, help_text="Priority of Trail that dictates where it is displayed on the home screen. 1 being first, etc.")
+
+    Beginner_Priority = models.IntegerField(null=True, blank=True, help_text="Priority of Trail that dictates whether it's beginner friendly.")
+
+    Bike_Park_Priority = models.IntegerField(null=True, blank=True, help_text="Priority of Trail that dictates whether its a bike park.")
 
     Trail_Card_Logo = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Image that shows up on card on landing page tile. Typically a trail logo ex: Airline Logo.")
     
@@ -60,6 +66,21 @@ class TrailArticle(models.Model):
 
     Main_Features_Trails = models.TextField(blank=True,null=True, help_text="Enter the main trails and features on individual line e.g. Mountain Creek Hub, Loop, Jumps, Pump Track. Each line will be a bulleted list.")
 
+    Approach_img_1 = models.ImageField(upload_to='trail_photos', blank=True, null=True, help_text="This image is an approach to the trail head.")
+
+    Approach_img_1_Desc = models.CharField(max_length=500, blank=True, null=True, help_text="Trailhead approach description.")
+                                           
+    Approach_img_2 = models.ImageField(upload_to='trail_photos', blank=True, null=True,  help_text="This image is an approach to the trail head.")
+
+    Approach_img_2_Desc = models.CharField(max_length=500, blank=True, null=True,  help_text="Trailhead approach description.")
+
+    Approach_img_3 = models.ImageField(upload_to='trail_photos', blank=True, null=True,  help_text="This image is an approach to the trail head.")
+
+    Approach_img_3_Desc = models.CharField(max_length=500, blank=True, null=True,  help_text="Trailhead approach description.")
+
+    Approach_img_4 = models.ImageField(upload_to='trail_photos', blank=True, null=True,  help_text="This image is an approach to the trail head.")
+
+    Approach_img_4_Desc = models.CharField(max_length=500, blank=True, null=True,  help_text="Trailhead approach description.")
     
    
 
@@ -186,6 +207,17 @@ class TrailArticle(models.Model):
             if img:
                 spotlights.append({'image': img, 'desc': desc})
         return spotlights
+    
+    def get_approach_img(self):
+        """Returns a list of dictionaries for each non-empty spotlight."""
+        approach = []
+        for i in range(1, 5):
+            img = getattr(self, f'Approach_img_{i}')
+            desc = getattr(self, f'Approach_img_{i}_Desc')
+            if img:
+                approach.append({'image': img, 'desc': desc})
+        return approach
+
 
     def get_content_blocks(self):
         """Groups trail sections into dictionaries for clean template rendering."""
