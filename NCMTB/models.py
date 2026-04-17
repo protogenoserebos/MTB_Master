@@ -38,16 +38,30 @@ class TrailArticle(models.Model):
     date_added = models.DateField(auto_now_add=True)
 
     date_updated = models.DateField(auto_now=True)
-    
-    Title_Trail_Image = models.ImageField(upload_to='trail_photos', help_text="This image appears on the Trail page as an opening image. This should be an action shot and eye-catcher e.g. Flight Deck at Airline.")
 
+    Feature_Spotlight_1 = models.ImageField(upload_to='trail_photos', blank=True, null=True, help_text="This image is a feature spotlight.")
+
+    Feature_Spotlight_1_Desc = models.CharField(max_length=500, blank=True, null=True, help_text="Trail Description that appears on the Trail page as an opening statement.")
+
+    Feature_Spotlight_2 = models.ImageField(upload_to='trail_photos', blank=True, null=True,  help_text="This image is a feature spotlight.")
+
+    Feature_Spotlight_2_Desc = models.CharField(max_length=500, blank=True, null=True,  help_text="Trail Description that appears on the Trail page as an opening statement.")
+
+    Feature_Spotlight_3 = models.ImageField(upload_to='trail_photos', blank=True, null=True,  help_text="This image is a feature spotlight.")
+
+    Feature_Spotlight_3_Desc = models.CharField(max_length=500, blank=True, null=True,  help_text="Trail Description that appears on the Trail page as an opening statement.")
+
+    Feature_Spotlight_4 = models.ImageField(upload_to='trail_photos', blank=True, null=True,  help_text="This image is a feature spotlight.")
+
+    Feature_Spotlight_4_Desc = models.CharField(max_length=500, blank=True, null=True,  help_text="Trail Description that appears on the Trail page as an opening statement.")
+    
     Trail_Landing_Desc = models.CharField(max_length=500, help_text="Trail Description that appears on the Trail page as an opening statement.")
 
 
     Main_Features_Trails = models.TextField(blank=True,null=True, help_text="Enter the main trails and features on individual line e.g. Mountain Creek Hub, Loop, Jumps, Pump Track. Each line will be a bulleted list.")
 
     
-    Overview_Trail_Video = models.TextField(blank=True, null=True, help_text="Overview video of the trails at the location. This is a YouTube Embed Code.")
+   
 
     
     First_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
@@ -162,6 +176,16 @@ class TrailArticle(models.Model):
             'Intermediate': '#264653',     # Deep Dark Blue
         }
         return colors.get(self.Trail_Difficulty, '#FF7F50') # Default to orange if not found
+    
+    def get_feature_spotlights(self):
+        """Returns a list of dictionaries for each non-empty spotlight."""
+        spotlights = []
+        for i in range(1, 5):
+            img = getattr(self, f'Feature_Spotlight_{i}')
+            desc = getattr(self, f'Feature_Spotlight_{i}_Desc')
+            if img:
+                spotlights.append({'image': img, 'desc': desc})
+        return spotlights
 
     def get_content_blocks(self):
         """Groups trail sections into dictionaries for clean template rendering."""
