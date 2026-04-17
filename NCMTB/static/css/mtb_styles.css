@@ -703,6 +703,8 @@ nav {
     border-radius: 12px;
 }
 
+.disclaimer{background: #bbe6f7; padding:10px; border-radius:10px; margin-bottom:40px; }
+
 .slider-wrapper {
     display: flex;
     transition: transform 0.4s ease-in-out;
