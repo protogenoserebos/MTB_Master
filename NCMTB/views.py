@@ -15,6 +15,30 @@ class TrailListView(ListView):
         context = super().get_context_data(**kwargs)
         context['page_title'] = "Popular Trails"
         return context
+    
+def trail_list(request):
+    # Get the sort parameter from the URL, default to 'favorites'
+    sort_by = request.GET.get('sort', 'favorites')
+    
+    # Map the UI labels to your model fields
+    sort_mapping = {
+        'favorites': 'Order_Priority',
+        'location': 'Loc_Priority',
+        'beginner': 'Beginner_Priority',
+        'bikepark': 'Bike_Park_Priority',
+    }
+    
+    # Get the actual field name, defaulting to Order_Priority if key is invalid
+    target_field = sort_mapping.get(sort_by, 'Order_Priority')
+    
+    # Filter: Exclude trails where the selected priority field is 0
+    # Order: Ascending order based on that same field
+    trails = TrailArticle.objects.exclude(**{f"{target_field}": 0}).order_by(target_field)
+    
+    return render(request, 'your_template.html', {
+        'trails': trails,
+        'current_sort': sort_by
+    })
 
 def category_view(request, trail_difficulty_type):
     # This filters trail difficulty based on the key
@@ -174,26 +198,4 @@ class TrailDetailView(DetailView):
         return redirect('trail_detail', slug=trail.slug)
     
 
-def trail_list(request):
-    # Get the sort parameter from the URL, default to 'favorites'
-    sort_by = request.GET.get('sort', 'favorites')
-    
-    # Map the UI labels to your model fields
-    sort_mapping = {
-        'favorites': 'Order_Priority',
-        'location': 'Loc_Priority',
-        'beginner': 'Beginner_Priority',
-        'bikepark': 'Bike_Park_Priority',
-    }
-    
-    # Get the actual field name, defaulting to Order_Priority if key is invalid
-    target_field = sort_mapping.get(sort_by, 'Order_Priority')
-    
-    # Filter: Exclude trails where the selected priority field is 0
-    # Order: Ascending order based on that same field
-    trails = TrailArticle.objects.exclude(**{f"{target_field}": 0}).order_by(target_field)
-    
-    return render(request, 'your_template.html', {
-        'trails': trails,
-        'current_sort': sort_by
-    })
+

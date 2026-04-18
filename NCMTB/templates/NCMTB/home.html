@@ -93,7 +93,7 @@
         <p style="font-size:11pt; text-align: center;">Whether you're looking for mountain biking trails in Charlotte, North Carolina or using Charlotte as your launching point to other trails nearby, here is a list of some of our favorite trails.</p>
     </div>
     
-    <section class="trail-sort-container">
+    <!--<section class="trail-sort-container">
         <p class="trail-sort-label">Sort Trails By</p>
         <div class="trail-sort">
             <a href="?sort=favorites" class="{% if current_sort == 'favorites' or not current_sort %}active{% endif %}">
@@ -109,7 +109,7 @@
                 Bike Park
             </a>
         </div>
-    </section>
+    </section>-->
 
         {% for trail in trails %}
         <a href="{{ trail.get_absolute_url }}" class="card-link-wrapper">

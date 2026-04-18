@@ -129,40 +129,31 @@
 <section id="section-trailmap" class="content-section">
 
     <h3>Trail Map</h3>
-
     <p>Click the below map to expand the image.</p>
-
     <img src="{{ trail.Trail_Map_Image.url }}" class="img-clickable" onclick="openImage(this.src)" alt="Trail Map">
 
-    <h3>Trailhead Approach</h3>
+    {% if trail.get_approach_img %}
+        <h3>Trailhead Approach</h3>
+        <p>Toggle the below images to view how to access the various trailheads.</p>
 
-    <p>Toggle the below images to view how to access the various trailheads.</p>
-
-    <div class="spotlight-slider">
-
-    <div class="slider-wrapper">
-
-        {% for spot in trail.get_approach_img %}
-            <div class="slide">
-
-                <img src="{{ spot.image.url }}" class="img-clickable" onclick="openImage(this.src)" alt="Trailhead Approach">
-
-                {% if spot.desc %}
-                    <p class="slide-caption">{{ spot.desc }}</p>
-                {% endif %}
-
+        <div class="spotlight-slider">
+            <div class="slider-wrapper">
+                {% for spot in trail.get_approach_img %}
+                    <div class="slide">
+                        <img src="{{ spot.image.url }}" class="img-clickable" onclick="openImage(this.src)" alt="Trailhead Approach">
+                        {% if spot.desc %}
+                            <p class="slide-caption">{{ spot.desc }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
             </div>
-
-        {% endfor %}
-
-    </div>
-    
-    {% if trail.get_approach_img|length > 1 %}
-        <button class="slider-btn prev" onclick="moveSlide(-1, this)">❮</button>
-<button class="slider-btn next" onclick="moveSlide(1, this)">❯</button>
+            
+            {% if trail.get_approach_img|length > 1 %}
+                <button class="slider-btn prev" onclick="moveSlide(-1, this)">❮</button>
+                <button class="slider-btn next" onclick="moveSlide(1, this)">❯</button>
+            {% endif %}
+        </div>
     {% endif %}
-</div>
-
 
 </section>
 
