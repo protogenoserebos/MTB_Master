@@ -30,6 +30,10 @@ class TrailArticle(models.Model):
     slug = models.SlugField(unique=True, help_text="URL-friendly version of the title e.g. NCMTB.com/url-friendly-slug")
 
     trail_short_card_description = models.TextField(blank=True, null=True, help_text="Add individual lines about key features that will show up on the card as a bulleted list (for each separate line).")
+
+    Trail_Landing_Desc = models.CharField(max_length=500, help_text="Trail Description that appears on the Trail page as an opening statement.")
+
+    Main_Features_Trails = models.TextField(blank=True,null=True, help_text="Enter the main trails and features on individual line e.g. Mountain Creek Hub, Loop, Jumps, Pump Track. Each line will be a bulleted list.")
     
     Trail_Map_Image = models.ImageField(upload_to='trail_photos', blank=True, help_text="The trail map is displayed on the trail page under Trails tab.")
     
@@ -61,10 +65,10 @@ class TrailArticle(models.Model):
 
     Feature_Spotlight_4_Desc = models.CharField(max_length=500, blank=True, null=True,  help_text="Trail Description that appears on the Trail page as an opening statement.")
     
-    Trail_Landing_Desc = models.CharField(max_length=500, help_text="Trail Description that appears on the Trail page as an opening statement.")
+    
 
 
-    Main_Features_Trails = models.TextField(blank=True,null=True, help_text="Enter the main trails and features on individual line e.g. Mountain Creek Hub, Loop, Jumps, Pump Track. Each line will be a bulleted list.")
+    
 
     Approach_img_1 = models.ImageField(upload_to='trail_photos', blank=True, null=True, help_text="This image is an approach to the trail head.")
 
@@ -86,86 +90,90 @@ class TrailArticle(models.Model):
 
     
     First_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    First_Trail_Section_Difficulty = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Difficulty")
-    First_Trail_Section_Distance = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Distance")
+    
     First_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
     First_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     First_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
-    First_Trail_Short = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+  
     
    
     Second_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    Second_Trail_Section_Difficulty = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Difficulty")
-    Second_Trail_Section_Distance = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Distance")
+    
     Second_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
     Second_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Second_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
-    Second_Trail_Short = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+
     
     
     Third_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    Third_Trail_Section_Difficulty = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Difficulty")
-    Third_Trail_Section_Distance = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Distance")
+   
     Third_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
     Third_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Third_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
-    Third_Trail_Short = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+   
 
     Fourth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    Fourth_Trail_Section_Difficulty = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Difficulty")
-    Fourth_Trail_Section_Distance = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Distance")
+    
     Fourth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
     Fourth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Fourth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
-    Fourth_Trail_Short = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+   
 
     Fifth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    Fifth_Trail_Section_Difficulty = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Difficulty")
-    Fifth_Trail_Section_Distance = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Distance")
+   
     Fifth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
     Fifth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Fifth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
-    Fifth_Trail_Short = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+  
 
     Sixth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    Sixth_Trail_Section_Difficulty = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Difficulty")
-    Sixth_Trail_Section_Distance = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Distance")
+   
     Sixth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
     Sixth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Sixth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
-    Sixth_Trail_Short = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+   
 
     Seventh_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    Seventh_Trail_Section_Difficulty = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Difficulty")
-    Seventh_Trail_Section_Distance = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Distance")
+   
     Seventh_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
     Seventh_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Seventh_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
-    Seventh_Trail_Short = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+   
 
     Eigth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    Eigth_Trail_Section_Difficulty = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Difficulty")
-    Eigth_Trail_Section_Distance = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Distance")
+    
     Eigth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
     Eigth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Eigth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
-    Eigth_Trail_Short = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+   
 
     Ninth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    Ninth_Trail_Section_Difficulty = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Difficulty")
-    Ninth_Trail_Section_Distance = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Distance")
+    
     Ninth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
     Ninth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Ninth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
-    Ninth_Trail_Short = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+   
 
     Tenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    Tenth_Trail_Section_Difficulty = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Difficulty")
-    Tenth_Trail_Section_Distance = models.CharField(blank=True, max_length=20, null=True, help_text="Trail Distance")
+
     Tenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
     Tenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Tenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
-    Tenth_Trail_Short = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+  
+
+    Eleventh_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
+    
+    Eleventh_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    Eleventh_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
+    Eleventh_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+
+
+    Twelfth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
+    
+    Twelfth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    Twelfth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
+    Twelfth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+  
 
     class Meta:
         ordering = ['Order_Priority']
@@ -225,84 +233,88 @@ class TrailArticle(models.Model):
             
             {
                 "title": self.First_Trail_Section_Title,
-                "difficulty": self.First_Trail_Section_Difficulty,
-                "distance": self.First_Trail_Section_Distance,
+
                 "image": self.First_Trail_Section_Image,
                 "video": self.First_Trail_Video,
-                "short": self.First_Trail_Short,
+             
                 "desc": self.First_Trail_Section_Desc,
             },
             {
                 "title": self.Second_Trail_Section_Title,
-                "difficulty": self.Second_Trail_Section_Difficulty,
-                "distance": self.Second_Trail_Section_Distance,
+
                 "image": self.Second_Trail_Section_Image,
                 "video": self.Second_Trail_Video,
                 "desc": self.Second_Trail_Section_Desc,
             },
             {
                 "title": self.Third_Trail_Section_Title,
-                "difficulty": self.Third_Trail_Section_Difficulty,
-                "distance": self.Third_Trail_Section_Distance,
+      
                 "image": self.Third_Trail_Section_Image,
                 "video": self.Third_Trail_Video,
                 "desc": self.Third_Trail_Section_Desc,
             },
             {
                 "title": self.Fourth_Trail_Section_Title,
-                "difficulty": self.Fourth_Trail_Section_Difficulty,
-                "distance": self.Fourth_Trail_Section_Distance,
+
                 "image": self.Fourth_Trail_Section_Image,
                 "video": self.Fourth_Trail_Video,
                 "desc": self.Fourth_Trail_Section_Desc,
             },
             {
                 "title": self.Fifth_Trail_Section_Title,
-                "difficulty": self.Fifth_Trail_Section_Difficulty,
-                "distance": self.Fifth_Trail_Section_Distance,
+      
                 "image": self.Fifth_Trail_Section_Image,
                 "video": self.Fifth_Trail_Video,
                 "desc": self.Fifth_Trail_Section_Desc,
             },
             {
                 "title": self.Sixth_Trail_Section_Title,
-                "difficulty": self.Sixth_Trail_Section_Difficulty,
-                "distance": self.Sixth_Trail_Section_Distance,
+      
                 "image": self.Sixth_Trail_Section_Image,
                 "video": self.Sixth_Trail_Video,
                 "desc": self.Sixth_Trail_Section_Desc,
             },
             {
                 "title": self.Seventh_Trail_Section_Title,
-                "difficulty": self.Seventh_Trail_Section_Difficulty,
-                "distance": self.Seventh_Trail_Section_Distance,
+
                 "image": self.Seventh_Trail_Section_Image,
                 "video": self.Seventh_Trail_Video,
                 "desc": self.Seventh_Trail_Section_Desc,
             },
             {
                 "title": self.Eigth_Trail_Section_Title,
-                "difficulty": self.Eigth_Trail_Section_Difficulty,
-                "distance": self.Eigth_Trail_Section_Distance,
+
                 "image": self.Eigth_Trail_Section_Image,
                 "video": self.Eigth_Trail_Video,
                 "desc": self.Eigth_Trail_Section_Desc,
             },
             {
                 "title": self.Ninth_Trail_Section_Title,
-                "difficulty": self.Ninth_Trail_Section_Difficulty,
-                "distance": self.Ninth_Trail_Section_Distance,
+ 
                 "image": self.Ninth_Trail_Section_Image,
                 "video": self.Ninth_Trail_Video,
                 "desc": self.Ninth_Trail_Section_Desc,
             },
             {
                 "title": self.Tenth_Trail_Section_Title,
-                "difficulty": self.Tenth_Trail_Section_Difficulty,
-                "distance": self.Tenth_Trail_Section_Distance,
+
                 "image": self.Tenth_Trail_Section_Image,
                 "video": self.Tenth_Trail_Video,
                 "desc": self.Tenth_Trail_Section_Desc,
+            },
+{
+                "title": self.Eleventh_Trail_Section_Title,
+
+                "image": self.Eleventh_Trail_Section_Image,
+                "video": self.Eleventh_Trail_Video,
+                "desc": self.Eleventh_Trail_Section_Desc,
+            },
+            {
+                "title": self.Twelfth_Trail_Section_Title,
+   
+                "image": self.Twelfth_Trail_Section_Image,
+                "video": self.Twelfth_Trail_Video,
+                "desc": self.Twelfth_Trail_Section_Desc,
             },
         ]
 
