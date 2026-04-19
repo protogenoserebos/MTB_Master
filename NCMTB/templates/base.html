@@ -20,11 +20,28 @@
   gtag('config', 'G-B9DR4SSM32');
 </script>
 <body>
-    <header class="navbar1">
+    <header id="mainHeader">
+    <div class="logo-wrap">
         <a class="hero-link" href="{% url 'home' %}" aria-label="Go to homepage">
-            <img src="{% static 'NCMTB/images/CLTMTB.png' %}" alt="Charlotte NC MTB Logo" class="hero-image" />
+            <div class="scrolled-brand-wrap">
+                <span class="side-text left-text">CLT</span>
+                <img id="headerLogo" src="{% static 'NCMTB/images/CLTMTB.png' %}" alt="Logo" class="hero-image" />
+                <span class="side-text right-text">MTB</span>
+            </div>
         </a>
-    </header>
+    </div>
+
+    <nav class="sticky-nav-bar">
+        <div class="nav-links-container">
+            <a href="{% url 'home' %}" class="nav-item">HOME</a>
+            <a href="/trails/" class="nav-item">TRAILS</a>
+            <a href="{% url 'about' %}" class="nav-item">ABOUT</a>
+            <a href="mailto:developingwriter@gmail.com" class="nav-item">CONTACT</a>
+        </div>
+    </nav>
+</header>
+
+<div id="scrollTrigger" style="position: absolute; top: 10px;"></div>
     
     <main class="container">
         {% block content %}{% endblock %}
@@ -40,5 +57,28 @@
         
       </div>
     </footer>
+    <script>
+    const body = document.querySelector('body');
+    const trigger = document.querySelector('#scrollTrigger');
+
+    const scrollOptions = {
+        // threshold: 0 means as soon as 1px of the trigger is invisible, it fires
+        threshold: 0,
+        rootMargin: "0px 0px 0px 0px" 
+    };
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // entry.isIntersecting is true when the trigger is at the top
+            if (!entry.isIntersecting) {
+                body.classList.add('is-scrolled');
+            } else {
+                body.classList.remove('is-scrolled');
+            }
+        });
+    }, scrollOptions);
+
+    scrollObserver.observe(trigger);
+</script>
   </body>
 </html>
