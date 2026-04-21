@@ -10,11 +10,39 @@ class TrailListView(ListView):
     model = TrailArticle
     template_name = 'NCMTB/home.html'
     context_object_name = 'trails'
-    
+
+    def get_queryset(self):
+        sort_by = self.request.GET.get('sort', 'favorites')
+        
+        sort_mapping = {
+            'favorites': 'Order_Priority',
+            'location': 'Loc_Priority',
+            'beginner': 'Beginner_Priority',
+            'bikepark': 'Bike_Park_Priority',
+            'roadtrip': 'Loc_Priority', # Reusing Loc_Priority or a specific field
+        }
+        
+        target_field = sort_mapping.get(sort_by, 'Order_Priority')
+
+        # Logic for "Road Trip": Sort descending (biggest values first)
+        if sort_by == 'roadtrip':
+            queryset = TrailArticle.objects.exclude(
+                **{f"{target_field}__in": [0, None]}
+            ).order_by(f"-{target_field}") # The '-' makes it descending
+        else:
+            # Standard ascending sort for others
+            queryset = TrailArticle.objects.exclude(
+                **{f"{target_field}__in": [0, None]}
+            ).order_by(target_field)
+        
+        return queryset
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['page_title'] = "Popular Trails"
+        context['current_sort'] = self.request.GET.get('sort', 'favorites')
         return context
+    
+
     
 def trail_list(request):
     # Get the sort parameter from the URL, default to 'favorites'
@@ -103,6 +131,10 @@ def interest(request):
 def about(request):
     return render(request, 'NCMTB/about.html')
 
+
+def trail_maps_view(request):
+    trails = TrailArticle.objects.all().order_by('Order_Priority')
+    return render(request, 'trailmaps.html', {'trails': trails})
 
 
 

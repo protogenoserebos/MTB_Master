@@ -13,6 +13,8 @@ urlpatterns = [
 
     path('about/', views.about, name='about'),
 
+    path('trailmaps/', views.trail_maps_view, name='trail_maps_view'),
+
 
   
 ]

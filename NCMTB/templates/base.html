@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RIDE CHARLOTTE MTB</title>
     <link rel="stylesheet" href="{% static 'css/mtb_styles.css' %}">
     <link rel="icon" type="image/png" href="{% static 'NCMTB/images/CLTMTB_Icon.png' %}">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8145523760411744"
@@ -33,10 +32,9 @@
 
     <nav class="sticky-nav-bar">
         <div class="nav-links-container">
-            <a href="{% url 'home' %}" class="nav-item">HOME</a>
-            <a href="/trails/" class="nav-item">TRAILS</a>
+            <a href="{% url 'home' %}" class="nav-item">TRAILS</a>
+            <a href="{% url 'trail_maps_view' %}" class="nav-item">TRAIL MAPS</a>
             <a href="{% url 'about' %}" class="nav-item">ABOUT</a>
-            <a href="mailto:developingwriter@gmail.com" class="nav-item">CONTACT</a>
         </div>
     </nav>
 </header>

@@ -758,11 +758,11 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
 }
 
 .trail-sort a {
-    padding: 8px 18px;
+    padding: 8px 8px;
     font-size: 10pt;
     font-weight: 600;
     color: #555;
-    border-radius: 40px;
+    border-radius: 15px;
     transition: all 0.2s ease;
     text-decoration: none !important;
 }
@@ -998,7 +998,7 @@ nav {
 .sticky-nav-bar {
     background: rgba(255, 255, 255, 0);
    
-    padding: 12px 0;
+    padding: 5px 0 12px 0;
 }
 
 .nav-links-container {
@@ -1073,7 +1073,7 @@ nav {
 }
 
 .is-scrolled #headerLogo {
-    height: 75px;
+    height: 55px;
 }
 
 /* Make text visible and slide to final position */

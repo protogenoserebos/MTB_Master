@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-
+<head><title>Charlotte MTB | Home</title></head>
 <style>
 
 .hero-overlay {
@@ -93,23 +93,28 @@
         <p style="font-size:11pt; text-align: center;">Whether you're looking for mountain biking trails in Charlotte, North Carolina or using Charlotte as your launching point to other trails nearby, here is a list of some of our favorite trails.</p>
     </div>
     
-    <!--<section class="trail-sort-container">
-        <p class="trail-sort-label">Sort Trails By</p>
-        <div class="trail-sort">
-            <a href="?sort=favorites" class="{% if current_sort == 'favorites' or not current_sort %}active{% endif %}">
-                Favorites
-            </a>
-            <a href="?sort=location" class="{% if current_sort == 'location' %}active{% endif %}">
-                Location
-            </a>
-            <a href="?sort=beginner" class="{% if current_sort == 'beginner' %}active{% endif %}">
-                Beginner
-            </a>
-            <a href="?sort=bikepark" class="{% if current_sort == 'bikepark' %}active{% endif %}">
-                Bike Park
-            </a>
-        </div>
-    </section>-->
+<section class="trail-sort-container">
+    <p class="trail-sort-label">Sort Trails By</p>
+    <div class="trail-sort">
+        <a href="?sort=favorites" class="{% if current_sort == 'favorites' %}active{% endif %}">
+            Favorites
+        </a>
+        <a href="?sort=location" class="{% if current_sort == 'location' %}active{% endif %}">
+            Charlotte
+        </a>
+        <a href="?sort=beginner" class="{% if current_sort == 'beginner' %}active{% endif %}">
+            Beginner
+        </a>
+        <a href="?sort=bikepark" class="{% if current_sort == 'bikepark' %}active{% endif %}">
+            Bike Park
+        </a>
+        <a href="?sort=location" class="{% if current_sort == 'location' %}active{% endif %}">
+            Road Trip
+        </a>
+        
+        
+    </div>
+</section>
 
         {% for trail in trails %}
         <a href="{{ trail.get_absolute_url }}" class="card-link-wrapper">

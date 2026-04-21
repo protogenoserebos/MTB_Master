@@ -3,6 +3,8 @@
 
 {% block content %}
 
+<head><title>Charlotte MTB | {{ trail.Trail_Name }}</title></head>
+
 <div id="image-overlay" onclick="this.style.display='none'" role="dialog" aria-modal="true">
     <img id="overlay-img" src="" alt="Enlarged view">
 </div>
@@ -18,7 +20,7 @@
 
             <p style="text-align:center; margin: 5px auto;">
             
-                <a style="color:#26a7dc; text-decoration:underline;" href="{{ trail.Trail_Website}}" alt-text="Link to Trail Website">{{ trail.Trail_Name }} Website</a>
+                <a style="color:#26a7dc; text-decoration:underline;" href="{{ trail.Trail_Website}}" target="_blank" alt-text="Link to Trail Website">{{ trail.Trail_Name }} Website</a>
             
             </p>
 
