@@ -4,6 +4,8 @@ from django.urls import reverse
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.text import slugify
 from django.db.models import Avg
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 
 
 
@@ -36,6 +38,11 @@ class TrailArticle(models.Model):
     Main_Features_Trails = models.TextField(blank=True,null=True, help_text="Enter the main trails and features on individual line e.g. Mountain Creek Hub, Loop, Jumps, Pump Track. Each line will be a bulleted list.")
     
     Trail_Map_Image = models.ImageField(upload_to='trail_photos', blank=True, help_text="The trail map is displayed on the trail page under Trails tab.")
+
+    Trail_Map_Thumbnail = ImageSpecField(source='Trail_Map_Image',
+                                      processors=[ResizeToFill(400, 250)],
+                                      format='JPEG',
+                                      options={'quality': 70})
     
     Trail_Website = models.URLField()
 

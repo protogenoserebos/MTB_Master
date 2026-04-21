@@ -46,6 +46,9 @@ INSTALLED_APPS = [
 
     # Admin Portal Styling
     'jazzmin',
+
+     # Img Handling
+    'imagekit',
     
      # My Apps 
     'NCMTB',
