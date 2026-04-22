@@ -12,36 +12,33 @@ class TrailListView(ListView):
     context_object_name = 'trails'
 
     def get_queryset(self):
+        # Default to favorites if no sort is provided
         sort_by = self.request.GET.get('sort', 'favorites')
         
         sort_mapping = {
-            'favorites': 'Order_Priority',
             'location': 'Loc_Priority',
+            'roadtrip': 'Loc_Priority',
             'beginner': 'Beginner_Priority',
             'bikepark': 'Bike_Park_Priority',
-            'roadtrip': 'Loc_Priority', # Reusing Loc_Priority or a specific field
+            'family': 'Family_Priority',
         }
         
+        # If the sort key isn't in our mapping (like 'favorites'), 
+        # it defaults to 'Order_Priority'
         target_field = sort_mapping.get(sort_by, 'Order_Priority')
 
-        # Logic for "Road Trip": Sort descending (biggest values first)
+        qs = TrailArticle.objects.exclude(**{f"{target_field}__in": [0, None]})
+
         if sort_by == 'roadtrip':
-            queryset = TrailArticle.objects.exclude(
-                **{f"{target_field}__in": [0, None]}
-            ).order_by(f"-{target_field}") # The '-' makes it descending
+            return qs.order_by(f"-{target_field}")
         else:
-            # Standard ascending sort for others
-            queryset = TrailArticle.objects.exclude(
-                **{f"{target_field}__in": [0, None]}
-            ).order_by(target_field)
-        
-        return queryset
+            return qs.order_by(target_field)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['current_sort'] = self.request.GET.get('sort', 'favorites')
-        return context
-    
+        # This is what drives the "active" class highlighting
+        context['current_sort'] = self.request.GET.get('sort')
+        return context 
 
     
 def trail_list(request):

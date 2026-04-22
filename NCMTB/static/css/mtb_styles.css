@@ -744,6 +744,7 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 12px;
+    text-align: center;
 }
 
 .trail-sort {
@@ -753,16 +754,17 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
     gap: 8px;
     background: rgba(0, 0, 0, 0.03); /* Subtle track background */
     padding: 6px;
-    border-radius: 50px; /* Pill shape */
+    border-radius: 15px; /* Pill shape */
     border: 1px solid #eee;
+    margin: auto 10px;
 }
 
 .trail-sort a {
-    padding: 8px 8px;
-    font-size: 10pt;
+    padding: 7px 6px;
+    font-size: 9pt;
     font-weight: 600;
     color: #555;
-    border-radius: 15px;
+    border-radius: 8px;
     transition: all 0.2s ease;
     text-decoration: none !important;
 }
@@ -1047,7 +1049,7 @@ nav {
     align-items: center;
     justify-content: center;
     gap: 0; /* Starts at zero */
-    transition: gap 0.4s ease;
+    transition: gap 0.3s ease-in-out;
 }
 
 .side-text {
@@ -1109,6 +1111,7 @@ nav {
 
     .container {max-width:1000px;} 
 
+    .about-container {max-width:600px; margin: auto auto} 
     
 
     .img-clickable {

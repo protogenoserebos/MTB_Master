@@ -8,7 +8,16 @@
 
         pip install -r requirements.txt
 
-### Restart Dependencies
+### Troubleshoot & Restart Gunicorn Server
+
+sudo systemctl stop ncmtb.service
+
+- To Clear Image Cache
+
+        (venv) root@DevelopWriterUmbrella:/var/www/site2/MTB_Master# rm -rf /var/www/site2/MTB_Master/media/CACHE
+
+        
+(venv) root@DevelopWriterUmbrella:/var/www/site2/MTB_Master# sudo systemctl start ncmtb.service
 
 - Restart the app server (gunicorn)
 

@@ -25,6 +25,8 @@ class TrailArticle(models.Model):
 
     Beginner_Priority = models.IntegerField(null=True, blank=True, help_text="Priority of Trail that dictates whether it's beginner friendly.")
 
+    Family_Priority = models.IntegerField(null=True, blank=True, help_text="Priority of Trail that dictates whether it's beginner friendly.")
+
     Bike_Park_Priority = models.IntegerField(null=True, blank=True, help_text="Priority of Trail that dictates whether its a bike park.")
 
     Trail_Card_Logo = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Image that shows up on card on landing page tile. Typically a trail logo ex: Airline Logo.")
@@ -37,7 +39,7 @@ class TrailArticle(models.Model):
 
     Main_Features_Trails = models.TextField(blank=True,null=True, help_text="Enter the main trails and features on individual line e.g. Mountain Creek Hub, Loop, Jumps, Pump Track. Each line will be a bulleted list.")
     
-    Trail_Map_Image = models.ImageField(upload_to='trail_photos', blank=True, help_text="The trail map is displayed on the trail page under Trails tab.")
+    Trail_Map_Image = models.ImageField(upload_to='trail_photos', blank=True, null=True, help_text="The trail map is displayed on the trail page under Trails tab.")
 
     Trail_Map_Thumbnail = ImageSpecField(source='Trail_Map_Image', processors=[ResizeToFill(400, 250)], format='JPEG', options={'quality': 70})
     
