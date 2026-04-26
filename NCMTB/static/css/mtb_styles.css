@@ -80,13 +80,17 @@
 
 /* -- Trail Card Row Layout -- */
 
+
 .card-container-whole {
     display: flex;
-    flex-direction: row; /* Stays a row on all screen sizes */
-    align-items: center;  
-    width: 100%;
-    margin:10px;
-}
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px; }
 
 div.number-ranking {margin-top:0;display:flex;flex-direction:column;padding-left:10px;}
 p.number-ranking {font-weight: bold;
@@ -101,25 +105,24 @@ p.number-ranking {font-weight: bold;
 .card-container-image-wrap {
     flex: 3; /* Maintains 40% of the width */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 15px;
 }
 
 .card-container-image {
-
-    width: 83%;
-margin-right:20px;
+    width: 95%;
     height: auto;
     aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 10px;
+    margin-right:0;
+    margin-top:5px;
 }
 
 .card-container-details {
     flex: 5; /* 60% width */
-    
-
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -132,16 +135,15 @@ margin-right:20px;
     display: block; /* Makes the entire <a> fill the space */
     color: inherit; /* Keeps your text colors as defined */
     transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card-link-wrapper:hover {
     transform: translateY(-2px); /* Subtle lift on hover */
 }
 
-.card-link-wrapper:hover .card-container-whole {
-    
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
 
 /* -- Text Cleaning -- */
 .card-title-text {
@@ -182,6 +184,8 @@ margin-right:20px;
         
     }
 
+ 
+
 /* Specific adjustment for mobile text sizing */
 @media screen and (max-width: 480px) {
     .card-container-details h3 {
@@ -204,6 +208,7 @@ margin-right:20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
+
 
 /* 1. Landscape Videos (Overview & Section Videos) */
 .video-container {
@@ -983,6 +988,8 @@ nav {
     width: 100%;
 }
 
+.home-logo-img {filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05)); max-width:40%}
+
 .logo-wrap {
     display: grid;
     place-items: center;
@@ -1092,6 +1099,14 @@ nav {
 .is-scrolled .logo-wrap {
     padding: 10px 0;
 }
+ .rating-star {color: #ffb400;font-size:11pt; margin-top:5px;}
+
+ .tile-short-desc {text-align:center; margin: 5px 10px;}
+
+ .card-trail-name {color:#26a7dc;font-size: 13pt;font-weight: bold; margin:5px 0 0 0;}
+
+ .card-info {display:flex;flex-direction: column; align-items:center; margin-right:10px;}
+
  
 
     /* Desktop Styles */
@@ -1109,9 +1124,31 @@ nav {
               font-size: 18px;
           }
 
-    .container {max-width:1000px;} 
+.home-logo-img {filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05)); max-width:60%}
 
-    .about-container {max-width:600px; margin: auto auto} 
+.card-container-whole {
+    display: flex;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));
+    flex-direction: row; /* Stays a row on all screen sizes */
+    align-items: center;  
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+.card-trail-name {color:#26a7dc;font-size: 15pt;font-weight: bold; margin:15px 0 0 0;}
+
+.tile-short-desc {text-align:center; margin: 10px 50px;}
+
+.card-info {display:flex;flex-direction: column; align-items:center; margin-right:10px;}
+
+.rating-star {color: #ffb400;font-size:13pt; margin-top:5px;}
+
+.container {max-width:1000px;} 
+
+.about-container {max-width:600px; margin: auto auto} 
+
+
     
 
     .img-clickable {
@@ -1145,10 +1182,12 @@ table.trail-info {
 }
 
 .card-container-image {
-
-    width: 60%;
-    margin-right: 0px;
-  
+    width: 55%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    padding: 10px;
+    margin-right:0;
 }
 
 .card-container-image-wrap {
