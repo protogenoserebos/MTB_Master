@@ -90,27 +90,30 @@
 <section class="feature-spotlight">
     <div class="card-intro">
         <h2 style="font-size:14pt;color:black;font-weight:bold;margin-top:25px;text-align:center;">Charlotte, NC Mountain Biking Trails</h2>
-        <p style="font-size:11pt; text-align: center;">Whether you're looking for mountain biking trails in Charlotte, North Carolina or using Charlotte as your launching point to other trails nearby, here is a list of some of our favorite trails.</p>
+        <p style="font-size:11pt; text-align: center;">New to Charlotte? Looking for new spots to ride or planning a quick roadtrip out of the city?</p><p style="font-size:11pt; text-align: center;">See below for our trail recommendations!</p>
     </div>
     
 <section class="trail-sort-container">
     <p class="trail-sort-label">Sort Trails By</p>
     <div class="trail-sort">
+       
         <a href="?sort=location" class="{% if current_sort == 'location' %}active{% endif %}">
-            Charlotte
-        </a>
-        <a href="?sort=beginner" class="{% if current_sort == 'beginner' %}active{% endif %}">
-            Beginner
-        </a>
-        <a href="?sort=family" class="{% if current_sort == 'family' %}active{% endif %}">
-            Family-Friendly
-        </a>
-        <a href="?sort=bikepark" class="{% if current_sort == 'bikepark' %}active{% endif %}">
-            Bike Park
+            Local Trails
         </a>
         <a href="?sort=roadtrip" class="{% if current_sort == 'roadtrip' %}active{% endif %}">
             Road Trip
         </a>
+       
+         <a href="?sort=beginner" class="{% if current_sort == 'beginner' %}active{% endif %}">
+            Beginner
+        </a>
+        <a href="?sort=bikepark" class="{% if current_sort == 'bikepark' %}active{% endif %}">
+            Expert
+        </a>
+        <!--<a href="?sort=family" class="{% if current_sort == 'family' %}active{% endif %}">
+            Bring the Family
+        </a>-->
+        
     </div>
 
     {% if current_sort and current_sort != 'favorites' %}
@@ -140,12 +143,13 @@
                     
                  
                     <p class="tile-short-desc">{{ trail.trail_short_card_description }}</p>
-                    <a style="text-decoration: underline!important; font-size:11pt;color:#26a7dc;" href="{{ trail.get_absolute_url }}" class="card-link-wrapper">Select to learn more.</a>
-
+                    <img class="card-container-image" src="{{ trail.Feature_Spotlight_1.url }}" alt="{{ trail.Trail_Name }}">
+            <a style="text-decoration: underline!important; font-size:11pt;color:#26a7dc; margin-top:10px;" href="{{ trail.get_absolute_url }}" class="card-link-wrapper">Select to learn more.</a>
+                    
                 </div>
 
-                <img class="card-container-image" src="{{ trail.Feature_Spotlight_1.url }}" alt="{{ trail.Trail_Name }}">
-            
+                
+
                 
             </div>
         </a>

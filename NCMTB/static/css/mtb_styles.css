@@ -88,6 +88,7 @@
     align-items: center;
     width: 80%;
     margin: auto;
+    margin-bottom:15px;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     padding: 20px; }
@@ -114,7 +115,7 @@ p.number-ranking {font-weight: bold;
 .card-container-image {
     width: 95%;
     height: auto;
-    aspect-ratio: 1 / 1;
+    
     border-radius: 20px;
     padding: 10px;
     margin-right:0;
@@ -738,7 +739,7 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
 /* -- Trail Sort Filter Styling -- */
 
 .trail-sort-container {
-    margin: 20px auto;
+    margin: 0 auto 20px auto;
     text-align: center;
 }
 
@@ -761,7 +762,9 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
     padding: 6px;
     border-radius: 15px; /* Pill shape */
     border: 1px solid #eee;
-    margin: auto 10px;
+    margin: auto 10px 20px auto;
+    
+
 }
 
 .trail-sort a {
@@ -988,7 +991,7 @@ nav {
     width: 100%;
 }
 
-.home-logo-img {filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05)); max-width:40%}
+.home-logo-img {filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05)); max-width:150px}
 
 .logo-wrap {
     display: grid;
@@ -1124,15 +1127,16 @@ nav {
               font-size: 18px;
           }
 
-.home-logo-img {filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05)); max-width:60%}
+.home-logo-img {filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05)); max-width:150px}
 
 .card-container-whole {
     display: flex;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));
     flex-direction: row; /* Stays a row on all screen sizes */
     align-items: center;  
-    width: 80%;
+    width: 50%;
     border-radius: 15px;
+    margin-bottom: 25px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     padding: 20px;
 }
@@ -1182,9 +1186,9 @@ table.trail-info {
 }
 
 .card-container-image {
-    width: 55%;
+    width: 75%;
     height: auto;
-    aspect-ratio: 1 / 1;
+   
     border-radius: 20px;
     padding: 10px;
     margin-right:0;
