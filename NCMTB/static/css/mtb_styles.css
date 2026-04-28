@@ -1134,7 +1134,7 @@ nav {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));
     flex-direction: row; /* Stays a row on all screen sizes */
     align-items: center;  
-    width: 50%;
+    width: 70%;
     border-radius: 15px;
     margin-bottom: 25px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -1148,7 +1148,7 @@ nav {
 
 .rating-star {color: #ffb400;font-size:13pt; margin-top:5px;}
 
-.container {max-width:1000px;} 
+.container {max-width:800px;} 
 
 .about-container {max-width:600px; margin: auto auto} 
 
