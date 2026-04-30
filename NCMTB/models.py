@@ -6,16 +6,43 @@ from django.utils.text import slugify
 from django.db.models import Avg
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
+from ckeditor_uploader.fields import RichTextUploadingField
+
+
+class Blog(models.Model):
+
+    """Blog Post about Charlotte Trails"""
+
+    Blog_Title = models.CharField(max_length=200, help_text="Trail Location Name e.g. Whitewater Center")
+
+    slug = models.SlugField(unique=True, help_text="URL-friendly version of the title e.g. NCMTB.com/blog-post-title")
+
+    date_added = models.DateField(auto_now_add=True)
+
+    Lead_Image = models.ImageField(upload_to='trail_photos', blank=True, null=True, help_text="Eye catcher.")
+
+    Intro_Text = RichTextUploadingField(max_length=500, help_text="Intro statement.")
+    
+
+    class Meta:
+        # Adding the '-' makes it descending
+        ordering = ['-date_added']
+        verbose_name = "Blog Post"
+
+    def __str__(self):
+        return f"{self.Blog_Title}"
+
+    def get_absolute_url(self):
+        # This tells Django how to calculate the URL for an instance
+        return reverse('blog', kwargs={'slug': self.slug})
+
 
 
 
 
 class TrailArticle(models.Model):
+
     """Represents a trail article on NC MTB"""
-
-
-
-# Trail Meta Information
   
     Trail_Name = models.CharField(max_length=200, help_text="Trail Location Name e.g. Whitewater Center")
 
@@ -36,6 +63,10 @@ class TrailArticle(models.Model):
     trail_short_card_description = models.TextField(blank=True, null=True, help_text="Add individual lines about key features that will show up on the card as a bulleted list (for each separate line).")
 
     Trail_Landing_Desc = models.CharField(max_length=500, help_text="Trail Description that appears on the Trail page as an opening statement.")
+
+    Know_Before = models.CharField(max_length=500, blank=True,null=True, help_text="Know before you go.")
+
+    Trail_Vibe = models.CharField(max_length=500, blank=True,null=True, help_text="Trail Vibe.")
 
     Main_Features_Trails = models.TextField(blank=True,null=True, help_text="Enter the main trails and features on individual line e.g. Mountain Creek Hub, Loop, Jumps, Pump Track. Each line will be a bulleted list.")
     

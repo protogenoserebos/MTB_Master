@@ -24,7 +24,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('devwriterportal/', admin.site.urls),
-    path('', include('NCMTB.urls')), # Make sure this line exists!
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('', include('NCMTB.urls')), 
     path("NCMTB/", include(("NCMTB.urls", "NCMTB"), namespace="NCMTB")), 
 ]
 

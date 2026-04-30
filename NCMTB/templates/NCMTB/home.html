@@ -46,6 +46,83 @@
     justify-content: center;
     border-radius:10px; 
     box-shadow: 20px 0px 30px rgba(0, 0, 0, 0.1);}
+
+/* Blog Spotlight Section */
+
+.blog-spotlight-section {
+    background-color: #bbe6f7;
+    padding: 40px 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.blog-spotlight-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #bbe6f7;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-spotlight-image {
+    width: 80%;
+    height: 50%;
+    object-fit: cover;
+    border-radius:15px;
+}
+
+.blog-spotlight-content {
+    padding: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.blog-date {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.blog-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top:0;
+    text-align: center;
+}
+
+/* The Subtle Fade Effect */
+.blog-intro-fade {
+    font-size: 11pt;
+    line-height: 1.5;
+    position: relative;
+    max-height: 4.5em; /* Show about 3 lines */
+    overflow: hidden;
+    margin:20px;
+    text-align: center;
+}
+
+.blog-intro-fade::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2em;
+    background: linear-gradient(transparent, #bbe6f7);
+}
+
+.read-more-link {
+    color: #26a7dc;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 11pt;
+}
+
 </style>
 
 
@@ -89,8 +166,8 @@
  
 <section class="feature-spotlight">
     <div class="card-intro">
-        <h2 style="font-size:14pt;color:black;font-weight:bold;margin-top:25px;text-align:center;">Charlotte, NC Mountain Biking Trails</h2>
-        <p style="font-size:11pt; text-align: center;">New to Charlotte? Looking for new spots to ride or planning a quick roadtrip out of the city?</p><p style="font-size:11pt; text-align: center;">See below for our trail recommendations!</p>
+        <h1 style="font-size:14pt;color:black;font-weight:bold;margin-top:25px;text-align:center;">Charlotte, NC Mountain Biking Trails</h1>
+        <p style="font-size:11pt; text-align: center;padding:0 5px;">New to Charlotte? Looking for new spots to ride or planning a quick roadtrip out of the city?</p><p style="font-size:11pt; text-align: center;">See below for our trail recommendations!</p>
     </div>
     
 <section class="trail-sort-container">
@@ -124,7 +201,6 @@
     </div>
     {% endif %}
 </section>
-
         {% for trail in trails %}
         <a href="{{ trail.get_absolute_url }}" class="card-link-wrapper">
             <div class="card-container-whole">
@@ -158,6 +234,34 @@
         {% endfor %}
     </div>
 </section>
+
+{% if latest_blog %}
+<section class="blog-spotlight">
+
+    
+    <div class="blog-spotlight-card">
+        
+        
+        <div class="blog-spotlight-content">
+            <h3 style="font-size:12pt; text-align: center;"><b>Blog Post</b></h3>
+
+            <h3 class="blog-title">{{ latest_blog.Blog_Title }}</h3>
+
+            {% if latest_blog.Lead_Image %}
+        
+            <img src="{{ latest_blog.Lead_Image.url }}" class="blog-spotlight-image" alt="{{ latest_blog.Blog_Title }}">
+
+        {% endif %}
+            
+            <div class="blog-intro-fade">
+                {{ latest_blog.Intro_Text }}
+            </div>
+            
+            <p style="text-align: center;"><a href="{% url 'blog' %}" class="read-more-link">Read more on our blog →</a></p>
+        </div>
+    </div>
+</section>
+{% endif %}
 
 <section class="TTB">
     <div class="donate-ttb">

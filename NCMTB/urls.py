@@ -13,6 +13,10 @@ urlpatterns = [
 
     path('about/', views.about, name='about'),
 
+    path('blog/', views.BlogPost.as_view(), name='blog'),
+
+    path('privacy/', views.privacy, name='privacy'),
+
     path('trailmaps/', views.trail_maps_view, name='trail_maps_view'),
 
 

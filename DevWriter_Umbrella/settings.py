@@ -49,6 +49,11 @@ INSTALLED_APPS = [
 
      # Img Handling
     'imagekit',
+
+    # WYSIWYG Editor
+    'ckeditor',
+    'ckeditor_uploader',
+
     
      # My Apps 
     'NCMTB',
@@ -163,3 +168,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+
+# CKEditor specific setting for the upload path
+CKEDITOR_UPLOAD_PATH = "uploads/"

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head><title>Charlotte MTB | Blogs</title></head>
+<section style="margin: 0 auto 60px;" class="feature-spotlight">
+    <h1 style="text-align:center;">Blog Posts</h1>
+    <div class="card-intro">
+        <p style="font-size:11pt; text-align: center; padding:0 5px;">
+            Check out our latest articles on Charlotte, NC mountain biking spots.
+        </p>
+        
+    </div>
+<hr class="section-divider-blog">
+
+    {% for post in blogs %}
+  
+            <div class="card-info">
+                
+                <h3>{{ post.Blog_Title }}</h3>
+
+                <div style="display:flex;flex-direction: column;" class="tile-short-desc">{{ post.Intro_Text|safe }}</div>
+                
+                <hr class="section-divider">
+            </div>
+    
+    </a>
+    {% empty %}
+        <p style="text-align: center;">No blog posts found yet. Check back soon!</p>
+    {% endfor %}
+</section>
+{% endblock %}

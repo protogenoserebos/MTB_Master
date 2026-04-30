@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import TrailArticle, Comment
+from .models import TrailArticle, Comment, Blog
 from django.views.generic import DetailView, ListView
 from django.db.models import Avg
 import requests, os
@@ -33,13 +33,16 @@ class TrailListView(ListView):
             return qs.order_by(f"-{target_field}")
         else:
             return qs.order_by(target_field)
+        
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # This is what drives the "active" class highlighting
         context['current_sort'] = self.request.GET.get('sort')
-        return context 
-
+            
+        # Add the most recent blog post to the context
+        context['latest_blog'] = Blog.objects.order_by('-date_added').first()
+            
+        return context
     
 def trail_list(request):
     # Get the sort parameter from the URL, default to 'favorites'
@@ -128,6 +131,8 @@ def interest(request):
 def about(request):
     return render(request, 'NCMTB/about.html')
 
+def privacy(request):
+    return render(request, 'NCMTB/privacy.html')
 
 def trail_maps_view(request):
     trails = TrailArticle.objects.all().order_by('Order_Priority')
@@ -226,5 +231,23 @@ class TrailDetailView(DetailView):
         # Redirect back to the trail page to clear the form and show the comment
         return redirect('trail_detail', slug=trail.slug)
     
+
+class BlogPost(ListView):
+    model = Blog
+    template_name = 'NCMTB/blog.html'
+    context_object_name = 'blogs'
+    
+    def get_queryset(self):
+        # The minus sign (-) indicates descending order (newest first)
+        return Blog.objects.all().order_by('-date_added')
+
+
+
+
+    
+
+
+
+
 
 
