@@ -42,7 +42,7 @@ ALLOWED_HOSTS = ['url', 'www url', 'ip', 'localhost', '127.0.0.1', '174.138.66.2
 # Application definition
 
 INSTALLED_APPS = [
-
+    'NCMTB',
 
     # Admin Portal Styling
     'jazzmin',
@@ -56,7 +56,7 @@ INSTALLED_APPS = [
 
     
      # My Apps 
-    'NCMTB',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -160,7 +160,21 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
 
 
+JAZZMIN_SETTINGS = {
+    "site_title": "CharlotteMTB Admin Portal",
+    "site_header": "CharlotteMTB Admin Portal",
+    "welcome_sign": "Welcome to the CharlotteMTB Admin Portal",
+    
+    # This adds the Tech Stack to the top navigation bar
+    "topmenu_links": [
+        {"name": "Home",  "url": "control_center:index"},
+        {"name": "Tech Stack", "url": "control_center:tech_stack"},
+    ],
 
+    # This ensures the sidebar is always open and easy to navigate
+    "show_sidebar": True,
+    "navigation_expanded": True,
+}
 
 
 

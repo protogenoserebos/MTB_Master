@@ -19,15 +19,17 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
+from NCMTB.admin import control_center
 
 
 
 urlpatterns = [
-    path('devwriterportal/', admin.site.urls),
+    path('devwriterportal/', control_center.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('NCMTB.urls')), 
     path("NCMTB/", include(("NCMTB.urls", "NCMTB"), namespace="NCMTB")), 
 ]
+
 
 # This allows Django to serve media files during development
 if settings.DEBUG:

@@ -247,15 +247,15 @@
 
             <h3 class="blog-title">{{ latest_blog.Blog_Title }}</h3>
 
-            {% if latest_blog.Lead_Image %}
+            {% if latest_blog.Intro_Text|safe %}
         
-            <img src="{{ latest_blog.Lead_Image.url }}" class="blog-spotlight-image" alt="{{ latest_blog.Blog_Title }}">
+            <div class="blog-intro-fade">
+                {{ latest_blog.Intro_Text|safe }}
+            </div>
 
         {% endif %}
             
-            <div class="blog-intro-fade">
-                {{ latest_blog.Intro_Text }}
-            </div>
+            
             
             <p style="text-align: center;"><a href="{% url 'blog' %}" class="read-more-link">Read more on our blog →</a></p>
         </div>
