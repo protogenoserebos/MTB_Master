@@ -60,9 +60,9 @@ class TrailArticle(models.Model):
     
     slug = models.SlugField(unique=True, help_text="URL-friendly version of the title e.g. NCMTB.com/url-friendly-slug")
 
-    trail_short_card_description = models.TextField(blank=True, null=True, help_text="Add individual lines about key features that will show up on the card as a bulleted list (for each separate line).")
+    trail_short_card_description = RichTextUploadingField(max_length=1000, null=True, blank=True, help_text="Add individual lines about key features that will show up on the card as a bulleted list (for each separate line).")
 
-    Trail_Landing_Desc = RichTextUploadingField(max_length=1000, help_text="Trail Description that appears on the Trail page as an opening statement.")
+    Trail_Landing_Desc = RichTextUploadingField(max_length=1000, null=True, blank=True, help_text="Trail Description that appears on the Trail page as an opening statement.")
 
     Trail_Map_Image = models.ImageField(upload_to='trail_photos', blank=True, null=True, help_text="The trail map is displayed on the trail page under Trails tab.")
 
