@@ -62,14 +62,8 @@ class TrailArticle(models.Model):
 
     trail_short_card_description = models.TextField(blank=True, null=True, help_text="Add individual lines about key features that will show up on the card as a bulleted list (for each separate line).")
 
-    Trail_Landing_Desc = models.CharField(max_length=500, help_text="Trail Description that appears on the Trail page as an opening statement.")
+    Trail_Landing_Desc = RichTextUploadingField(max_length=1000, help_text="Trail Description that appears on the Trail page as an opening statement.")
 
-    Know_Before = models.CharField(max_length=500, blank=True,null=True, help_text="Know before you go.")
-
-    Trail_Vibe = models.CharField(max_length=500, blank=True,null=True, help_text="Trail Vibe.")
-
-    Main_Features_Trails = models.TextField(blank=True,null=True, help_text="Enter the main trails and features on individual line e.g. Mountain Creek Hub, Loop, Jumps, Pump Track. Each line will be a bulleted list.")
-    
     Trail_Map_Image = models.ImageField(upload_to='trail_photos', blank=True, null=True, help_text="The trail map is displayed on the trail page under Trails tab.")
 
     Trail_Map_Thumbnail = ImageSpecField(source='Trail_Map_Image', processors=[ResizeToFill(400, 250)], format='JPEG', options={'quality': 70})
