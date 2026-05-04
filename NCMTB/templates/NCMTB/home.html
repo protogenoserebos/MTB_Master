@@ -223,7 +223,7 @@
                  
                     
                     <img class="card-container-image" src="{{ trail.Feature_Spotlight_1.url }}" alt="{{ trail.Trail_Name }}">
-                    <p class="tile-short-desc">{{ trail.trail_short_card_description|Safe }}</p>
+                    <p class="tile-short-desc">{{ trail.trail_short_card_description|safe }}</p>
             <a style="text-decoration: underline!important; font-size:11pt;color:#26a7dc; margin-top:10px;" href="{{ trail.get_absolute_url }}" class="card-link-wrapper">Select to learn more.</a>
                     
                 </div>
