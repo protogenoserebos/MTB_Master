@@ -662,7 +662,7 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
 .yt-logo {width:70%}
 
 .donate-ttb {display:flex; flex-direction: column; height:fit-content; margin: 40px 0px; justify-content: center; align-items: center;}
-.img-donate-ttb {width:100%;}
+.img-donate-ttb {max-width: 600px;}
 
 /* Blog Spotlight Section*/
 .blog-feature-spotlight {
