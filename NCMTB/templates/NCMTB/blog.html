@@ -19,7 +19,7 @@
                 
                 
 
-                <div class="blog-intro"style="display:flex;flex-direction: column;" class="tile-short-desc">{{ post.Intro_Text|safe }}</div>
+                <div class="tile-short-desc" style="display:flex;flex-direction: column;" >{{ post.Intro_Text|safe }}</div>
 
                 {% if post.Blog_Video %}
                     <div class="blog-video-container">
@@ -30,7 +30,7 @@
 
     
 
-    <div class="blog-body" style="display:flex;flex-direction: column;" class="tile-short-desc">{{ post.Blog_Body|safe }}</div>
+    <div style="display:flex;flex-direction: column;" class="tile-short-desc">{{ post.Blog_Body|safe }}</div>
                 
                 <hr class="section-divider">
             </div>
