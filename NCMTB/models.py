@@ -13,7 +13,7 @@ class Blog(models.Model):
 
     """Blog Post about Charlotte Trails"""
 
-    Blog_Title = models.CharField(max_length=200, help_text="Trail Location Name e.g. Whitewater Center")
+    Blog_Title = models.CharField(help_text="Trail Location Name e.g. Whitewater Center")
 
     slug = models.SlugField(unique=True, help_text="URL-friendly version of the title e.g. NCMTB.com/blog-post-title")
 
@@ -21,7 +21,12 @@ class Blog(models.Model):
 
     Lead_Image = models.ImageField(upload_to='trail_photos', blank=True, null=True, help_text="Eye catcher.")
 
-    Intro_Text = RichTextUploadingField(max_length=500, help_text="Intro statement.")
+    Intro_Text = RichTextUploadingField( help_text="Intro paragraph.")
+
+    Blog_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+
+    Blog_Body = RichTextUploadingField(blank=True, null=True,help_text="Blog body.")
+  
     
 
     class Meta:
