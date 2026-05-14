@@ -1159,6 +1159,8 @@ nav {
 
  .tile-short-desc {text-align:center; margin: 5px 10px;}
 
+ .blog-tile-short-desc {text-align:center; margin: 5px 10px; width:100%;}
+
  .card-trail-name {color:#26a7dc;font-size: 13pt;font-weight: bold; margin:5px 0 0 0;}
 
  .card-info {display:flex;flex-direction: column; align-items:center; margin-right:10px;}
