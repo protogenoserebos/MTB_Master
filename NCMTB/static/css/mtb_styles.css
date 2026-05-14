@@ -665,7 +665,7 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
 .img-donate-ttb {width:100%;}
 
 /* Blog Spotlight Section*/
-.blog-spotlight {
+.blog-feature-spotlight {
 
     margin: -60px auto 60px; /* Pulls it up into the hero slightly */
     background: white;
