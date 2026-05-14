@@ -3,7 +3,7 @@
 
 {% block content %}
 <head><title>Charlotte MTB | Blogs</title></head>
-<section style="margin: 0 auto 60px;" class="feature-spotlight">
+<section style="margin: 0 auto 60px;" class="blog-feature-spotlight">
     <h1 style="text-align:center;">Blog Posts</h1>
     <div class="card-intro">
         <p style="font-size:11pt; text-align: center; padding:0 5px;">
@@ -14,12 +14,12 @@
 <hr class="section-divider-blog">
 
     {% for post in blogs %}
-  
+  <h3 style="font-size: 16pt;">{{ post.Blog_Title }}</h3>
             <div class="card-info">
                 
-                <h3>{{ post.Blog_Title }}</h3>
+                
 
-                <div style="display:flex;flex-direction: column;" class="tile-short-desc">{{ post.Intro_Text|safe }}</div>
+                <div class="blog-intro"style="display:flex;flex-direction: column;" class="tile-short-desc">{{ post.Intro_Text|safe }}</div>
 
                 {% if post.Blog_Video %}
                     <div class="blog-video-container">
@@ -30,7 +30,7 @@
 
     
 
-    <div style="display:flex;flex-direction: column;" class="tile-short-desc">{{ post.Blog_Body|safe }}</div>
+    <div class="blog-body" style="display:flex;flex-direction: column;" class="tile-short-desc">{{ post.Blog_Body|safe }}</div>
                 
                 <hr class="section-divider">
             </div>

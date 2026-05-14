@@ -664,7 +664,22 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
 .donate-ttb {display:flex; flex-direction: column; height:fit-content; margin: 40px 0px; justify-content: center; align-items: center;}
 .img-donate-ttb {width:100%;}
 
-/* Feature Spotlight */
+/* Blog Spotlight Section*/
+.blog-spotlight {
+
+    margin: -60px auto 60px; /* Pulls it up into the hero slightly */
+    background: white;
+    border-radius: 15px;
+
+    padding: 30px;
+    padding-bottom:20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 10;
+    position: relative;
+}
+
+/* Feature Spotlight Section*/
 .feature-spotlight {
 
     margin: -60px auto 60px; /* Pulls it up into the hero slightly */
