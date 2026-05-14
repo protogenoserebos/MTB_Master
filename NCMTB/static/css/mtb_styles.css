@@ -210,6 +210,17 @@ p.number-ranking {font-weight: bold;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
+.blog-video-container {
+    width: 90%;
+    max-width: 800px; /* Limits the size on large desktop screens */
+    margin: 20px auto;
+    aspect-ratio: 16 / 9; /* The magic line for landscape video */
+    background-color: #000; /* Black background while loading */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
 
 /* 1. Landscape Videos (Overview & Section Videos) */
 .video-container {
@@ -223,6 +234,12 @@ p.number-ranking {font-weight: bold;
 }
 
 .video-container iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+}
+
+.blog-video-container iframe {
     width: 100% !important;
     height: 100% !important;
     border: none;
@@ -1175,7 +1192,7 @@ nav {
 
 .blog-spotlight {
 
-    margin: -80px auto;
+  
     padding-bottom:20px;
     background: #bbe6f7;
     border-radius: 15px;
