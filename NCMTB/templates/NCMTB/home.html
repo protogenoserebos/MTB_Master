@@ -274,7 +274,11 @@
         <div class="blog-spotlight-content">
             <h3 style="font-size:12pt; text-align: center;"><b>Blog Post</b></h3>
 
-            <img style="margin-top:25px;max-width:100%;" src="{{ post.Title_img.url }}" alt="{{ post.Blog_Title.name }}" />
+            {% if latest_blog.Title_img %}
+
+                <img style="margin-top:25px;max-width:100%;" src="{{ latest_blog.Title_img.url }}" alt="{{ latest_blog.Blog_Title.name }}" />
+                
+            {% endif %}
 
             {% if latest_blog.Lead_Image %}
 
