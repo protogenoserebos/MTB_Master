@@ -37,7 +37,13 @@
               font-size: 11pt;
           }
 
-        .container {margin: 0 auto; padding: 10px 20px;  }
+        .container {
+    margin: 0 auto; 
+    padding: 10px 20px;  
+    max-width: 1200px; /* Widens the container constraints globally */
+    width: 100%;
+    box-sizing: border-box;
+}
 
         h1{font-weight: 700;letter-spacing: -0.02em;color: var(--primary-color); text-align: left; font-size:18pt;}
 
@@ -83,15 +89,14 @@
 
 .card-container-whole {
     display: flex;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));
+    box-shadow: 0px 10px 14px 3px rgb(0 0 0 / 0.21);
     flex-direction: column;
     align-items: center;
-    width: 80%;
+    width: 100%;
     margin: auto;
     margin-bottom:15px;
     border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    padding: 20px; }
+ }
 
 div.number-ranking {margin-top:0;display:flex;flex-direction:column;padding-left:10px;}
 p.number-ranking {font-weight: bold;
@@ -133,14 +138,13 @@ p.number-ranking {font-weight: bold;
 
 .card-link-wrapper {
     text-decoration: none !important;
-    display: block; /* Makes the entire <a> fill the space */
-    color: inherit; /* Keeps your text colors as defined */
-    transition: transform 0.2s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%; /* Changed from 300px to 100% so it dynamically fills grid columns */
+    color: inherit; 
+    transition: transform 0.2s ease;
 }
-
 .card-link-wrapper:hover {
     transform: translateY(-2px); /* Subtle lift on hover */
 }
@@ -161,7 +165,7 @@ p.number-ranking {font-weight: bold;
 }
 
 .review-count-text {
-    color: #666; 
+    color: #ffffff; 
     font-size: 0.8em; 
     margin-left: 3px;
 }
@@ -188,16 +192,21 @@ p.number-ranking {font-weight: bold;
  
 
 /* Specific adjustment for mobile text sizing */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
     .card-container-details h3 {
         font-size: 15pt !important;
         margin-bottom: 2px !important;
     }
     .card-container-details li {
-        font-size: 10pt !important;
-        
+        font-size: 10pt !important; 
     }
+
+    .back-details-content p {font-size: 10pt;}
+    a.explore-trail-btn{ margin-top: 10px;}
 }
+
+
+
         /* Container that maintains the 16:9 shape */
 .video-container {
     width: 100%;
@@ -662,7 +671,7 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
 .yt-logo {width:70%}
 
 .donate-ttb {display:flex; flex-direction: column; height:fit-content; margin: 40px 0px; justify-content: center; align-items: center;}
-.img-donate-ttb {max-width: 600px;}
+.img-donate-ttb {max-width: 50%;}
 
 /* Blog Spotlight Section*/
 .blog-feature-spotlight {
@@ -681,16 +690,28 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
 
 /* Feature Spotlight Section*/
 .feature-spotlight {
-
-    margin: -60px auto 60px; /* Pulls it up into the hero slightly */
-    background: white;
+    margin: -60px auto 60px;
+    /* Deep dark charcoal blue that pairs perfectly with #004a8b */
+    background: #181e24; 
+    
     border-radius: 15px;
-    display: grid;
-    padding-bottom:20px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
     z-index: 10;
     position: relative;
+}
+
+/* IMPORTANT: If you choose Option 3, paste this below it to ensure text stays readable! */
+.feature-spotlight .card-intro h1 {
+    color: #26a7dc!important;
+    padding: 0 40px 0 40px;
+}
+.feature-spotlight .card-intro p {
+    color: #cbd5e1 !important;
+    padding: 0 40px 0 40px;
 }
 
 .blog-spotlight {
@@ -711,7 +732,9 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
     margin: -80px auto 60px; /* Pulls it up into the hero slightly */
     background: #252525;
     border-radius: 15px;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -797,7 +820,7 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
 .trail-sort-label {
     font-size: 10pt;
     font-weight: 700;
-    color: #666;
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 12px;
@@ -822,7 +845,7 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
     padding: 7px 6px;
     font-size: 9pt;
     font-weight: 600;
-    color: #555;
+    color: #ffffff;
     border-radius: 8px;
     transition: all 0.2s ease;
     text-decoration: none !important;
@@ -841,8 +864,14 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
     box-shadow: 0 4px 10px rgba(38, 167, 220, 0.3);
 }
 
+.support-charlotte {
+    color: white;
+    font-size: 18pt;
+    font-weight: bold;
+}
+
 /* Mobile adjustments */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
     .trail-sort {
         border-radius: 12px;
         gap: 4px;
@@ -852,6 +881,14 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
         padding: 6px 12px;
         font-size: 9pt;
     }
+    .img-donate-ttb {
+    max-width: 80%;
+}
+.support-charlotte {
+    color: white;
+    font-size: 12pt;
+    font-weight: bold;
+}
 }
 
 /* Nav Bar Feel (General Advice) */
@@ -1163,9 +1200,38 @@ nav {
 
  .card-trail-name {color:#26a7dc;font-size: 13pt;font-weight: bold; margin:5px 0 0 0;}
 
- .card-info {display:flex;flex-direction: column; align-items:center; margin-right:10px;}
+ .card-info {display:flex;flex-direction: column; align-items:center; }
 
  .rich-text-container { max-width:80%; width: auto;}
+
+/* --- Responsive Trail Grid (2-Columns Max) --- */
+.trail-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 tile per row on mobile */
+    gap: 30px; /* Slightly larger gap looks better with larger 2-column tiles */
+    width: 100%;
+    margin: 25px auto;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+/* Tablet & Desktop Viewports: Lock into exactly 2 columns */
+@media screen and (min-width: 768px) {
+    .trail-grid {
+        grid-template-columns: repeat(2, 1fr); /* Exactly 2 tiles per row */
+    }
+    .back-details-content p {
+    margin: 8px 0;
+    font-size: 11pt;
+}
+}
+
+/* Desktop Viewports - 3 Columns */
+@media screen and (min-width: 1024px) {
+    .trail-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
     /* Desktop Styles */
 
@@ -1182,28 +1248,24 @@ nav {
               font-size: 18px;
           }
 
-.home-logo-img {filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05)); max-width:120px}
+.home-logo-img {filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05)); max-height:120px}
 
 .card-container-whole {
     display: flex;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));
-    flex-direction: row; /* Stays a row on all screen sizes */
+    box-shadow: 0px 10px 14px 3px rgb(0 0 0 / 0.21);
+    flex-direction: column;
     align-items: center;  
-    width: 70%;
+    width: 100%;
     border-radius: 15px;
     margin-bottom: 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    padding: 20px;
 }
 .card-trail-name {color:#26a7dc;font-size: 15pt;font-weight: bold; margin:15px 0 0 0;}
 
 .tile-short-desc {text-align:center; margin: 10px 50px;}
 
-.card-info {display:flex;flex-direction: column; align-items:center; margin-right:10px;}
+.card-info {display:flex;flex-direction: column; align-items:center;}
 
 .rating-star {color: #ffb400;font-size:13pt; margin-top:5px;}
-
-.container {max-width:800px;} 
 
 .about-container {max-width:600px; margin: auto auto} 
 
@@ -1272,3 +1334,187 @@ table.trail-info {
 
 
 }
+
+/* FRONT SIDE: Clean layout for background display */
+.flip-card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-sizing: border-box;
+    
+    /* Display parameters for background photos */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border: 1px solid rgba(38, 167, 220, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* The Scrim Overlay: Clear at top, dark charcoal shadow at bottom */
+.card-overlay-scrim {
+    width: 100%;
+    height: 100%;
+    /* Transparent top 30%, building into a safe dark layer for text reading */
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0) 0%, 
+        rgba(0, 0, 0, 0.2) 40%, 
+        rgba(24, 30, 36, 0.85) 75%, 
+        rgba(24, 30, 36, 0.98) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Positions logo at top, metadata at bottom */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Floating style overlay for the trail logo badge */
+.home-logo-img-overlaid {
+    max-width: 70px;
+    height: auto;
+    align-self: flex-start;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+    background: rgb(0 0 0 / 27%); /* Circular/rounded background panel */
+    padding: 6px;
+    border-radius: 50%;
+}
+
+/* Aligns title and metadata layout cleanly */
+.front-card-content {
+    width: 100%;
+    text-align: left; /* Left-aligned typography looks cleaner on full-bleeds */
+}
+
+/* Pure crisp white typography to stand out from background shadows */
+.card-trail-name-overlaid {
+    color: #ffffff;
+    font-size: 16pt;
+    font-weight: 800;
+    margin: 0 0 8px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Safety shadow for text */
+}
+
+/* Horizontal display layout for card metadata row */
+.card-metadata-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Bright yellow gold color for star ratings */
+.flip-card-front .rating-star {
+    color: #ffb400;
+    font-size: 12pt;
+    margin-top: 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Subtle accent badge indicating user action */
+.tap-hint-badge {
+    font-size: 8pt;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 3px 8px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* --- 3D Card Flip System --- */
+
+/* The outer container sets up the 3D environment perspective */
+.flip-card-container {
+    background-color: transparent;
+    width: 100%;
+    height: 420px; /* Forces uniform height across all grid items */
+    perspective: 1000px; /* Higher number = subtle 3D depth, lower = extreme */
+    cursor: pointer;
+}
+
+/* This inner div handles the actual rotation animation transition */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+/* When the JavaScript or click event toggles the '.flipped' class */
+.flip-card-container.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Common properties for both card faces */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Blocks rendering of hidden side */
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+/* FRONT SIDE Custom styling: Premium Dark Charcoal Blue */
+.flip-card-front.card-container-whole {
+    background: #181e24; 
+    margin-bottom: 0; /* Handled by grid gap now */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Subtle neon shadow using your signature light blue to make it pop */
+    border: 1px solid rgba(38, 167, 220, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(38, 167, 220, 0.05);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Lift effect on hover before clicking */
+.flip-card-container:hover .flip-card-front {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(38, 167, 220, 0.15);
+}
+
+/* BACK SIDE Custom Styling: Flips completely inverted */
+.flip-card-back {
+    background: linear-gradient(135deg, #181e24 0%, #0c1014 100%);
+    color: white;
+    transform: rotateY(180deg); /* Pre-rotates back face so it hides perfectly */
+    border: 1px solid rgba(38, 167, 220, 0.4);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+/* The interactive button on the back face */
+.explore-trail-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background: #26a7dc;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 10.5pt;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(38, 167, 220, 0.3);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.explore-trail-btn:hover {
+    background: #004a8b; /* Fades into your secondary deep navy */
+    transform: scale(1.03);
+}
+

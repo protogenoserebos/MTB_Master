@@ -20,6 +20,8 @@
     box-shadow: 20px 0px 30px rgba(0, 0, 0, 0.1);
 }
 
+
+
 .feature-overlay {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
                       url("{% static 'NCMTB/images/feature.jpeg' %}");
@@ -62,7 +64,7 @@
     background: #bbe6f7;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+
     display: flex;
     flex-direction: column;
 }
@@ -169,8 +171,8 @@
  
 <section class="feature-spotlight">
     <div class="card-intro">
-        <h1 style="font-size:14pt;color:black;font-weight:bold;margin-top:25px;text-align:center;">Charlotte, NC Mountain Biking Trails</h1>
-        <p style="font-size:11pt; text-align: center;padding:0 5px;">New to Charlotte? Looking for new spots to ride or planning a quick roadtrip out of the city?</p><p style="font-size:11pt; text-align: center;">See below for our trail recommendations!</p>
+        <h1 style="font-size:14pt;color:black;font-weight:bold;margin-top:25px;text-align:center;">Charlotte and Surrounding NC/SC Mountain Biking Trails</h1>
+        <p style="font-size:11pt; text-align: center;padding:0 15px;">New to Charlotte? Looking for new spots to ride or planning a roadtrip out of the city into the mountains?</p><p style="font-size:11pt; text-align: center;">This is the place to find top trail recommendations in the Greater Charlotte area, Western North Carolina, South Carolina, and more all within a few hours of the city!</p>
     </div>
     
 <section class="trail-sort-container">
@@ -198,45 +200,68 @@
 
     {% if current_sort and current_sort != 'favorites' %}
     <div style="text-align: center; margin-top: 15px;">
-        <a href="?" style="font-size: 10pt; color: #666; text-decoration: underline;">
+        <a href="?" style="font-size: 10pt; color: #d8d3d3; text-decoration: underline;">
             ✕ Clear All Filters
         </a>
     </div>
     {% endif %}
 </section>
-        {% for trail in trails %}
-        <a href="{{ trail.get_absolute_url }}" class="card-link-wrapper">
-            <div class="card-container-whole">
-                
-                <div class="card-info">
-
-                    <img class="home-logo-img" src="{{ trail.Trail_Card_Logo.url }}" alt="{{ trail.Trail_Name }}">
-
-                    <p class="card-trail-name">{{ trail.Trail_Name }}</p>
-
-                    <span class="rating-star">
-                        {% for i in "12345" %}
-                            {% if forloop.counter <= trail.average_rating %}★{% else %}☆{% endif %}
-                        {% endfor %}
-                    </span>
+<div class="trail-grid">
+    {% for trail in trails %}
+    <div class="flip-card-container" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+            
+            <!-- FRONT SIDE: Full Immersive Background Image -->
+            <div class="flip-card-front" style="background-image: url('{{ trail.Feature_Spotlight_1.url }}');">
+                <!-- Smooth gradient overlay to protect text contrast -->
+                <div class="card-overlay-scrim">
                     
-                 
+                    <img class="home-logo-img-overlaid" src="{{ trail.Trail_Card_Logo.url }}" alt="{{ trail.Trail_Name }}">
                     
-                    <img class="card-container-image" src="{{ trail.Feature_Spotlight_1.url }}" alt="{{ trail.Trail_Name }}">
-                    <div class="rich-text-container"><p class="tile-short-desc">{{ trail.trail_short_card_description|safe }}</p></div>
-            <a style="text-decoration: underline!important; font-size:11pt;color:#26a7dc; margin-top:10px;" href="{{ trail.get_absolute_url }}" class="card-link-wrapper">Select to learn more.</a>
-                    
+                    <!-- Content wrapper pushed to the bottom -->
+                    <div class="front-card-content">
+                        <p class="card-trail-name-overlaid">{{ trail.Trail_Name }}</p>
+                        
+                        <div class="card-metadata-row">
+                            <span class="rating-star">
+                                {% for i in "12345" %}
+                                    {% if forloop.counter <= trail.average_rating %}★{% else %}☆{% endif %}
+                                {% endfor %}
+                            </span>
+                            <span class="tap-hint-badge">Tap for Details</span>
+                        </div>
+                    </div>
+
                 </div>
-
+            </div>
+            
+            <!-- BACK SIDE: Remains unchanged for your details -->
+            <div class="flip-card-back">
+               
+                <div class="back-details-content">
+                    <p style="text-align:center;">{{ trail.back_card_details|safe }}</p>
+                     <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); width: 80%; margin-bottom: 15px;">
+                    <p style="text-align:center;">{{ trail.trail_short_card_description|safe }}</p>
+                </div>
                 
+                <a href="{{ trail.get_absolute_url }}" class="explore-trail-btn" onclick="event.stopPropagation();">
+                    Explore Full Trail Page
+                </a>
+            </div>
 
+        </div>
+    </div>
+    {% empty %}
+        <p style="text-align: center; grid-column: 1 / -1; color: #cbd5e1;">No trails found.</p>
+    {% endfor %}
+</div>
+            <div style="display:flex; justify-content:center; margin-top:10px;">
+               
                 
             </div>
         </a>
-        {% empty %}
-            <p style="text-align: center;">No trails found.</p>
-        {% endfor %}
-    </div>
+       
+    </div></div>
 </section>
 
 {% if latest_blog %}
@@ -251,13 +276,23 @@
 
             <h3 class="blog-title">{{ latest_blog.Blog_Title }}</h3>
 
+            {% if latest_blog.Lead_Image %}
+
+            
+                <p style="text-align: center;"><img style="max-width: 80%; border-radius: 15px;" src="{{ latest_blog.Lead_Image.url }}" alt="{{ latest_blog.Blog_Title }}"></p>
+            
+
+            {% endif %}
+
             {% if latest_blog.Intro_Text|safe %}
         
             <div class="blog-intro-fade">
                 {{ latest_blog.Intro_Text|safe }}
             </div>
 
-        {% endif %}
+            {% endif %}
+
+            
             
             
             
@@ -269,8 +304,8 @@
 
 <section class="TTB">
     <div class="donate-ttb">
-        <p style="color:white; font-size: 16pt; font-weight: bold;">Support Charlotte Mountain Biking</p>
-        <a href="https://www.tarheeltrailblazers.com/"><img class="img-donate-ttb" src="{% static 'NCMTB/images/Trailblazers.jpeg' %}"/></a>
+        <p class="support-charlotte">Support Charlotte Mountain Biking</p>
+        <p style="width:auto; text-align: center;"><a href="https://www.tarheeltrailblazers.com/"><img class="img-donate-ttb" src="{% static 'NCMTB/images/Trailblazers.jpeg' %}"/></a></p>
         <div style="display: flex; flex-direction: row;">
 </section>
 
