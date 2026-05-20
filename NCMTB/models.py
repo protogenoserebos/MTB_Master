@@ -15,6 +15,8 @@ class Blog(models.Model):
 
     Blog_Title = models.CharField(help_text="Trail Location Name e.g. Whitewater Center")
 
+    Title_img = models.ImageField(upload_to='trail_photos', blank=True, null=True, help_text="Blog Title Image eye catcher.")
+
     slug = models.SlugField(unique=True, help_text="URL-friendly version of the title e.g. NCMTB.com/blog-post-title")
 
     date_added = models.DateField(auto_now_add=True)

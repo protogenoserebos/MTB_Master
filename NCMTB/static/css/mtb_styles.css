@@ -222,7 +222,7 @@ p.number-ranking {font-weight: bold;
 .blog-video-container {
     width: 100%;
     max-width: 800px; /* Limits the size on large desktop screens */
-    margin: 20px auto;
+    margin: 0 auto;
     aspect-ratio: 16 / 9; /* The magic line for landscape video */
     background-color: #000; /* Black background while loading */
     border-radius: 12px;
