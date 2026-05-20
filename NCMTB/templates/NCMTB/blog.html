@@ -15,7 +15,7 @@
 <section class="blog-posts-container">
 
     {% for post in blogs %}
-    <img style="margin-top:25px;" src="{{ post.Title_img.url }}" alt="{{ post.Blog_Title.name }}" />
+    <img style="margin-top:25px;max-width:100%;" src="{{ post.Title_img.url }}" alt="{{ post.Blog_Title.name }}" />
             <div class="card-info">
             <div class="blog-tile-short-desc" style="display:flex;flex-direction: column;" >{{ post.Intro_Text|safe }}</div>
             {% if post.Blog_Video %}
