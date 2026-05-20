@@ -17,14 +17,12 @@
     {% for post in blogs %}
   <h3 style="font-size: 16pt;">{{ post.Blog_Title }}</h3>
             <div class="card-info">
-                {% if post.Blog_Video %}
+            <div class="blog-tile-short-desc" style="display:flex;flex-direction: column;" >{{ post.Intro_Text|safe }}</div>
+            {% if post.Blog_Video %}
                     <div class="blog-video-container">
                         <iframe src="https://www.youtube.com/embed/{{ post.Blog_Video }}" title="YouTube player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>></iframe>
                     </div>
-                 {% endif %}
-                
-
-                <div class="blog-tile-short-desc" style="display:flex;flex-direction: column;" >{{ post.Intro_Text|safe }}</div>
+            {% endif %}
 
                 
     
