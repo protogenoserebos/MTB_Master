@@ -220,7 +220,7 @@ p.number-ranking {font-weight: bold;
 }
 
 .blog-video-container {
-    width: 90%;
+    width: 100%;
     max-width: 800px; /* Limits the size on large desktop screens */
     margin: 20px auto;
     aspect-ratio: 16 / 9; /* The magic line for landscape video */
@@ -686,6 +686,10 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     z-index: 10;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
 }
 
 /* Feature Spotlight Section*/
@@ -788,6 +792,9 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
     justify-content: center;
     border-radius:10px; 
     box-shadow: 20px 0px 30px rgba(0, 0, 0, 0.1);}
+
+    .blog-posts-container {
+    max-width: 600px;}
 
 
     .yt-overlay {
