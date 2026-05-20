@@ -66,6 +66,8 @@ class TrailArticle(models.Model):
     slug = models.SlugField(unique=True, help_text="URL-friendly version of the title e.g. NCMTB.com/url-friendly-slug")
 
     trail_short_card_description = RichTextUploadingField( null=True, blank=True, help_text="Add individual lines about key features that will show up on the card as a bulleted list (for each separate line).")
+    
+    back_card_details = RichTextUploadingField( null=True, blank=True, help_text="Top Line Tags (3-4), Second Line Difficulty and Mileage")
 
     Trail_Landing_Desc = RichTextUploadingField( null=True, blank=True, help_text="Trail Description that appears on the Trail page as an opening statement.")
 
