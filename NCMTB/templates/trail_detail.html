@@ -53,31 +53,7 @@
     
         <p class="trail-info-intro" style="max-width: 600px; margin: 10px auto; text-align:center;">{{ trail.Trail_Landing_Desc|safe}}</p> 
         
-        <div class="spotlight-slider">
-
-        <div class="slider-wrapper">
-            
-
-            {% for spot in trail.get_feature_spotlights %}
-                <div class="slide">
-                    <img src="{{ spot.image.url }}" class="img-clickable" onclick="openImage(this.src)" alt="Spotlight">
-                    {% if spot.desc %}
-                        <p class="slide-caption">{{ spot.desc }}</p>
-                    {% endif %}
-                </div>
-            {% endfor %}
-
-        </div>
-    
-            {% if trail.get_feature_spotlights|length > 1 %}
-                <button class="slider-btn prev" onclick="moveSlide(-1, this)">❮</button>
-                <button class="slider-btn next" onclick="moveSlide(1, this)">❯</button>
-            {% endif %}
-            
-        </div>
-
-       
-    <hr class="section-divider">
+        
         
     <div class="disclaimer">
         
