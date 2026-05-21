@@ -38,7 +38,7 @@
 
 .yt-overlay {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), 
-                      url("{% static 'NCMTB/images/YT.jpeg' %}");
+                      url("{% static 'NCMTB/images/purser.jpg' %}");
     background-size: cover;
     background-position: top;
     width: 100%;
@@ -277,7 +277,7 @@
             {% if latest_blog.Title_img %}
 
                 <img style="margin-top:25px;max-width:100%;" src="{{ latest_blog.Title_img.url }}" alt="{{ latest_blog.Blog_Title.name }}" />
-                
+
             {% endif %}
 
             {% if latest_blog.Lead_Image %}
