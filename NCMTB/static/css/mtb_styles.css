@@ -624,7 +624,7 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
 
     /* Hero Styles */
 .hero-wrap {
-    height: 45vh;
+    height: 500px;
     position: relative;
     display: flex;
     align-items: center;
@@ -694,7 +694,7 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
 
 /* Feature Spotlight Section*/
 .feature-spotlight {
-    margin: -60px auto 60px;
+    margin: 0 auto 60px;
     /* Deep dark charcoal blue that pairs perfectly with #004a8b */
     background: #181e24; 
     
