@@ -202,7 +202,7 @@ p.number-ranking {font-weight: bold;
     }
 
     .back-details-content p {font-size: 10pt;}
-    a.explore-trail-btn{ margin-top: 10px;}
+    a.explore-trail-btn{ margin-top: 0px;}
 }
 
 
@@ -1217,7 +1217,7 @@ nav {
     grid-template-columns: 1fr; /* 1 tile per row on mobile */
     gap: 30px; /* Slightly larger gap looks better with larger 2-column tiles */
     width: 100%;
-    margin: 25px auto;
+    margin: 0 auto 25px auto;
     padding: 0 30px;
     box-sizing: border-box;
 }
