@@ -14,7 +14,7 @@
 
         <h1 class="trail-title">{{ trail.Trail_Name }}</h1>
         <p class="trail-address"><strong>{{ trail.Trail_Address }}</strong></p>
-        <p style="text-align:center; margin: 5px auto;">
+        <p style="text-align:center; margin: 5px auto 20px auto;">
             
                 <a style="color:#26a7dc; text-decoration:underline;" href="{{ trail.Trail_Website}}" target="_blank" alt-text="Link to Trail Website">{{ trail.Trail_Name }} Website</a>
             
@@ -35,7 +35,7 @@
     {% if trail.trailforks_region_id %}
     
             <!-- We inject the ID dynamically right here into data-rid -->
-            <div style="border-radius: 10px; overflow: hidden;" class="TrailforksWidgetMap" 
+            <div style="border-radius: 10px; margin-top: 20px;overflow: hidden;" class="TrailforksWidgetMap" 
                 data-w="100%" 
                 data-h="400px" 
                 data-rid="{{ object.trailforks_region_id }}" 
