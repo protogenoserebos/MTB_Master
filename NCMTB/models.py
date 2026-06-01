@@ -75,6 +75,8 @@ class TrailArticle(models.Model):
 
     Trail_Map_Image = models.ImageField(upload_to='trail_photos', blank=True, null=True, help_text="The trail map is displayed on the trail page under Trails tab.")
 
+    trailforks_region_id = models.IntegerField(blank=True, null=True, help_text="Trailforks Region ID (e.g., 45965)")
+
     Trail_Map_Thumbnail = ImageSpecField(source='Trail_Map_Image', processors=[ResizeToFill(400, 250)], format='JPEG', options={'quality': 70})
     
     Trail_Website = models.URLField()

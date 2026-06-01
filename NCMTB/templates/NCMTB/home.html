@@ -226,14 +226,7 @@
                     <div class="front-card-content">
                         <p class="card-trail-name-overlaid">{{ trail.Trail_Name }}</p>
                         
-                        <div class="card-metadata-row">
-                            <span class="rating-star">
-                                {% for i in "12345" %}
-                                    {% if forloop.counter <= trail.average_rating %}★{% else %}☆{% endif %}
-                                {% endfor %}
-                            </span>
-                            <span class="tap-hint-badge">Tap for Details</span>
-                        </div>
+                        
                     </div>
 
                 </div>

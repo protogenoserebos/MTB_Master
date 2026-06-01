@@ -13,41 +13,58 @@
     <header>
 
         <h1 class="trail-title">{{ trail.Trail_Name }}</h1>
-        
-        <div class="trail-rating-summary" style="margin-top: -5px; margin-bottom: 15px; text-align:center;">
-        
-            <p class="trail-address"><strong>{{ trail.Trail_Address }}</strong></p>
-
-            <p style="text-align:center; margin: 5px auto;">
+        <p class="trail-address"><strong>{{ trail.Trail_Address }}</strong></p>
+        <p style="text-align:center; margin: 5px auto;">
             
                 <a style="color:#26a7dc; text-decoration:underline;" href="{{ trail.Trail_Website}}" target="_blank" alt-text="Link to Trail Website">{{ trail.Trail_Name }} Website</a>
             
             </p>
+        
+        <div class="trail-rating-summary" style="margin-top: -5px; margin-bottom: 15px; text-align:center;">
+        
+            <p style="text-align:center;"><a href="https://www.google.com/maps/dir/?api=1&destination={{ trail.Latitude }},{{ trail.Longitude }}" target="_blank" style="background: #26a7dc; color: white; padding: 7px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">Get Directions</a></p>
 
-            <span style="color: #ffb400; font-size: 1.2em;">
-                {% for i in "12345" %}
-                    {% if forloop.counter <= trail.average_rating %}★{% else %}☆{% endif %}
-                {% endfor %}
-            </span>
+                  
 
-            <span style="font-weight: bold; margin-left: 5px; ">{{ trail.average_rating }}</span>
-
-            <span style="color: #666; margin-left: 10px;">({{ trail.review_count }} reviews)</span>
-        </div>
+           
 
     </header>
 
-    <nav class="nav-row" role="tablist">
+    
 
-        <button class="nav-tab active" onclick="showSection('section-ride', this)" role="tab">Trails</button>
+    {% if trail.trailforks_region_id %}
+    
+            <!-- We inject the ID dynamically right here into data-rid -->
+            <div style="border-radius: 10px; overflow: hidden;" class="TrailforksWidgetMap" 
+                data-w="100%" 
+                data-h="400px" 
+                data-rid="{{ object.trailforks_region_id }}" 
+                data-activitytype="1" 
+                data-maptype="trailforks" 
+                data-trailstyle="difficulty" 
+                data-controls="0" 
+                data-list="0" 
+                data-dml="1" 
+                data-layers="labels,poi,polygon,directory,region" 
+                data-z="" 
+                data-lat="" 
+                data-lon="" 
+                data-hideunsanctioned="0" 
+                data-basicmap="0">
+            </div>
 
-        <button class="nav-tab" onclick="showSection('section-trailmap', this)" role="tab">Trail Map</button>
 
-        <button class="nav-tab" onclick="showSection('section-map', this)" role="tab">Directions</button>
+            <!-- The Trailforks script that builds the map -->
+            <script type="text/javascript">
+            var script = document.createElement("script"); 
+            script.setAttribute("src", "https://es.pinkbike.org/ttl-86400/sprt/j/trailforks/widget.js"); 
+            document.getElementsByTagName("head")[0].appendChild(script); 
+            var widgetCheck = false;
+            </script>
 
-        <button class="nav-tab" onclick="showSection('section-reviews', this)" role="tab">Reviews</button>
-
-    </nav>
+    {% else %}
+        <p>No map available for this region yet.</p>
+    {% endif %}
 
     <section id="section-ride" class="content-section active">
         <h2 style="font-size: 1.5em; color: #000000; text-align: center;">About</h2>
@@ -106,58 +123,12 @@
 
 </section>
 
-<section id="section-trailmap" class="content-section">
 
-    <h3>Trail Map</h3>
-    <p>Click the below map to expand the image.</p>
-    <img src="{{ trail.Trail_Map_Image.url }}" class="img-clickable" onclick="openImage(this.src)" alt="Trail Map">
 
-    {% if trail.get_approach_img %}
-        <h3>Trailhead Approach</h3>
-        <p>Toggle the below images to view how to access the various trailheads.</p>
 
-        <div class="spotlight-slider">
-            <div class="slider-wrapper">
-                {% for spot in trail.get_approach_img %}
-                    <div class="slide">
-                        <img src="{{ spot.image.url }}" class="img-clickable" onclick="openImage(this.src)" alt="Trailhead Approach">
-                        {% if spot.desc %}
-                            <p class="slide-caption">{{ spot.desc }}</p>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-            </div>
-            
-            {% if trail.get_approach_img|length > 1 %}
-                <button class="slider-btn prev" onclick="moveSlide(-1, this)">❮</button>
-                <button class="slider-btn next" onclick="moveSlide(1, this)">❯</button>
-            {% endif %}
-        </div>
-    {% endif %}
 
-</section>
-
- <section id="section-map" class="content-section" style="max-width:600px;">
-        {% if weather %}
-        <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; display: flex; align-items: center; gap: 20px; margin-bottom: 25px; border: 1px solid #bbdefb;">
-            <img src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="weather">
-            <div>
-                <h3 style="margin: 0; color: #1565c0;">Current Conditions</h3>
-                <p style="margin: 5px 0 0;"><strong>{{ weather.temp }}°F</strong> — {{ weather.description|title }}</p>
-            </div>
-        </div>
-        {% endif %}
-
-        {% if trail.Latitude and trail.Longitude %}
-            <gmp-map center="{{ trail.Latitude }},{{ trail.Longitude }}" zoom="14" map-id="DEMO_MAP_ID">
-                <gmp-advanced-marker position="{{ trail.Latitude }},{{ trail.Longitude }}"></gmp-advanced-marker>
-            </gmp-map>
-            <div style="margin-top: 25px; text-align: right;">
-                <a href="https://www.google.com/maps/dir/?api=1&destination={{ trail.Latitude }},{{ trail.Longitude }}" target="_blank" style="background: #26a7dc; color: white; padding: 12px 24px; border-radius: 5px; text-decoration: none; font-weight: bold;">Get Directions</a>
-            </div>
-        {% endif %}
-    </section>
-
+    <!----- Nuking Reviews for now, will bring back in a future update with a more robust system -----
+     
     <section id="section-reviews" class="content-section" style="max-width:600px;">
         
         <div>
@@ -195,7 +166,7 @@
                 <p>{{ comment.body }}</p>
             </div>
         {% endif %}{% endfor %}
-    </section>
+    </section> -->
 </article>
 
 
