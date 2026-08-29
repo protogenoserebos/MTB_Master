@@ -174,29 +174,7 @@ class TrailDetailView(DetailView):
         context['rating_breakdown'] = breakdown
         
         
-        # --- Weather API Logic ---
-        weather_data = None
-        # Use an environment variable for the key
-        api_key = settings.OPENWEATHER_API_KEY
-        
-        if trail.Latitude and trail.Longitude:
-            url = f"https://api.openweathermap.org/data/2.5/weather?lat={trail.Latitude}&lon={trail.Longitude}&appid={api_key}&units=imperial"
-            try:
-                response = requests.get(url, timeout=5)
-                if response.status_code == 200:
-                    data = response.json()
-                    weather_data = {
-                        'temp': round(data['main']['temp']),
-                        'description': data['weather'][0]['description'].title(),
-                        'icon': data['weather'][0]['icon'],
-                        'humidity': data['main']['humidity']
-                    }
-            except requests.RequestException:
-                pass # Fail silently or log error
-        
-        context['weather'] = weather_data
-        context['google_maps_api_key'] = settings.GOOGLE_MAPS_API_KEY
-        return context
+       
     
     
     def post(self, request, *args, **kwargs):
