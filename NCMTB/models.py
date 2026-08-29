@@ -210,7 +210,55 @@ class TrailArticle(models.Model):
     Twelfth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
     Twelfth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Twelfth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
-  
+
+    thirteenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
+    
+    thirteenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    thirteenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
+    thirteenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+
+    fourteenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
+    
+    fourteenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    fourteenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
+    fourteenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+
+    fifteenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
+    
+    fifteenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    fifteenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
+    fifteenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+
+    sixteenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
+    
+    sixteenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    sixteenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
+    sixteenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+
+    seventeenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
+    
+    seventeenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    seventeenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
+    seventeenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+
+    eighteenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
+    
+    eighteenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    eighteenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
+    eighteenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+
+    ninteenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
+    
+    ninteenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    ninteenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
+    ninteenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+
+    twentieth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
+    
+    twentieth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    twentieth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
+    twentieth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
+ 
 
     class Meta:
         ordering = ['Order_Priority']
@@ -353,6 +401,66 @@ class TrailArticle(models.Model):
                 "video": self.Twelfth_Trail_Video,
                 "desc": self.Twelfth_Trail_Section_Desc,
             },
+            {
+                "title": self.Thirteenth_Trail_Section_Title,
+            
+                "image": self.Thirteenth_Trail_Section_Image,
+                "video": self.Thirteenth_Trail_Video,
+                "desc": self.Thirteenth_Trail_Section_Desc,
+            },
+ {
+                "title": self.Fourteenth_Trail_Section_Title,
+   
+                "image": self.Fourteenth_Trail_Section_Image,
+                "video": self.Fourteenth_Trail_Video,
+                "desc": self.Fourteenth_Trail_Section_Desc,
+            },
+
+            {
+                "title": self.fifteenth_Trail_Section_Title,
+            
+                "image": self.fifteenth_Trail_Section_Image,
+                "video": self.fifteenth_Trail_Video,
+                "desc": self.fifteenth_Trail_Section_Desc,
+            },
+
+            {
+                "title": self.Sixteenth_Trail_Section_Title,
+            
+                "image": self.Sixteenth_Trail_Section_Image,
+                "video": self.Sixteenth_Trail_Video,
+                "desc": self.Sixteenth_Trail_Section_Desc,
+            },
+
+            {
+                "title": self.Seventeenth_Trail_Section_Title,
+            
+                "image": self.Seventeenth_Trail_Section_Image,
+                "video": self.Seventeenth_Trail_Video,
+                "desc": self.Seventeenth_Trail_Section_Desc,
+            },
+ {
+                "title": self.Eighteenth_Trail_Section_Title,
+   
+                "image": self.Eighteenth_Trail_Section_Image,
+                "video": self.Eighteenth_Trail_Video,
+                "desc": self.Eighteenth_Trail_Section_Desc,
+            },
+            {
+                "title": self.Ninteenth_Trail_Section_Title,
+            
+                "image": self.Ninteenth_Trail_Section_Image,
+                "video": self.Ninteenth_Trail_Video,
+                "desc": self.Ninteenth_Trail_Section_Desc,
+            },
+            {
+                "title": self.Twentieth_Trail_Section_Title,
+            
+                "image": self.Twentieth_Trail_Section_Image,
+                "video": self.Twentieth_Trail_Video,
+                "desc": self.Twentieth_Trail_Section_Desc,
+            },
+            
         ]
 
         # Only return blocks that have at least a title or a description
