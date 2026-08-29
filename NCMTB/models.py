@@ -402,18 +402,18 @@ class TrailArticle(models.Model):
                 "desc": self.Twelfth_Trail_Section_Desc,
             },
             {
-                "title": self.Thirteenth_Trail_Section_Title,
+                "title": self.thirteenth_Trail_Section_Title,
             
-                "image": self.Thirteenth_Trail_Section_Image,
-                "video": self.Thirteenth_Trail_Video,
-                "desc": self.Thirteenth_Trail_Section_Desc,
+                "image": self.thirteenth_Trail_Section_Image,
+                "video": self.thirteenth_Trail_Video,
+                "desc": self.thirteenth_Trail_Section_Desc,
             },
  {
-                "title": self.Fourteenth_Trail_Section_Title,
+                "title": self.fourteenth_Trail_Section_Title,
    
-                "image": self.Fourteenth_Trail_Section_Image,
-                "video": self.Fourteenth_Trail_Video,
-                "desc": self.Fourteenth_Trail_Section_Desc,
+                "image": self.fourteenth_Trail_Section_Image,
+                "video": self.fourteenth_Trail_Video,
+                "desc": self.fourteenth_Trail_Section_Desc,
             },
 
             {
@@ -425,40 +425,40 @@ class TrailArticle(models.Model):
             },
 
             {
-                "title": self.Sixteenth_Trail_Section_Title,
+                "title": self.sixteenth_Trail_Section_Title,
             
-                "image": self.Sixteenth_Trail_Section_Image,
-                "video": self.Sixteenth_Trail_Video,
-                "desc": self.Sixteenth_Trail_Section_Desc,
+                "image": self.sixteenth_Trail_Section_Image,
+                "video": self.sixteenth_Trail_Video,
+                "desc": self.sixteenth_Trail_Section_Desc,
             },
 
             {
-                "title": self.Seventeenth_Trail_Section_Title,
+                "title": self.seventeenth_Trail_Section_Title,
             
-                "image": self.Seventeenth_Trail_Section_Image,
-                "video": self.Seventeenth_Trail_Video,
-                "desc": self.Seventeenth_Trail_Section_Desc,
+                "image": self.seventeenth_Trail_Section_Image,
+                "video": self.seventeenth_Trail_Video,
+                "desc": self.seventeenth_Trail_Section_Desc,
             },
  {
-                "title": self.Eighteenth_Trail_Section_Title,
+                "title": self.eighteenth_Trail_Section_Title,
    
-                "image": self.Eighteenth_Trail_Section_Image,
-                "video": self.Eighteenth_Trail_Video,
-                "desc": self.Eighteenth_Trail_Section_Desc,
+                "image": self.eighteenth_Trail_Section_Image,
+                "video": self.eighteenth_Trail_Video,
+                "desc": self.eighteenth_Trail_Section_Desc,
             },
             {
-                "title": self.Ninteenth_Trail_Section_Title,
+                "title": self.ninteenth_Trail_Section_Title,
             
-                "image": self.Ninteenth_Trail_Section_Image,
-                "video": self.Ninteenth_Trail_Video,
-                "desc": self.Ninteenth_Trail_Section_Desc,
+                "image": self.ninteenth_Trail_Section_Image,
+                "video": self.ninteenth_Trail_Video,
+                "desc": self.ninteenth_Trail_Section_Desc,
             },
             {
-                "title": self.Twentieth_Trail_Section_Title,
+                "title": self.twentieth_Trail_Section_Title,
             
-                "image": self.Twentieth_Trail_Section_Image,
-                "video": self.Twentieth_Trail_Video,
-                "desc": self.Twentieth_Trail_Section_Desc,
+                "image": self.twentieth_Trail_Section_Image,
+                "video": self.twentieth_Trail_Video,
+                "desc": self.twentieth_Trail_Section_Desc,
             },
             
         ]

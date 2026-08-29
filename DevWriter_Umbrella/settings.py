@@ -14,59 +14,68 @@ from pathlib import Path
 import os
 import environ
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
-
-# Look for a secret key in the environment; if not found, use a 'dummy' string
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-local-dev-key-123')
-
-# Also, ensure DEBUG is True locally so you can see errors
-DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
-
-
-
-# Set the project base directory
+# ------------------------------------------------------------------------------
+# 1. BASE DIRECTORY & ENV SETUP
+# ------------------------------------------------------------------------------
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Initialize environ
-env = environ.Env(DEBUG=(bool, False))
+env = environ.Env(
+    DEBUG=(bool, True)
+)
 
-# Read the .env file (using the new Path object logic)
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+# Read the .env file if it exists at project root
+env_file = BASE_DIR / '.env'
+if env_file.exists():
+    environ.Env.read_env(str(env_file))
 
+# ------------------------------------------------------------------------------
+# 2. SECURITY & CORE SETTINGS
+# ------------------------------------------------------------------------------
+SECRET_KEY = env('SECRET_KEY', default='django-insecure-local-dev-key-123')
 
+DEBUG = env.bool('DJANGO_DEBUG', default=True)
 
-ALLOWED_HOSTS = ['url', 'www url', 'ip', 'localhost', '127.0.0.1', '174.138.66.218', 'charlottencmtb.com', 'www.charlottencmtb.com', 'www.ridecltmtb.com', 'ridecltmtb.com', 'charlottemtb.com', 'www.charlottemtb.com',]
+ALLOWED_HOSTS = [
+    'url', 
+    'www url', 
+    'ip', 
+    'localhost', 
+    '127.0.0.1', 
+    '174.138.66.218', 
+    'charlottencmtb.com', 
+    'www.charlottencmtb.com', 
+    'www.ridecltmtb.com', 
+    'ridecltmtb.com', 
+    'charlottemtb.com', 
+    'www.charlottemtb.com',
+]
 
-
-# Application definition
-
+# ------------------------------------------------------------------------------
+# 3. APPLICATION DEFINITION
+# ------------------------------------------------------------------------------
 INSTALLED_APPS = [
     'NCMTB',
 
     # Admin Portal Styling
     'jazzmin',
 
-     # Img Handling
+    # Img Handling
     'imagekit',
 
     # WYSIWYG Editor
     'ckeditor',
     'ckeditor_uploader',
 
-    
-     # My Apps 
-    
+    # Default Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-   
 ]
-
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -80,7 +89,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'DevWriter_Umbrella.urls'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -96,21 +105,18 @@ TEMPLATES = [
     },
 ]
 
-
-#API Keys
-OPENWEATHER_API_KEY = env('OPENWEATHER_API_KEY')
-GOOGLE_MAPS_API_KEY = env('GOOGLE_MAPS_API_KEY')
-
 WSGI_APPLICATION = 'DevWriter_Umbrella.wsgi.application'
 
-# Default auto field tells Django to use 64-bit integer IDs (the standard) for auto-generated ID numbers for rows in the DB.
+# ------------------------------------------------------------------------------
+# 4. API KEYS
+# ------------------------------------------------------------------------------
+OPENWEATHER_API_KEY = env('OPENWEATHER_API_KEY', default='')
+GOOGLE_MAPS_API_KEY = env('GOOGLE_MAPS_API_KEY', default='')
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# Database
+# ------------------------------------------------------------------------------
+# 5. DATABASE
+# ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -118,10 +124,12 @@ DATABASES = {
     }
 }
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Password validation
+# ------------------------------------------------------------------------------
+# 6. PASSWORD VALIDATION
+# ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -137,11 +145,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-
-# Internationalization
+# ------------------------------------------------------------------------------
+# 7. INTERNATIONALIZATION
+# ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -150,38 +157,33 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-# This is the URL used to access static files in the browser
+# ------------------------------------------------------------------------------
+# 8. STATIC & MEDIA FILES
+# ------------------------------------------------------------------------------
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# This is where collectstatic will put your files for production
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
+# ------------------------------------------------------------------------------
+# 9. THIRD-PARTY APP CONFIGURATIONS
+# ------------------------------------------------------------------------------
 JAZZMIN_SETTINGS = {
     "site_title": "CharlotteMTB Admin Portal",
     "site_header": "CharlotteMTB Admin Portal",
     "welcome_sign": "Welcome to the CharlotteMTB Admin Portal",
     
-    # This adds the Tech Stack to the top navigation bar
+    # Adds the Tech Stack to the top navigation bar
     "topmenu_links": [
         {"name": "Home",  "url": "control_center:index"},
         {"name": "Tech Stack", "url": "control_center:tech_stack"},
     ],
 
-    # This ensures the sidebar is always open and easy to navigate
+    # Ensures the sidebar is always open and easy to navigate
     "show_sidebar": True,
     "navigation_expanded": True,
 }
-
-
-
-# The absolute filesystem path to the directory that will hold user-uploaded files
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
-
-# CKEditor specific setting for the upload path
-CKEDITOR_UPLOAD_PATH = "uploads/"
