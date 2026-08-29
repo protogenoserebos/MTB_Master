@@ -172,11 +172,9 @@ class TrailDetailView(DetailView):
             })
         
         context['rating_breakdown'] = breakdown
-
         
         
-        context['google_maps_api_key'] = settings.GOOGLE_MAPS_API_KEY
-        return context
+        
     
     
     def post(self, request, *args, **kwargs):
