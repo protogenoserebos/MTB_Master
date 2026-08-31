@@ -130,86 +130,56 @@
 
 <section class="feature-spotlight">
     
-
-<section class="hero-wrap">
-    <div class="slides-container">
-
-        <div class="hero-slide active">
-            <div style="display: flex;flex-direction: column;" class="yt-overlay">
-                  
-                <div class="hero-badge">
-                    <span class="badge"><a style="color:white;"href="https://www.youtube.com/@Carolina_MTB">Watch on YouTube</a></span>
-                    <h2 style="margin-bottom:5px;">@Carolina_MTB</h2>
-                    <a style="color:white; font-size:0.8rem; font-weight: bold;" href="https://www.youtube.com/@Carolina_MTB" class="text-link">Goto YouTube →</a>
-                </div>
-            </div>
-        </div>
-        <div class="hero-slide">
-            <div class="feature-overlay">   
-                <div class="hero-badge">
-                    <span class="badge">Feature Spotlight</span>
-                    <h2 style="margin-bottom:5px;">Airline Drop</h2>
-                    <a style="color:white; font-size:0.8rem; font-weight: bold;" href="/trail/airline-bike-park/" class="text-link">View Feature & Trail →</a>
-                </div>
-            </div>
-        </div>
-        <div class="hero-slide">
-            <div class="hero-overlay">   
-                <div class="hero-badge">
-                    <span class="badge">Featured Trail</span>
-                    <h2 style="margin-bottom:5px;">Rattlesnake Bike Park</h2>
-                    <a style="color:white; font-size:0.8rem; font-weight: bold;" href="/trail/rattlesnake-bike-park/" class="text-link">View Trail →</a>
-                </div>
-            </div>
-        </div>
-
-        
-
-    </div>
-    <button class="slider-arrow prev" onclick="changeSlide(-1)">&#10094;</button>
-    <button class="slider-arrow next" onclick="changeSlide(1)">&#10095;</button>
-</section>
-    
  
     <div class="card-intro">
         <h1 style="font-size:14pt;color:black;font-weight:bold;text-align:center;">Charlotte and Surrounding NC/SC Mountain Biking Trails</h1>
         <p style="font-size:11pt; text-align: center;padding:0 15px;">New to Charlotte? Looking for new spots to ride or planning a roadtrip out of the city into the mountains?</p><p style="font-size:11pt; text-align: center;">This is the place to find top trail recommendations in the Greater Charlotte area, Western North Carolina, South Carolina, and more all within a few hours of the city!</p>
-        <p style="font-size:11pt; text-align: center;font-weight: bold;">New trails are added weekly!</p>
         <p style="font-size:11pt; text-align: center;font-weight: bold;"><a style="color: #26a7dc; text-decoration: underline;" href="https://tarheeltrailblazers.com/trails" target="_blank">Click here for Current Charlotte <b>Trail Statuses</b> on the <b>Tarheel Trailblazers</b> site.</a></p>
 
     </div>
     
-<section class="trail-sort-container"><!--
-    <p class="trail-sort-label">Sort Trails By</p>
-    <div class="trail-sort">
-       
-        <a href="?sort=location" class="{% if current_sort == 'location' %}active{% endif %}">
-            Local Trails
-        </a>
-        <a href="?sort=roadtrip" class="{% if current_sort == 'roadtrip' %}active{% endif %}">
-            Road Trip
-        </a>
-       
-         <a href="?sort=beginner" class="{% if current_sort == 'beginner' %}active{% endif %}">
-            Beginner
-        </a>
-        <a href="?sort=bikepark" class="{% if current_sort == 'bikepark' %}active{% endif %}">
-            Expert
-        </a>
-        <a href="?sort=family" class="{% if current_sort == 'family' %}active{% endif %}">
-            Bring the Family
-        </a>
-        
-    </div>-->
 
-    {% if current_sort and current_sort != 'favorites' %}
-    <div style="text-align: center; margin-top: 15px;">
-        <a href="?" style="font-size: 10pt; color: #d8d3d3; text-decoration: underline;">
-            ✕ Clear All Filters
-        </a>
+{% if latest_blog %}
+<section class="blog-spotlight">
+
+    
+    <div class="blog-spotlight-card">
+        
+        
+        <div class="blog-spotlight-content">
+            <h3 style="font-size:12pt; text-align: center;"><b>Blog Post</b></h3>
+
+            {% if latest_blog.Title_img %}
+
+                <img style="margin-top:25px;max-width:100%;" src="{{ latest_blog.Title_img.url }}" alt="{{ latest_blog.Blog_Title.name }}" />
+
+            {% endif %}
+
+            {% if latest_blog.Lead_Image %}
+
+            
+                <p style="text-align: center;"><img style="max-width: 80%; border-radius: 15px;" src="{{ latest_blog.Lead_Image.url }}" alt="{{ latest_blog.Blog_Title }}"></p>
+            
+
+            {% endif %}
+
+            {% if latest_blog.Intro_Text|safe %}
+        
+            <div class="blog-intro-fade">
+                {{ latest_blog.Intro_Text|safe }}
+            </div>
+
+            {% endif %}
+
+            
+            
+            
+            
+            <p style="text-align: center;"><a href="{% url 'blog' %}" class="read-more-link">Read more on our blog →</a></p>
+        </div>
     </div>
-    {% endif %}
 </section>
+{% endif %}
 <div class="trail-grid">
     {% for trail in trails %}
     <div class="flip-card-container" onclick="this.classList.toggle('flipped')">
@@ -261,47 +231,7 @@
     </div></div>
 </section>
 
-{% if latest_blog %}
-<section class="blog-spotlight">
 
-    
-    <div class="blog-spotlight-card">
-        
-        
-        <div class="blog-spotlight-content">
-            <h3 style="font-size:12pt; text-align: center;"><b>Blog Post</b></h3>
-
-            {% if latest_blog.Title_img %}
-
-                <img style="margin-top:25px;max-width:100%;" src="{{ latest_blog.Title_img.url }}" alt="{{ latest_blog.Blog_Title.name }}" />
-
-            {% endif %}
-
-            {% if latest_blog.Lead_Image %}
-
-            
-                <p style="text-align: center;"><img style="max-width: 80%; border-radius: 15px;" src="{{ latest_blog.Lead_Image.url }}" alt="{{ latest_blog.Blog_Title }}"></p>
-            
-
-            {% endif %}
-
-            {% if latest_blog.Intro_Text|safe %}
-        
-            <div class="blog-intro-fade">
-                {{ latest_blog.Intro_Text|safe }}
-            </div>
-
-            {% endif %}
-
-            
-            
-            
-            
-            <p style="text-align: center;"><a href="{% url 'blog' %}" class="read-more-link">Read more on our blog →</a></p>
-        </div>
-    </div>
-</section>
-{% endif %}
 
 <section class="TTB">
     <div class="donate-ttb">
