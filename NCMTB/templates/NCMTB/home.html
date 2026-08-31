@@ -147,7 +147,7 @@
         
         
         <div class="blog-spotlight-content">
-            <h3 style="font-size:12pt; text-align: center;"><b>Blog Post</b></h3>
+          
 
             {% if latest_blog.Title_img %}
 
@@ -158,7 +158,7 @@
             {% if latest_blog.Lead_Image %}
 
             
-                <p style="text-align: center;"><img style="max-width: 80%; border-radius: 15px;" src="{{ latest_blog.Lead_Image.url }}" alt="{{ latest_blog.Blog_Title }}"></p>
+                <p style="text-align: center;"><img style="max-width: 100%; border-radius: 15px;" src="{{ latest_blog.Lead_Image.url }}" alt="{{ latest_blog.Blog_Title }}"></p>
             
 
             {% endif %}
@@ -180,6 +180,8 @@
     </div>
 </section>
 {% endif %}
+<h3>Trails</h3>
+<p>Tap a card to view trail details.</p>
 <div class="trail-grid">
     {% for trail in trails %}
     <div class="flip-card-container" onclick="this.classList.toggle('flipped')">
