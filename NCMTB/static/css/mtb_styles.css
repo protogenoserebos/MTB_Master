@@ -718,18 +718,7 @@ textarea.form-input, select.form-input, input.form-input {font-family:'inter'; f
     padding: 0 40px 0 40px;
 }
 
-.blog-spotlight {
 
-    margin: -80px auto 60px;
-    padding-bottom:20px;
-    background: #bbe6f7;
-    border-radius: 15px;
-    display: grid;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    z-index: 11;
-    position: relative;
-}
 
 .TTB {
 
