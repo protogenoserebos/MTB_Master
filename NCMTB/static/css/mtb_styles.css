@@ -1415,7 +1415,7 @@ nav {
         padding: 0 30px;}
 
         .blog-spotlight-image {max-width: 75%; height: auto; border-radius: 10px; margin-bottom: 15px;}
-        
+        .blog-lead-title-name {max-width:60%;}
     
 .cltncmtb {
         max-width: 75%;
@@ -1433,6 +1433,8 @@ nav {
         max-width: 100%;
         height: auto;
     }
+
+    .blog-lead-title-name {max-width:100%;}
 
     .blog-spotlight-image {max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 15px;}
 

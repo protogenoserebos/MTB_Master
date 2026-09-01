@@ -148,7 +148,7 @@
 
             {% if latest_blog.Title_img %}
 
-                <img style="margin-top:25px;max-width:100%;" src="{{ latest_blog.Title_img.url }}" alt="{{ latest_blog.Blog_Title.name }}" />
+                <img class="blog-lead-title-name" style="margin-top:25px;" src="{{ latest_blog.Title_img.url }}" alt="{{ latest_blog.Blog_Title.name }}" />
 
             {% endif %}
 
@@ -162,7 +162,7 @@
 
             {% if latest_blog.Intro_Text_Home|safe %}
         
-            <p style="text-align: center;">{{ latest_blog.Intro_Text_Home|safe }}</p>
+            <div style="text-align: center;"><p>{{ latest_blog.Intro_Text_Home|safe }}</p></div>
 
             {% endif %}
 
