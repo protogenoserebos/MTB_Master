@@ -1412,11 +1412,11 @@ nav {
         .back-details-content p {
         margin: 8px 0;
         font-size: 11pt;
-        padding: 0 30px;
+        padding: 0 30px;}
 
         .blog-spotlight-image {max-width: 75%; height: auto; border-radius: 10px; margin-bottom: 15px;}
         
-    }
+    
 .cltncmtb {
         max-width: 75%;
         height: auto;
@@ -1434,7 +1434,8 @@ nav {
         height: auto;
     }
 
-.blog-spotlight-image {max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 15px;}
+    .blog-spotlight-image {max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 15px;}
+
 }
 
 
@@ -1445,7 +1446,10 @@ nav {
 .cltncmtb {
         max-width: 100%;
         height: auto;
-    }}
+    }
+
+
+}
 
 
 
