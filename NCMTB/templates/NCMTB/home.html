@@ -69,12 +69,7 @@
     flex-direction: column;
 }
 
-.blog-spotlight-image {
-    width: 80%;
-    height: 50%;
-    object-fit: cover;
-    border-radius:15px;
-}
+
 
 .blog-spotlight-content {
     padding: 20px;
@@ -153,7 +148,7 @@
 
             {% if latest_blog.Title_img %}
 
-                <img style="margin-top:25px;max-width:75%;" src="{{ latest_blog.Title_img.url }}" alt="{{ latest_blog.Blog_Title.name }}" />
+                <img style="margin-top:25px;max-width:100;" src="{{ latest_blog.Title_img.url }}" alt="{{ latest_blog.Blog_Title.name }}" />
 
             {% endif %}
 
