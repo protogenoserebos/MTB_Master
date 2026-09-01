@@ -144,11 +144,11 @@
         
         
         <div class="blog-spotlight-content">
-          <p style="text-align: center;font-weight: bold; font-size: 11pt;">Blog Post</p>
+          <p style="text-align: center;font-weight: bold; font-size: 11pt;margin:0;color:#181e24">Blog Post</p>
 
             {% if latest_blog.Title_img %}
 
-                <img class="blog-lead-title-name" style="margin-top:25px;" src="{{ latest_blog.Title_img.url }}" alt="{{ latest_blog.Blog_Title.name }}" />
+                <img class="blog-lead-title-name" src="{{ latest_blog.Title_img.url }}" alt="{{ latest_blog.Blog_Title.name }}" />
 
             {% endif %}
 
