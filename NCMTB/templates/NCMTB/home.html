@@ -162,7 +162,7 @@
 
             {% if latest_blog.Intro_Text_Home|safe %}
         
-            <div style="text-align: center;display:flex;justify-content: center;"><p>{{ latest_blog.Intro_Text_Home|safe }}</p></div>
+            <div style="text-align: center;display:flex;justify-content: center;"><p style="margin:0;">{{ latest_blog.Intro_Text_Home|safe }}</p></div>
 
             {% endif %}
 
@@ -170,7 +170,7 @@
             
             
             
-            <p style="text-align: center;"><a href="{% url 'blog' %}" class="read-more-link">Read more on our blog →</a></p>
+            <p style="text-align: center;margin:0;"><a href="{% url 'blog' %}" class="read-more-link">Read more on our blog →</a></p>
         </div>
     </div>
 </section>
