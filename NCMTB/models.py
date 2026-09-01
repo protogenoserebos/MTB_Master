@@ -25,6 +25,8 @@ class Blog(models.Model):
 
     Intro_Text = RichTextUploadingField( help_text="Intro paragraph.")
 
+    Intro_Text_Home = RichTextUploadingField(blank=True, null=True, help_text="Very short intro for home page display.")
+
     Blog_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     Blog_Body = RichTextUploadingField(blank=True, null=True,help_text="Blog body.")

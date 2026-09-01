@@ -163,11 +163,8 @@
 
             {% endif %}
 
-            {% if latest_blog.Intro_Text|safe %}
+            {% if latest_blog.Intro_Text_Home|safe %}
         
-            <div class="blog-intro-fade">
-                {{ latest_blog.Intro_Text|safe }}
-            </div>
 
             {% endif %}
 
@@ -180,7 +177,7 @@
     </div>
 </section>
 {% endif %}
-<h3 style="font-size:18pt;color:#26a7dc;margin:0 15px;">CLT Trails: Where to Ride</h3>
+<h3 style="font-size:18pt;color:#26a7dc;margin:0 15px; text-align: center; margin-top: 20px;">CLT Trails: Where to Ride</h3>
 <p style="text-align: center; margin: 0 15px;color:white;">Tap a card to view trail details.</p>
 <div class="trail-grid">
     {% for trail in trails %}
