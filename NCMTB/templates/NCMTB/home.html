@@ -144,7 +144,7 @@
         
         
         <div class="blog-spotlight-content">
-          
+          <p style="text-align: center;font-weight: bold; font-size: 11pt;">Blog Post</p>
 
             {% if latest_blog.Title_img %}
 
@@ -162,7 +162,7 @@
 
             {% if latest_blog.Intro_Text_Home|safe %}
         
-            <div style="text-align: center;"><p>{{ latest_blog.Intro_Text_Home|safe }}</p></div>
+            <div style="text-align: center;display:flex;justify-content: center;"><p>{{ latest_blog.Intro_Text_Home|safe }}</p></div>
 
             {% endif %}
 
@@ -176,7 +176,7 @@
 </section>
 {% endif %}
 <h3 style="font-size:18pt;color:#26a7dc;margin:0 15px; text-align: center; margin-top: 20px;">MTB Trails: Where to Ride</h3>
-<p style="text-align: center; margin: 0 15px;color:white;">Tap a card to view trail details.</p>
+<p style="text-align: center; margin: 0 15px;color:white;padding-top:10px;">Tap a card to view trail details.</p>
 <p style="font-size:11pt; text-align: center;font-weight: bold;padding:0 10px;"><a style="color: #26a7dc; text-decoration: underline;" href="https://tarheeltrailblazers.com/trails" target="_blank">Click here for Current Charlotte <b>Trail Statuses</b> on the <b>Tarheel Trailblazers</b> site.</a></p>
 <div id="clt-trail-list" class="trail-grid">
     {% for trail in trails %}
