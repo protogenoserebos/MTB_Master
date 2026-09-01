@@ -63,6 +63,8 @@ class TrailArticle(models.Model):
 
     Family_Priority = models.IntegerField(null=True, blank=True, help_text="Priority of Trail that dictates whether it's beginner friendly.")
 
+    city_state = models.CharField(max_length=100, blank=True, null=True, help_text="City and State of Trail e.g. Charlotte, NC")
+
     Bike_Park_Priority = models.IntegerField(null=True, blank=True, help_text="Priority of Trail that dictates whether its a bike park.")
 
     Trail_Card_Logo = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Width must be 350 px.")
