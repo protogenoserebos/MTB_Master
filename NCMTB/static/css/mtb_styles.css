@@ -1206,7 +1206,7 @@ nav {
     grid-template-columns: 1fr; /* 1 tile per row on mobile */
     gap: 30px; /* Slightly larger gap looks better with larger 2-column tiles */
     width: 100%;
-    margin: 25px auto 25px auto
+    margin: 25px auto 25px auto;
     padding: 0 30px;
     box-sizing: border-box;
 }
@@ -1412,6 +1412,7 @@ nav {
         .back-details-content p {
         margin: 8px 0;
         font-size: 11pt;
+        padding: 0 30px;
     }
     }
 
@@ -1444,6 +1445,7 @@ nav {
 
     .trail-grid {
         grid-template-columns: repeat(2, 1fr);
+        padding: 0 30px;
     }
 
 .home-logo-img {filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05)); max-height:120px}
