@@ -132,7 +132,8 @@
     
  
     <div class="card-intro" style="padding:10px;">
-        <h1 style="font-size:16pt;color:black;font-weight:bold;text-align:center;">Charlotte and Surrounding NC/SC Mountain Biking Trails</h1>
+        <p style="text-align: center;"><img class="cltncmtb" src="{% static 'NCMTB/images/cltncmtb.png' %}" /></p>
+        <h1 style="font-size:16pt;color:black;font-weight:bold;text-align:center;">NC/SC Mountain Biking Trails</h1>
         <p style="text-align: center;"><a style="color:white; text-align:center;font-weight: bold; text-decoration: underline;" href="#clt-trail-list">Jump to MTB Trails</a></p>
         <p style="font-size:11pt; text-align: center;padding:0 15px;">New to Charlotte? Looking for new spots to ride or planning a roadtrip out of the city into the mountains?</p><p style="font-size:11pt; text-align: center;">This is the place to find top trail recommendations in the Greater Charlotte area, Western North Carolina, South Carolina, and more all within a few hours of the city!</p>
         
@@ -159,13 +160,14 @@
             {% if latest_blog.Lead_Image %}
 
             
-                <p style="text-align: center;"><img style="max-width: 80%; border-radius: 15px;" src="{{ latest_blog.Lead_Image.url }}" alt="{{ latest_blog.Blog_Title }}"></p>
+                <p style="text-align: center;"><img class="blog-spotlight-image" src="{{ latest_blog.Lead_Image.url }}" alt="{{ latest_blog.Blog_Title }}"></p>
             
 
             {% endif %}
 
             {% if latest_blog.Intro_Text_Home|safe %}
         
+            <p style="text-align: center;">{{ latest_blog.Intro_Text_Home|safe }}</p>
 
             {% endif %}
 
