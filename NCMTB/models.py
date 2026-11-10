@@ -132,7 +132,7 @@ class TrailArticle(models.Model):
     
     First_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
     
-    First_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    First_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     First_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     First_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
   
@@ -140,7 +140,7 @@ class TrailArticle(models.Model):
    
     Second_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
     
-    Second_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    Second_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     Second_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Second_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
@@ -148,168 +148,168 @@ class TrailArticle(models.Model):
     
     Third_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
    
-    Third_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    Third_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     Third_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Third_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
    
 
     Fourth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
     
-    Fourth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    Fourth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     Fourth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Fourth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
    
 
     Fifth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
    
-    Fifth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    Fifth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     Fifth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Fifth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
   
 
     Sixth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
    
-    Sixth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    Sixth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     Sixth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Sixth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
    
 
     Seventh_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
    
-    Seventh_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    Seventh_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     Seventh_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Seventh_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
    
 
     Eigth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
     
-    Eigth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    Eigth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     Eigth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Eigth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
    
 
     Ninth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
     
-    Ninth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    Ninth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     Ninth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Ninth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
    
 
     Tenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
 
-    Tenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    Tenth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     Tenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Tenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
   
 
     Eleventh_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
     
-    Eleventh_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    Eleventh_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     Eleventh_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Eleventh_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
 
     Twelfth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
     
-    Twelfth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    Twelfth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     Twelfth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     Twelfth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     thirteenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
     
-    thirteenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    thirteenth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     thirteenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     thirteenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     fourteenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
     
-    fourteenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    fourteenth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     fourteenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     fourteenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     fifteenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
     
-    fifteenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    fifteenth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     fifteenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     fifteenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     sixteenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
     
-    sixteenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    sixteenth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     sixteenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     sixteenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     seventeenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
     
-    seventeenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    seventeenth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     seventeenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     seventeenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     eighteenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
     
-    eighteenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    eighteenth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     eighteenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     eighteenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     ninteenth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
     
-    ninteenth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    ninteenth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     ninteenth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     ninteenth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     twentieth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
     
-    twentieth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    twentieth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     twentieth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     twentieth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     twentyfirst_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    twentyfirst_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    twentyfirst_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     twentyfirst_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     twentyfirst_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     twentysecond_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    twentysecond_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    twentysecond_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     twentysecond_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     twentysecond_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     twentythird_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    twentythird_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    twentythird_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     twentythird_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     twentythird_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     twentyfourth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    twentyfourth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    twentyfourth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     twentyfourth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     twentyfourth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     twentyfifth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    twentyfifth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    twentyfifth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     twentyfifth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     twentyfifth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     twentysixth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    twentysixth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    twentysixth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     twentysixth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     twentysixth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     twentyseventh_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    twentyseventh_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    twentyseventh_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     twentyseventh_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     twentyseventh_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     twentyeighth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    twentyeighth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    twentyeighth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     twentyeighth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     twentyeighth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     twentyninth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    twentyninth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    twentyninth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     twentyninth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     twentyninth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
     thirtieth_Trail_Section_Title = models.CharField(blank=True, max_length=100, null=True, help_text="Trail Name")
-    thirtieth_Trail_Section_Desc = models.TextField(blank=True, null=True, help_text="Trail Description")
+    thirtieth_Trail_Section_Desc = RichTextUploadingField(blank=True, null=True, help_text="Trail Description")
     thirtieth_Trail_Section_Image = models.ImageField(upload_to='trail_photos', null=True, blank=True, help_text="Trail Image")
     thirtieth_Trail_Video = models.TextField(blank=True, null=True, help_text="YouTube Embed Code")
 
